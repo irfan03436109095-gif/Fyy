@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" fill="none">
+  <defs>
+    <linearGradient id="light"><stop stop-color="#7941dc" stop-opacity="0"/><stop offset=".35" stop-color="#7941dc" stop-opacity=".4"/><stop offset=".7" stop-color="#4468ea" stop-opacity=".4"/><stop offset="1" stop-color="#4468ea" stop-opacity="0"/></linearGradient>
+    <filter id="soft" x="-30%" y="-150%" width="160%" height="400%"><feGaussianBlur stdDeviation="32"/></filter>
+  </defs>
+  <g stroke="url(#light)" filter="url(#soft)">
+    <path d="M-150 440C430 40 940 130 1250 300S1760 440 2090 160" stroke-width="80"/>
+    <path d="M-110 920C460 750 890 900 1300 980S1760 930 2050 780" stroke-width="40"/>
+  </g>
+</svg>
