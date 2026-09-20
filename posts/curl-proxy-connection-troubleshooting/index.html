@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="liubai-journal">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>浏览器能用代理，命令行却连不上？curl 代理设置与排查教程 · 风悠悠</title>
+<meta name="description" content="浏览器正常但 curl 请求失败时，依次核对本地代理端口、HTTP与SOCKS类型、NO_PROXY环境变量和错误码，用小请求确认实际出站。">
+<meta name="keywords" content="curl代理设置,命令行代理,SOCKS5,机场客户端教程">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://fengyy.org/posts/curl-proxy-connection-troubleshooting/">
+<meta property="og:title" content="浏览器能用代理，命令行却连不上？curl 代理设置与排查教程">
+<meta property="og:description" content="浏览器正常但 curl 请求失败时，依次核对本地代理端口、HTTP与SOCKS类型、NO_PROXY环境变量和错误码，用小请求确认实际出站。">
+<meta property="og:url" content="https://fengyy.org/posts/curl-proxy-connection-troubleshooting/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="风悠悠">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png"><meta property="og:image:alt" content="风悠悠">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浏览器能用代理，命令行却连不上？curl 代理设置与排查教程">
+<meta name="twitter:description" content="浏览器正常但 curl 请求失败时，依次核对本地代理端口、HTTP与SOCKS类型、NO_PROXY环境变量和错误码，用小请求确认实际出站。">
+<meta name="twitter:image" content="https://fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png">
+<meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-09-20T16:21:16&#43;08:00"><meta property="article:modified_time" content="2026-09-20T16:23:08&#43;08:00"><meta property="article:tag" content="curl"><meta property="article:tag" content="代理配置"><meta property="article:tag" content="故障排查">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://fengyy.org/posts/curl-proxy-connection-troubleshooting/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-09-20T16:23:08+08:00","datePublished":"2026-09-20T16:21:16+08:00","description":"浏览器正常但 curl 请求失败时，依次核对本地代理端口、HTTP与SOCKS类型、NO_PROXY环境变量和错误码，用小请求确认实际出站。","headline":"浏览器能用代理，命令行却连不上？curl 代理设置与排查教程","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://fengyy.org/posts/curl-proxy-connection-troubleshooting/","@type":"WebPage"},"url":"https://fengyy.org/posts/curl-proxy-connection-troubleshooting/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://fengyy.org/","name":"风悠悠","position":1},{"@type":"ListItem","item":"https://fengyy.org/posts/curl-proxy-connection-troubleshooting/","name":"浏览器能用代理，命令行却连不上？curl 代理设置与排查教程","position":2}]}]}</script>
+
+<script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
+<link rel="stylesheet" href="https://fengyy.org/assets/theme/style.css">
+<link rel="stylesheet" href="https://fengyy.org/assets/theme/advertisements.css">
+<link rel="stylesheet" href="https://fengyy.org/assets/theme/search.css"><script defer src="https://fengyy.org/assets/theme/search.js"></script>
+<link rel="stylesheet" href="https://fengyy.org/assets/theme/skin.css"><link rel="stylesheet" href="https://fengyy.org/assets/theme/article-cards.css">
+<link rel="stylesheet" href="https://fengyy.org/assets/theme/viewer.css">
+<link rel="stylesheet" href="https://fengyy.org/assets/theme/reader.css">
+<link rel="icon" href="https://fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png">
+<link rel="stylesheet" href="https://fengyy.org/assets/theme/artalk.css"><script defer src="https://fengyy.org/assets/theme/artalk.js"></script>
+<script defer src="https://fengyy.org/assets/theme/theme.js"></script>
+<script defer src="https://fengyy.org/assets/theme/reader.js"></script>
+<script defer src="https://fengyy.org/assets/theme/viewer.js"></script>
+<script defer src="https://fengyy.org/assets/theme/image-viewer.js"></script>
+
+<script defer src="https://fengyy.org/assets/theme/interactions.js"></script>
+<script defer src="https://fengyy.org/assets/theme/hero-banner.js"></script><script defer src="https://fengyy.org/assets/theme/aurora.js"></script><script defer src="https://fengyy.org/assets/theme/article-cards.js"></script>
+
+
+</head>
+
+<body class="journal article-page">
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="site-header">
+<div class="header-inner">
+<a class="brand" href="https://fengyy.org/" aria-label="返回首页"><img src="https://fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png" alt="" width="38" height="38"></a>
+<nav id="site-navigation" aria-label="站点导航"><a href="https://fengyy.org/">首页</a><a href="https://fengyy.org/posts/jctj2/">机场推荐</a></nav>
+<a class="search-toggle" href="https://fengyy.org/search/" data-open-dialog="search-dialog" aria-haspopup="dialog" aria-controls="search-dialog" aria-label="搜索" title="搜索"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></a>
+<button id="theme-mode" class="theme-toggle theme-cycle" type="button" aria-label="明暗模式：跟随系统，点击切换为明亮" title="跟随系统 · 点击切换为明亮">
+<svg class="theme-icon-system" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+<svg class="theme-icon-moon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 15.5A8.5 8.5 0 0 1 8.5 3.8 8.5 8.5 0 1 0 20.2 15.5Z"/></svg>
+<svg class="theme-icon-sun" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+</button>
+<span id="theme-mode-status" class="visually-hidden" role="status" aria-live="polite"></span>
+<button id="menu-toggle" class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="打开菜单" title="打开菜单">
+<svg class="menu-icon-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+<svg class="menu-icon-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg>
+</button>
+</div>
+</header>
+
+<div class="article-viewport"><div class="article-scroll">
+<main id="main" tabindex="-1" class="shell journal-shell article-shell" data-has-toc="true">
+
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://fengyy.org/">风悠悠</a></li><li><span aria-current="page">浏览器能用代理，命令行却连不上？curl 代理设置与排查教程</span></li></ol></nav>
+
+
+
+<article data-pagefind-body>
+<header class="article-header">
+<div class="eyebrow" data-pagefind-ignore>字里行间</div>
+<h1 data-pagefind-meta="title">浏览器能用代理，命令行却连不上？curl 代理设置与排查教程</h1>
+<div class="metadata" data-pagefind-ignore><span>王牌飞行员</span><time datetime="2026-09-20T16:21:16&#43;08:00">2026-09-20</time><span><span id="page-views">—</span> 次阅读</span></div>
+<div class="chips" data-pagefind-ignore><a href="https://fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
+</header>
+<div class="prose"><p>同一个机场节点，浏览器可以访问网页，终端里的 curl 却报错，并不能直接说明节点失效。两个应用可能使用不同的代理入口和配置。先明确本地代理监听地址，再用一条小请求验证，比反复更换订阅更容易找到原因。</p>
+<p>本文以电脑上已安装并运行的代理客户端为前提。只演示 curl 的请求方法，不要求修改系统全局网络，也不需要公开订阅链接或账号。命令里的端口是示例，执行前必须替换为客户端实际值。</p>
+<h2 id="1--curl">1. 先确认终端调用的是 curl</h2>
+<p>在终端运行：</p>
+<pre><code class="language-text">curl --version
+</code></pre>
+<p>检查输出是否是 curl 自身的版本及协议信息。若你的 Windows 环境把 <code>curl</code> 解释成别的命令，可在已安装 curl 可执行文件的前提下使用 <code>curl.exe --version</code>，并把下文命令开头改为 <code>curl.exe</code>。不要把不同工具的报错和参数混在一起判断。</p>
+<p>接着在代理客户端设置页记录本地 HTTP、SOCKS 或混合端口。这里需要的是本机监听端口，不是远端节点端口、订阅地址或机场官网地址。</p>
+<h2 id="2-">2. 用明确的代理地址发送一次小请求</h2>
+<p>假设客户端确认提供 HTTP 代理，监听在本机7890端口，可以使用：</p>
+<pre><code class="language-text">curl --proxy http://127.0.0.1:7890 --connect-timeout 10 --max-time 30 -I https://example.com/
+</code></pre>
+<p>这条示例通过指定的本地HTTP代理请求响应头。连接阶段与整个操作分别设置了超时；这些数字只是便于排查的示例，不是线路质量标准。<code>example.com</code> 是示例目标，不应作为所有网络的可用性保证。</p>
+<p>如果客户端提供的是SOCKS5入口，假设实际监听端口为7891，可改用：</p>
+<pre><code class="language-text">curl --proxy socks5h://127.0.0.1:7891 --connect-timeout 10 --max-time 30 -I https://example.com/
+</code></pre>
+<p>curl 中的 <code>socks5h://</code> 表示由代理处理目标主机名解析；<code>socks5://</code> 使用本地解析方式。不要把协议前缀随意替换，也不要假定HTTP与SOCKS端口永远相同。参数含义及版本支持以<a href="https://curl.se/docs/manpage.html">curl 官方手册</a>为准。</p>
+<h2 id="3-">3. 把终端请求与客户端日志对应起来</h2>
+<p>执行命令时，在客户端连接列表或日志中查找对应的目标主机和时间。记录它是否进入本地代理、命中哪个规则、最后由哪个出站处理。</p>
+<ul>
+<li>本地代理连接都没有建立：先检查客户端是否运行，以及监听地址和端口是否正确。</li>
+<li>已进入代理，但目标请求失败：继续对照节点、规则和目标网站，保留第一条错误。</li>
+<li>浏览器正常、显式代理请求也正常：重点比较原终端命令的环境、参数和启动方式。</li>
+</ul>
+<p>若正在使用TUN、容器或远程终端，还要记录命令实际运行的位置。容器或远程机器中的 <code>127.0.0.1</code> 指向其自身环境，不能直接当作电脑上客户端的地址。不要通过随意开放本地代理到公网来解决这个区别。</p>
+<h2 id="4-">4. 检查环境变量中的例外规则</h2>
+<p>curl 支持 <code>http_proxy</code>、<code>HTTPS_PROXY</code>、<code>ALL_PROXY</code> 等代理环境变量，<code>NO_PROXY</code> 用于列出不走代理的目标。官方文档特别说明HTTP代理变量的大小写规则，不能把所有变量名称一律改成大写。<a href="https://everything.curl.dev/usingcurl/proxies/env.html">everything curl：代理环境变量</a></p>
+<p>即使命令写了代理，也要检查目标是否命中 <code>NO_PROXY</code> 例外。若你为了测试临时调整变量，先记录原值，并只在当前终端做必要修改；不要直接覆盖长期配置。关闭窗口、重新启动应用后，环境来源也可能变化。</p>
+<p>同时检查终端工具、IDE或脚本是否另行传入了代理参数。把“在交互终端成功”与“在定时脚本中成功”分开验收，不要默认它们拥有同一套环境。</p>
+<h2 id="5-">5. 按错误类型决定下一步</h2>
+<table>
+<thead>
+<tr>
+<th>curl 错误线索</th>
+<th>优先核对</th>
+<th>不宜直接推断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5：无法解析代理</td>
+<td>代理主机地址及其解析</td>
+<td>目标网站一定失效</td>
+</tr>
+<tr>
+<td>6：无法解析主机</td>
+<td>报错中的主机和所用解析路径</td>
+<td>更换任意DNS就会解决</td>
+</tr>
+<tr>
+<td>7：无法连接</td>
+<td>监听端口、目标连通性及完整错误</td>
+<td>一定是账号过期</td>
+</tr>
+<tr>
+<td>28：操作超时</td>
+<td>超时发生阶段、时间限制与日志</td>
+<td>所有节点都不可用</td>
+</tr>
+<tr>
+<td>证书验证错误</td>
+<td>系统时间、主机名和证书链</td>
+<td>关闭验证就是修复</td>
+</tr>
+</tbody>
+</table>
+<p>代码含义来自<a href="https://everything.curl.dev/cmdline/exitcode.html">everything curl：退出状态码</a>。错误码提供分类线索，实际归因还需要结合报错文本与对照结果。</p>
+<h2 id="6-">6. 不把一次响应头成功当成全部验收</h2>
+<p><code>-I</code> 只请求响应头。某些网站不接受对应方法；即使得到了HTTP响应，也仍需判断状态码是否符合预期。命令完成不等于目标网页内容或账号功能一定正常。遇到方法不支持时，可以去掉 <code>-I</code> 对一个小页面进行普通请求，再测试原本需要的真实操作。</p>
+<p>最后重启客户端或重新打开终端，重复相同请求，确认配置没有依赖一次性的偶然状态。比较机场推荐内容时，可以把“日常浏览器和实际使用的命令行工具都能完成任务”作为自己的试用验收项。</p>
+<p>向他人求助时提供经过脱敏的命令、版本、时间和错误摘要即可。不要直接粘贴带用户名、密码、令牌或完整订阅链接的调试输出。</p>
+<p>资料核对日期：2026年9月20日。</p>
+</div>
+<div class="article-likes" data-pagefind-ignore>
+<button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
+<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+<span id="page-like-label">点赞</span><span id="page-like-count">—</span>
+</button><p id="page-like-message" role="status"></p>
+</div>
+<div class="article-tags" data-pagefind-ignore><a href="https://fengyy.org/tags/curl/"># curl</a><a href="https://fengyy.org/tags/proxy-configuration/"># 代理配置</a><a href="https://fengyy.org/tags/troubleshooting/"># 故障排查</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://fengyy.org/posts/kxsw1/">← 上一篇</a><a href="https://fengyy.org/posts/mryg1/">下一篇 →</a></nav>
+<section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
+</article>
+
+<div class="article-rail">
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#1--curl">1. 先确认终端调用的是 curl</a><a class="level-2" href="#2-">2. 用明确的代理地址发送一次小请求</a><a class="level-2" href="#3-">3. 把终端请求与客户端日志对应起来</a><a class="level-2" href="#4-">4. 检查环境变量中的例外规则</a><a class="level-2" href="#5-">5. 按错误类型决定下一步</a><a class="level-2" href="#6-">6. 不把一次响应头成功当成全部验收</a></nav></aside>
+</div>
+
+</main>
+</div>
+<button id="back-to-top" class="back-to-top" type="button" aria-label="返回顶部" title="返回顶部" hidden>
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M12 20V8m-5 5 5-5 5 5"/></svg>
+</button>
+</div>
+
+<footer class="site-footer journal-footer">
+
+<div class="journal-footer-line"><span>© 2026 风悠悠</span></div>
+</footer>
+
+
+
+<dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>
+<header class="reader-dialog-header"><h2 id="search-title">搜索文章</h2><button class="dialog-close" type="button" data-close-dialog aria-label="关闭搜索" title="关闭搜索">×</button></header>
+<div class="reader-dialog-body">
+
+<div id="site-search-ui" data-module="https://fengyy.org/pagefind/pagefind-component-ui.js" data-stylesheet="https://fengyy.org/pagefind/pagefind-component-ui.css" hidden>
+
+<pagefind-config bundle-path="https://fengyy.org/pagefind/" base-url="https://fengyy.org/" lang="zh-cn" no-worker></pagefind-config>
+<pagefind-input placeholder="搜索文章标题或正文"></pagefind-input>
+<pagefind-summary></pagefind-summary>
+<pagefind-results></pagefind-results>
+</div>
+<p id="search-status" class="search-status" role="status">正在加载搜索…</p>
+<button id="search-retry" class="button" type="button" hidden>重新加载</button>
+
+</div>
+</dialog>
+
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/95db87b0-2f26-4c75-9ab6-912222450e36/","pageTitle":"浏览器能用代理，命令行却连不上？curl 代理设置与排查教程","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
+
+</body>
+</html>
