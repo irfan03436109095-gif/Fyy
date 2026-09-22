@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="liubai-journal">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clash Verge Rev更新订阅后规则丢了？自定义规则的保存与验收 · 风悠悠</title>
+<meta name="description" content="Clash Verge Rev更新订阅后自定义规则失效怎么办？检查编辑规则、订阅扩展与全局扩展的区别，验证最终配置、策略名称和实际连接命中。">
+<meta name="keywords" content="Clash Verge Rev自定义规则,订阅更新规则丢失,机场分流教程">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://fengyy.org/posts/clash-verge-custom-rules-persistence/">
+<meta property="og:title" content="Clash Verge Rev更新订阅后规则丢了？自定义规则的保存与验收">
+<meta property="og:description" content="Clash Verge Rev更新订阅后自定义规则失效怎么办？检查编辑规则、订阅扩展与全局扩展的区别，验证最终配置、策略名称和实际连接命中。">
+<meta property="og:url" content="https://fengyy.org/posts/clash-verge-custom-rules-persistence/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="风悠悠">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png"><meta property="og:image:alt" content="风悠悠">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Clash Verge Rev更新订阅后规则丢了？自定义规则的保存与验收">
+<meta name="twitter:description" content="Clash Verge Rev更新订阅后自定义规则失效怎么办？检查编辑规则、订阅扩展与全局扩展的区别，验证最终配置、策略名称和实际连接命中。">
+<meta name="twitter:image" content="https://fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png">
+<meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-09-22T11:31:37&#43;08:00"><meta property="article:modified_time" content="2026-09-22T11:33:57&#43;08:00"><meta property="article:tag" content="代理配置"><meta property="article:tag" content="故障排查">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://fengyy.org/posts/clash-verge-custom-rules-persistence/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-09-22T11:33:57+08:00","datePublished":"2026-09-22T11:31:37+08:00","description":"Clash Verge Rev更新订阅后自定义规则失效怎么办？检查编辑规则、订阅扩展与全局扩展的区别，验证最终配置、策略名称和实际连接命中。","headline":"Clash Verge Rev更新订阅后规则丢了？自定义规则的保存与验收","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://fengyy.org/posts/clash-verge-custom-rules-persistence/","@type":"WebPage"},"url":"https://fengyy.org/posts/clash-verge-custom-rules-persistence/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://fengyy.org/","name":"风悠悠","position":1},{"@type":"ListItem","item":"https://fengyy.org/posts/clash-verge-custom-rules-persistence/","name":"Clash Verge Rev更新订阅后规则丢了？自定义规则的保存与验收","position":2}]}]}</script>
+
+<script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
+<link rel="stylesheet" href="https://fengyy.org/assets/theme/style.css">
+<link rel="stylesheet" href="https://fengyy.org/assets/theme/advertisements.css">
+<link rel="stylesheet" href="https://fengyy.org/assets/theme/search.css"><script defer src="https://fengyy.org/assets/theme/search.js"></script>
+<link rel="stylesheet" href="https://fengyy.org/assets/theme/skin.css"><link rel="stylesheet" href="https://fengyy.org/assets/theme/article-cards.css">
+<link rel="stylesheet" href="https://fengyy.org/assets/theme/viewer.css">
+<link rel="stylesheet" href="https://fengyy.org/assets/theme/reader.css">
+<link rel="icon" href="https://fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png">
+<link rel="stylesheet" href="https://fengyy.org/assets/theme/artalk.css"><script defer src="https://fengyy.org/assets/theme/artalk.js"></script>
+<script defer src="https://fengyy.org/assets/theme/theme.js"></script>
+<script defer src="https://fengyy.org/assets/theme/reader.js"></script>
+<script defer src="https://fengyy.org/assets/theme/viewer.js"></script>
+<script defer src="https://fengyy.org/assets/theme/image-viewer.js"></script>
+
+<script defer src="https://fengyy.org/assets/theme/interactions.js"></script>
+<script defer src="https://fengyy.org/assets/theme/hero-banner.js"></script><script defer src="https://fengyy.org/assets/theme/aurora.js"></script><script defer src="https://fengyy.org/assets/theme/article-cards.js"></script>
+
+
+</head>
+
+<body class="journal article-page">
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="site-header">
+<div class="header-inner">
+<a class="brand" href="https://fengyy.org/" aria-label="返回首页"><img src="https://fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png" alt="" width="38" height="38"></a>
+<nav id="site-navigation" aria-label="站点导航"><a href="https://fengyy.org/">首页</a><a href="https://fengyy.org/posts/jctj2/">机场推荐</a></nav>
+<a class="search-toggle" href="https://fengyy.org/search/" data-open-dialog="search-dialog" aria-haspopup="dialog" aria-controls="search-dialog" aria-label="搜索" title="搜索"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></a>
+<button id="theme-mode" class="theme-toggle theme-cycle" type="button" aria-label="明暗模式：跟随系统，点击切换为明亮" title="跟随系统 · 点击切换为明亮">
+<svg class="theme-icon-system" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+<svg class="theme-icon-moon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 15.5A8.5 8.5 0 0 1 8.5 3.8 8.5 8.5 0 1 0 20.2 15.5Z"/></svg>
+<svg class="theme-icon-sun" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+</button>
+<span id="theme-mode-status" class="visually-hidden" role="status" aria-live="polite"></span>
+<button id="menu-toggle" class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="打开菜单" title="打开菜单">
+<svg class="menu-icon-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+<svg class="menu-icon-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg>
+</button>
+</div>
+</header>
+
+<div class="article-viewport"><div class="article-scroll">
+<main id="main" tabindex="-1" class="shell journal-shell article-shell" data-has-toc="true">
+
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://fengyy.org/">风悠悠</a></li><li><span aria-current="page">Clash Verge Rev更新订阅后规则丢了？自定义规则的保存与验收</span></li></ol></nav>
+
+
+
+<article data-pagefind-body>
+<header class="article-header">
+<div class="eyebrow" data-pagefind-ignore>字里行间</div>
+<h1 data-pagefind-meta="title">Clash Verge Rev更新订阅后规则丢了？自定义规则的保存与验收</h1>
+<div class="metadata" data-pagefind-ignore><span>王牌飞行员</span><time datetime="2026-09-22T11:31:37&#43;08:00">2026-09-22</time><span><span id="page-views">—</span> 次阅读</span></div>
+<div class="chips" data-pagefind-ignore><a href="https://fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
+</header>
+<div class="prose"><p>刚改好的分流规则，更新机场订阅后又失效，先检查修改保存在哪里。远程订阅内容、本地扩展与客户端最终使用的配置是不同层次；仅在某个编辑窗口里看见规则，不等于它会在更新后继续生效。</p>
+<p>本文面向已经能够正常连接、只想保留少量个人分流规则的 Clash Verge Rev 用户。不同版本的菜单可能不同，操作前记录应用版本，并以对应官方文档和实际界面为准。</p>
+<h2 id="heading">先保留能够正常工作的配置</h2>
+<p>不要一开始就粘贴整份网络配置。先记下当前生效订阅、代理模式、常用策略组和希望改变的一个域名；备份已有自定义内容，订阅链接等凭据单独私密保存。</p>
+<p>例如，需求可以写成：“在规则模式下，让某个资料站使用已存在的策略组。”不要同时修改 DNS、端口、TUN 和多个脚本，否则出错后很难确认原因。</p>
+<h2 id="heading-1">选择正确的保存位置</h2>
+<p>Clash Verge Rev 官方说明区分全局扩展与订阅扩展，并说明规则 prepend/append 功能位于订阅右键菜单的可视化编辑器。扩展配置和扩展脚本也有不同作用；客户端设置接管的部分字段还可能在处理后写回。<a href="https://www.clashverge.dev/guide/extend.html">扩展配置与脚本说明</a></p>
+<p>可以按下面的需求做选择：</p>
+<table>
+<thead>
+<tr>
+<th>你的需求</th>
+<th>首先检查的入口</th>
+<th>特别注意</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>为当前订阅加一条分流规则</td>
+<td>订阅右键菜单中的“编辑规则”</td>
+<td>当前版本是否提供该入口</td>
+</tr>
+<tr>
+<td>只调整某一个订阅的配置</td>
+<td>订阅扩展</td>
+<td>切到别的订阅不应被误认为仍生效</td>
+</tr>
+<tr>
+<td>多个订阅都需要同类调整</td>
+<td>全局扩展</td>
+<td>不同订阅的策略组名称可能不同</td>
+</tr>
+<tr>
+<td>修改客户端接管的设置</td>
+<td>应用设置及官方优先级说明</td>
+<td>不要只改扩展后反复覆盖</td>
+</tr>
+</tbody>
+</table>
+<p>如果正在阅读的教程仍要求把旧版字段直接放进某个 Merge 文件，先核对其适用版本。菜单名称类似，不能证明处理方式完全一致。</p>
+<h2 id="heading-2">只添加一条可以解释的规则</h2>
+<p>mihomo 文档说明规则按从上到下的顺序匹配，并列出了 DOMAIN、DOMAIN-SUFFIX 等规则形式。<a href="https://wiki.metacubex.one/config/rules/">路由规则说明</a></p>
+<p>因此，保存个人规则时需要同时检查“放在哪里”和“指向谁”。放在末尾的规则可能不会被实际请求命中；指向不存在策略组的规则，也不能仅凭语法看起来正确就通过验收。</p>
+<p>下面只说明字段关系，不是可以直接复制的真实网站配置：</p>
+<pre><code class="language-text">DOMAIN,目标网站域名,当前配置中确实存在的策略组
+</code></pre>
+<p>将占位文字替换为自己的实际值。第一次修改优先使用一个具体域名，确认行为后再考虑是否需要后缀范围。不要为了让测试通过，直接把大范围网站改成直连或放开全部流量。</p>
+<h2 id="heading-3">用四步确认更新后仍有效</h2>
+<ol>
+<li><strong>保存后检查最终配置。</strong> 使用客户端提供的查看配置或日志入口，确认目标规则和引用的策略名称存在；如果报错，先恢复备份。</li>
+<li><strong>发起一条新请求。</strong> 打开一个新的目标页面请求，在连接记录里核对目标、命中规则与实际策略。</li>
+<li><strong>主动更新当前订阅。</strong> 更新结束后重新检查当前生效订阅，避免在更新了 A 的同时实际使用 B。</li>
+<li><strong>重复同一目标测试。</strong> 记录更新前后规则是否仍在、实际出站是否符合预期，再重启客户端检查一次。</li>
+</ol>
+<p>这些步骤是本文建议的验收流程。没有完成连接记录核对时，应写“规则已保存，出站待验证”，而不是直接宣布分流成功。</p>
+<h2 id="heading-4">三种常见结果怎么处理</h2>
+<p><strong>规则还在，但请求走了别处：</strong> 先看是否处于规则模式，再检查命中顺序和实际访问域名。页面可能还访问其他域名，单个域名的规则不能代表整站所有资源。</p>
+<p><strong>更新后找不到规则：</strong> 核对是否只改了下载得到的订阅原文，或扩展附在另一份订阅上。恢复备份时只恢复必要修改，不覆盖新订阅中的全部节点信息。</p>
+<p><strong>换订阅就出错：</strong> 检查全局规则引用的策略名称在新订阅是否存在。适用于一个服务的策略名称，不宜默认适用于所有服务。</p>
+<p>如果仍有异常，向支持方提供应用版本、规则类型、修改入口和脱敏后的报错；不要公开整份订阅或访问令牌。保留“更新前能用、更新后仍能用”的证据，比堆积大量自定义规则更有用。</p>
+</div>
+<div class="article-likes" data-pagefind-ignore>
+<button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
+<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+<span id="page-like-label">点赞</span><span id="page-like-count">—</span>
+</button><p id="page-like-message" role="status"></p>
+</div>
+<div class="article-tags" data-pagefind-ignore><a href="https://fengyy.org/tags/proxy-configuration/"># 代理配置</a><a href="https://fengyy.org/tags/troubleshooting/"># 故障排查</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://fengyy.org/posts/kxsw1/">← 上一篇</a><a href="https://fengyy.org/posts/windows-proxy-after-client-exit/">下一篇 →</a></nav>
+<section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
+</article>
+
+<div class="article-rail">
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#heading">先保留能够正常工作的配置</a><a class="level-2" href="#heading-1">选择正确的保存位置</a><a class="level-2" href="#heading-2">只添加一条可以解释的规则</a><a class="level-2" href="#heading-3">用四步确认更新后仍有效</a><a class="level-2" href="#heading-4">三种常见结果怎么处理</a></nav></aside>
+</div>
+
+</main>
+</div>
+<button id="back-to-top" class="back-to-top" type="button" aria-label="返回顶部" title="返回顶部" hidden>
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M12 20V8m-5 5 5-5 5 5"/></svg>
+</button>
+</div>
+
+<footer class="site-footer journal-footer">
+<nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">同频的朋友</span><a href="https://kkjichang.cc/" target="_blank" rel="noopener noreferrer">可靠机场推荐 ↗</a><a href="https://pyjichang.cc/" target="_blank" rel="noopener noreferrer">便宜机场推荐 ↗</a><a href="https://www.yaoyaolingxian.blog/" target="_blank" rel="noopener noreferrer">遥遥领先 ↗</a><a href="https://wdjichang.cc/" target="_blank" rel="noopener noreferrer">稳定机场推荐 ↗</a><a href="https://zjtf.org/" target="_blank" rel="noopener noreferrer">酌酒听风 ↗</a></nav>
+<div class="journal-footer-line"><span>© 2026 风悠悠</span></div>
+</footer>
+
+
+
+<dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>
+<header class="reader-dialog-header"><h2 id="search-title">搜索文章</h2><button class="dialog-close" type="button" data-close-dialog aria-label="关闭搜索" title="关闭搜索">×</button></header>
+<div class="reader-dialog-body">
+
+<div id="site-search-ui" data-module="https://fengyy.org/pagefind/pagefind-component-ui.js" data-stylesheet="https://fengyy.org/pagefind/pagefind-component-ui.css" hidden>
+
+<pagefind-config bundle-path="https://fengyy.org/pagefind/" base-url="https://fengyy.org/" lang="zh-cn" no-worker></pagefind-config>
+<pagefind-input placeholder="搜索文章标题或正文"></pagefind-input>
+<pagefind-summary></pagefind-summary>
+<pagefind-results></pagefind-results>
+</div>
+<p id="search-status" class="search-status" role="status">正在加载搜索…</p>
+<button id="search-retry" class="button" type="button" hidden>重新加载</button>
+
+</div>
+</dialog>
+
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/181759e1-2846-423e-9220-7412cc1496ce/","pageTitle":"Clash Verge Rev更新订阅后规则丢了？自定义规则的保存与验收","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
+
+</body>
+</html>
