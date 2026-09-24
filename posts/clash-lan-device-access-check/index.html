@@ -4,23 +4,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南 · 风悠悠优质机场</title>
-<meta name="description" content="我会根据长期测速、实际使用体验和用户反馈更新推荐，线路有变化也会跟进。选机场时，我主要看长期稳定性、线路质量和性价比。运营时间至少两年以上；官网可在中国大陆正常访问，并支持支付宝或微信等主流支付方式；拥有活跃的用户群体；提供可靠的工单或客服支持；价格合理，不虚高；稳定性良好，不频繁掉线或更换订阅链接；网络上无明显负面评价或纠纷。">
-<meta name="keywords" content="科学上网,机场推荐,VPN推荐,梯子推荐,高端专线,性价比,免费试用,网络机场,机场科普,代理服务,代理节点,订阅链接,网络线路,网络隐私">
-<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://fengyy.org/posts/kxsw1/">
-<meta property="og:title" content="翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南">
-<meta property="og:description" content="我会根据长期测速、实际使用体验和用户反馈更新推荐，线路有变化也会跟进。选机场时，我主要看长期稳定性、线路质量和性价比。运营时间至少两年以上；官网可在中国大陆正常访问，并支持支付宝或微信等主流支付方式；拥有活跃的用户群体；提供可靠的工单或客服支持；价格合理，不虚高；稳定性良好，不频繁掉线或更换订阅链接；网络上无明显负面评价或纠纷。">
-<meta property="og:url" content="https://fengyy.org/posts/kxsw1/">
+<title>Clash 类客户端电脑能用，手机连不上？局域网代理检查 · 风悠悠优质机场</title>
+<meta name="description" content="Clash类客户端如何给局域网手机使用？检查allow-lan、bind-address、实际监听端口与Windows防火墙，并按最小请求验收。">
+<meta name="keywords" content="Clash局域网代理,allow-lan,手机连接电脑代理">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://fengyy.org/posts/clash-lan-device-access-check/">
+<meta property="og:title" content="Clash 类客户端电脑能用，手机连不上？局域网代理检查">
+<meta property="og:description" content="Clash类客户端如何给局域网手机使用？检查allow-lan、bind-address、实际监听端口与Windows防火墙，并按最小请求验收。">
+<meta property="og:url" content="https://fengyy.org/posts/clash-lan-device-access-check/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="风悠悠优质机场">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png"><meta property="og:image:alt" content="风悠悠优质机场">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南">
-<meta name="twitter:description" content="我会根据长期测速、实际使用体验和用户反馈更新推荐，线路有变化也会跟进。选机场时，我主要看长期稳定性、线路质量和性价比。运营时间至少两年以上；官网可在中国大陆正常访问，并支持支付宝或微信等主流支付方式；拥有活跃的用户群体；提供可靠的工单或客服支持；价格合理，不虚高；稳定性良好，不频繁掉线或更换订阅链接；网络上无明显负面评价或纠纷。">
+<meta name="twitter:title" content="Clash 类客户端电脑能用，手机连不上？局域网代理检查">
+<meta name="twitter:description" content="Clash类客户端如何给局域网手机使用？检查allow-lan、bind-address、实际监听端口与Windows防火墙，并按最小请求验收。">
 <meta name="twitter:image" content="https://fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png">
-<meta name="author" content="CPU干冒烟了"><meta property="article:published_time" content="2026-09-15T15:14:38&#43;08:00"><meta property="article:modified_time" content="2026-09-20T16:48:38&#43;08:00">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://fengyy.org/posts/kxsw1/#article","@type":"BlogPosting","author":{"@type":"Person","name":"CPU干冒烟了"},"dateModified":"2026-09-20T16:48:38+08:00","datePublished":"2026-09-15T15:14:38+08:00","description":"我会根据长期测速、实际使用体验和用户反馈更新推荐，线路有变化也会跟进。选机场时，我主要看长期稳定性、线路质量和性价比。运营时间至少两年以上；官网可在中国大陆正常访问，并支持支付宝或微信等主流支付方式；拥有活跃的用户群体；提供可靠的工单或客服支持；价格合理，不虚高；稳定性良好，不频繁掉线或更换订阅链接；网络上无明显负面评价或纠纷。","headline":"翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://fengyy.org/posts/kxsw1/","@type":"WebPage"},"url":"https://fengyy.org/posts/kxsw1/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://fengyy.org/posts/kxsw1/","name":"翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南","position":2}]}]}</script>
+<meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-09-24T10:14:51&#43;08:00"><meta property="article:modified_time" content="2026-09-24T10:16:42&#43;08:00"><meta property="article:tag" content="代理配置"><meta property="article:tag" content="故障排查">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://fengyy.org/posts/clash-lan-device-access-check/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-09-24T10:16:42+08:00","datePublished":"2026-09-24T10:14:51+08:00","description":"Clash类客户端如何给局域网手机使用？检查allow-lan、bind-address、实际监听端口与Windows防火墙，并按最小请求验收。","headline":"Clash 类客户端电脑能用，手机连不上？局域网代理检查","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://fengyy.org/posts/clash-lan-device-access-check/","@type":"WebPage"},"url":"https://fengyy.org/posts/clash-lan-device-access-check/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://fengyy.org/posts/clash-lan-device-access-check/","name":"Clash 类客户端电脑能用，手机连不上？局域网代理检查","position":2}]}]}</script>
 
 <script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
 <link rel="stylesheet" href="https://fengyy.org/assets/theme/style.css">
@@ -74,46 +74,35 @@
 <div class="article-viewport"><div class="article-scroll">
 <main id="main" tabindex="-1" class="shell journal-shell article-shell" data-has-toc="true">
 
-<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南</span></li></ol></nav>
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">Clash 类客户端电脑能用，手机连不上？局域网代理检查</span></li></ol></nav>
 
 
 
 <article data-pagefind-body>
 <header class="article-header">
-<div class="eyebrow" data-pagefind-ignore>字里行间 · 置顶</div>
-<h1 data-pagefind-meta="title">翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南</h1>
-<div class="metadata" data-pagefind-ignore><span>CPU干冒烟了</span><time datetime="2026-09-15T15:14:38&#43;08:00">2026-09-15</time><span><span id="page-views">—</span> 次阅读</span></div>
-
+<div class="eyebrow" data-pagefind-ignore>字里行间</div>
+<h1 data-pagefind-meta="title">Clash 类客户端电脑能用，手机连不上？局域网代理检查</h1>
+<div class="metadata" data-pagefind-ignore><span>王牌飞行员</span><time datetime="2026-09-24T10:14:51&#43;08:00">2026-09-24</time><span><span id="page-views">—</span> 次阅读</span></div>
+<div class="chips" data-pagefind-ignore><a href="https://fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
 </header>
-<div class="prose"><h2 id="2026vpn">2026年翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南(长期更新)✨</h2>
-<p>我会根据长期测速、实际使用体验和用户反馈更新推荐，线路有变化也会跟进。选机场时，我主要看长期稳定性、线路质量和性价比。运营时间至少两年以上；官网可在中国大陆正常访问，并支持支付宝或微信等主流支付方式；拥有活跃的用户群体；提供可靠的工单或客服支持；价格合理，不虚高；稳定性良好，不频繁掉线或更换订阅链接；网络上无明显负面评价或纠纷。🔥</p>
-<h3 id="1flybit">1.FLYbit机场评测与推荐：高性价比的稳定加速服务，让你的网络更自由！</h3>
-<p>在全球互联网时代，一个稳定、安全、快速的网络加速工具已经成为跨境用户的必备。今天要给大家推荐的是一款备受好评的加速服务——​FLYbit机场​。它以高性价比、稳定线路和丰富节点著称，特别适合日常上网、远程办公、游戏加速以及访问AI工具（如 ChatGPT、Claude 等）的用户。</p>
-<p><img src="https://fengyy.org/assets/media/89d536bc-3daf-45ab-b86b-cbd70048f62a.png" alt=""></p>
-<p>官网注册地址 -&gt;&gt;&gt; <a href="https://goflybit.com/#/register?code=gPinVG8C">Flybit</a></p>
-<p>线路： IEPL+中转</p>
-<p>倍率： 全部都是x1 (实属良心)</p>
-<p>套餐：月套餐最低 12元/100G/月，不限时套餐最低100G/28元</p>
-<p>优惠：九折优惠码 【flybit】， 没有使用限制</p>
-<p>试用：1天2G</p>
-<p>支付： 微信、支付宝</p>
-<p>解锁：各种流媒体+AI (看节点，并不是所有节点能解锁所有流媒体和AI, 但是需要解锁的基本都能找到对应的节点，需要自己尝试)</p>
-<p>节点：节点可用率还是比较高的，维护很积极</p>
-<p>成立时间： 2023年</p>
-<p>推荐指数： 🌟🌟🌟🌟🌟</p>
-<p><img src="https://fengyy.org/assets/media/dedef782-b6fd-4237-8505-427d2feef5fa.png" alt="Flybit套餐截图"></p>
-<h3 id="299">2.99吧机场评测与推荐：高性价比的稳定加速服务，让你的网络更自由！</h3>
-<p><img src="https://fengyy.org/assets/media/e3158b59-34eb-45f6-a01a-6c83407163fc.png" alt=""></p>
-<p>官网注册地址 -&gt;&gt;&gt; <a href="https://99ba.net/#/register?code=sExBbdk9">99吧官网</a></p>
-<p>线路： IEPL+中转</p>
-<p>倍率： 全部都是x1</p>
-<p>套餐：月套餐最低 9.99元/99G/月，不限时套餐最低111G/29.9元</p>
-<p>试用：1天1G</p>
-<p>支付： 微信、支付宝</p>
-<p>解锁：各种流媒体+AI</p>
-<p>节点：节点几乎全部可用，维护积极</p>
-<p>成立时间： 2024年</p>
-<p>推荐指数： 🌟🌟🌟🌟</p>
+<div class="prose"><p>电脑上的 Clash 类客户端能正常联网，手机却无法使用电脑的代理端口，通常需要同时满足三个条件：客户端允许局域网访问、监听地址覆盖局域网网卡、系统防火墙允许相应入站连接。只打开其中一项，手机仍可能超时。</p>
+<h2 id="heading">先确认电脑与手机在同一局域网</h2>
+<p>让两台设备连接同一个可信 Wi-Fi，关闭手机蜂窝数据后记录电脑的局域网 IPv4 地址。不要把 <code>127.0.0.1</code> 填到手机里；它在手机上指向手机自身。代理服务器地址应使用电脑在该局域网中的地址，端口则使用客户端实际显示的 HTTP、SOCKS 或混合端口。</p>
+<h2 id="-allow-lan-">核对 allow-lan 与监听地址</h2>
+<p><a href="https://wiki.metacubex.one/en/config/general/">Mihomo 官方通用配置</a>说明，<code>allow-lan: true</code>允许其他设备通过 Clash 代理端口访问；<code>bind-address</code>决定监听到哪些地址。<code>&quot;*&quot;</code>会绑定所有地址，也可以只绑定电脑的某个局域网地址。</p>
+<p>如果图形客户端提供“允许局域网”开关，优先在界面中设置，不要同时手改配置文件和界面。启用后重新查看实际监听端口。若配置还包含 <code>lan-allowed-ips</code> 或 <code>lan-disallowed-ips</code>，确认手机地址没有被排除。</p>
+<h2 id="heading-1">用最小请求区分端口与规则问题</h2>
+<p>在手机的 Wi-Fi 代理设置中填入电脑局域网地址和 HTTP 或混合端口，然后访问一个普通 HTTPS 页面。若立即提示无法连接，先回到电脑确认客户端正在运行、端口没有被其他程序占用。</p>
+<p>在 Windows 可用以下命令检查端口是否监听，其中 <code>7890</code>替换为客户端实际端口：</p>
+<pre><code class="language-powershell">netstat -ano | findstr :7890
+</code></pre>
+<p>看到只监听 <code>127.0.0.1:7890</code>，意味着局域网设备无法直接连接；看到 <code>0.0.0.0:7890</code>或电脑局域网地址，才说明监听范围可能覆盖局域网。进程和端口信息仍要与客户端界面交叉核对。</p>
+<h2 id="-windows-">再检查 Windows 防火墙</h2>
+<p>如果监听地址正确但手机仍超时，检查 Windows 当前网络配置文件是否为预期类型，以及该客户端或端口是否允许入站。只为当前客户端和必要端口添加规则，范围限制在专用网络或可信局域网；不要为了测试关闭整个防火墙。</p>
+<p>若弹出 Windows 安全提示，核对程序路径和发布者后再选择网络范围。公共 Wi-Fi 上不建议启用局域网代理，也不要把代理端口暴露到路由器公网转发。</p>
+<h2 id="heading-2">验收时同时看电脑与手机</h2>
+<p>手机打开网页后，再查看电脑客户端连接记录，确认请求来自手机局域网地址并命中预期规则。随后关闭手机代理，确认网络恢复；关闭 <code>allow-lan</code> 后再次测试，手机应无法继续连接该端口。</p>
+<p>如果手机能连接但访问结果异常，问题已从“端口不可达”缩小为代理类型、认证或分流规则。一次只修改一项并复测，避免把监听、防火墙和规则同时改动后无法判断是哪一步生效。</p>
 </div>
 <div class="article-likes" data-pagefind-ignore>
 <button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
@@ -121,13 +110,13 @@
 <span id="page-like-label">点赞</span><span id="page-like-count">—</span>
 </button><p id="page-like-message" role="status"></p>
 </div>
-
-<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://fengyy.org/posts/jccp1/">← 上一篇</a><a href="https://fengyy.org/posts/clash-lan-device-access-check/">下一篇 →</a></nav>
+<div class="article-tags" data-pagefind-ignore><a href="https://fengyy.org/tags/proxy-configuration/"># 代理配置</a><a href="https://fengyy.org/tags/troubleshooting/"># 故障排查</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://fengyy.org/posts/kxsw1/">← 上一篇</a><a href="https://fengyy.org/posts/windows-proxy-port-conflict/">下一篇 →</a></nav>
 <section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
 </article>
 
 <div class="article-rail">
-<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#2026vpn">2026年翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南(长期更新)✨</a><a class="level-3" href="#1flybit">1.FLYbit机场评测与推荐：高性价比的稳定加速服务，让你的网络更自由！</a><a class="level-3" href="#299">2.99吧机场评测与推荐：高性价比的稳定加速服务，让你的网络更自由！</a></nav></aside>
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#heading">先确认电脑与手机在同一局域网</a><a class="level-2" href="#-allow-lan-">核对 allow-lan 与监听地址</a><a class="level-2" href="#heading-1">用最小请求区分端口与规则问题</a><a class="level-2" href="#-windows-">再检查 Windows 防火墙</a><a class="level-2" href="#heading-2">验收时同时看电脑与手机</a></nav></aside>
 </div>
 
 </main>
@@ -161,7 +150,7 @@
 </div>
 </dialog>
 
-<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/0c4d8fc4-fb65-4f4d-b1dc-37bd9581fe54/","pageTitle":"翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/8cc7db9a-7b84-444f-9b3d-db402733007d/","pageTitle":"Clash 类客户端电脑能用，手机连不上？局域网代理检查","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
 
 </body>
 </html>
