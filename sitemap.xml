@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://fengyy.org/</loc>
-    <lastmod>2026-09-24T02:17:10Z</lastmod>
+    <lastmod>2026-09-25T01:48:00Z</lastmod>
   </url>
   <url>
     <loc>https://fengyy.org/categories/clients-and-tools/</loc>
-    <lastmod>2026-09-24T02:17:10Z</lastmod>
+    <lastmod>2026-09-25T01:48:00Z</lastmod>
   </url>
   <url>
     <loc>https://fengyy.org/page/2/</loc>
-    <lastmod>2026-09-24T02:17:10Z</lastmod>
+    <lastmod>2026-09-25T01:48:00Z</lastmod>
   </url>
   <url>
     <loc>https://fengyy.org/posts/clash-lan-device-access-check/</loc>
-    <lastmod>2026-09-24T02:16:42Z</lastmod>
+    <lastmod>2026-09-25T01:48:00Z</lastmod>
   </url>
   <url>
     <loc>https://fengyy.org/posts/clash-verge-custom-rules-persistence/</loc>
@@ -54,7 +54,7 @@
   </url>
   <url>
     <loc>https://fengyy.org/posts/kxsw1/</loc>
-    <lastmod>2026-09-24T02:17:10Z</lastmod>
+    <lastmod>2026-09-25T01:48:00Z</lastmod>
   </url>
   <url>
     <loc>https://fengyy.org/posts/mryg1/</loc>
@@ -69,15 +69,19 @@
     <lastmod>2026-09-24T02:17:10Z</lastmod>
   </url>
   <url>
+    <loc>https://fengyy.org/posts/windows-winhttp-proxy-check/</loc>
+    <lastmod>2026-09-25T01:11:11Z</lastmod>
+  </url>
+  <url>
     <loc>https://fengyy.org/tags/curl/</loc>
     <lastmod>2026-09-24T02:16:42Z</lastmod>
   </url>
   <url>
     <loc>https://fengyy.org/tags/proxy-configuration/</loc>
-    <lastmod>2026-09-24T02:17:10Z</lastmod>
+    <lastmod>2026-09-25T01:48:00Z</lastmod>
   </url>
   <url>
     <loc>https://fengyy.org/tags/troubleshooting/</loc>
-    <lastmod>2026-09-24T02:17:10Z</lastmod>
+    <lastmod>2026-09-25T01:48:00Z</lastmod>
   </url>
 </urlset>
