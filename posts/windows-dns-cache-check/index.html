@@ -4,23 +4,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>浏览器能上网但软件更新失败？检查 Windows WinHTTP 代理 · 风悠悠优质机场</title>
-<meta name="description" content="浏览器走机场代理正常但Windows软件更新失败怎么办？先查看WinHTTP与系统代理差异，再做最小修改和回退验收。">
-<meta name="keywords" content="WinHTTP代理,Windows机场客户端,软件更新失败,代理排查">
-<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://fengyy.org/posts/windows-winhttp-proxy-check/">
-<meta property="og:title" content="浏览器能上网但软件更新失败？检查 Windows WinHTTP 代理">
-<meta property="og:description" content="浏览器走机场代理正常但Windows软件更新失败怎么办？先查看WinHTTP与系统代理差异，再做最小修改和回退验收。">
-<meta property="og:url" content="https://fengyy.org/posts/windows-winhttp-proxy-check/">
+<title>切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存 · 风悠悠优质机场</title>
+<meta name="description" content="切换机场节点后仍访问旧地址怎么办？用ipconfig查看和刷新Windows DNS缓存，并按层级排查浏览器与客户端DNS。">
+<meta name="keywords" content="Windows DNS缓存,ipconfig flushdns,机场节点切换,代理排障">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://fengyy.org/posts/windows-dns-cache-check/">
+<meta property="og:title" content="切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存">
+<meta property="og:description" content="切换机场节点后仍访问旧地址怎么办？用ipconfig查看和刷新Windows DNS缓存，并按层级排查浏览器与客户端DNS。">
+<meta property="og:url" content="https://fengyy.org/posts/windows-dns-cache-check/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="风悠悠优质机场">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png"><meta property="og:image:alt" content="风悠悠优质机场">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浏览器能上网但软件更新失败？检查 Windows WinHTTP 代理">
-<meta name="twitter:description" content="浏览器走机场代理正常但Windows软件更新失败怎么办？先查看WinHTTP与系统代理差异，再做最小修改和回退验收。">
+<meta name="twitter:title" content="切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存">
+<meta name="twitter:description" content="切换机场节点后仍访问旧地址怎么办？用ipconfig查看和刷新Windows DNS缓存，并按层级排查浏览器与客户端DNS。">
 <meta name="twitter:image" content="https://fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png">
-<meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-09-25T09:10:13&#43;08:00"><meta property="article:modified_time" content="2026-09-25T09:11:11&#43;08:00"><meta property="article:tag" content="代理配置"><meta property="article:tag" content="故障排查">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://fengyy.org/posts/windows-winhttp-proxy-check/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-09-25T09:11:11+08:00","datePublished":"2026-09-25T09:10:13+08:00","description":"浏览器走机场代理正常但Windows软件更新失败怎么办？先查看WinHTTP与系统代理差异，再做最小修改和回退验收。","headline":"浏览器能上网但软件更新失败？检查 Windows WinHTTP 代理","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://fengyy.org/posts/windows-winhttp-proxy-check/","@type":"WebPage"},"url":"https://fengyy.org/posts/windows-winhttp-proxy-check/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://fengyy.org/posts/windows-winhttp-proxy-check/","name":"浏览器能上网但软件更新失败？检查 Windows WinHTTP 代理","position":2}]}]}</script>
+<meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-09-26T09:06:52&#43;08:00"><meta property="article:modified_time" content="2026-09-26T09:06:57&#43;08:00"><meta property="article:tag" content="代理配置"><meta property="article:tag" content="故障排查">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://fengyy.org/posts/windows-dns-cache-check/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-09-26T09:06:57+08:00","datePublished":"2026-09-26T09:06:52+08:00","description":"切换机场节点后仍访问旧地址怎么办？用ipconfig查看和刷新Windows DNS缓存，并按层级排查浏览器与客户端DNS。","headline":"切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://fengyy.org/posts/windows-dns-cache-check/","@type":"WebPage"},"url":"https://fengyy.org/posts/windows-dns-cache-check/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://fengyy.org/posts/windows-dns-cache-check/","name":"切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存","position":2}]}]}</script>
 
 <script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
 <link rel="stylesheet" href="https://fengyy.org/assets/theme/style.css">
@@ -74,44 +74,44 @@
 <div class="article-viewport"><div class="article-scroll">
 <main id="main" tabindex="-1" class="shell journal-shell article-shell" data-has-toc="true">
 
-<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">浏览器能上网但软件更新失败？检查 Windows WinHTTP 代理</span></li></ol></nav>
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存</span></li></ol></nav>
 
 
 
 <article data-pagefind-body>
 <header class="article-header">
 <div class="eyebrow" data-pagefind-ignore>字里行间</div>
-<h1 data-pagefind-meta="title">浏览器能上网但软件更新失败？检查 Windows WinHTTP 代理</h1>
-<div class="metadata" data-pagefind-ignore><span>王牌飞行员</span><time datetime="2026-09-25T09:10:13&#43;08:00">2026-09-25</time><span><span id="page-views">—</span> 次阅读</span></div>
+<h1 data-pagefind-meta="title">切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存</h1>
+<div class="metadata" data-pagefind-ignore><span>王牌飞行员</span><time datetime="2026-09-26T09:06:52&#43;08:00">2026-09-26</time><span><span id="page-views">—</span> 次阅读</span></div>
 <div class="chips" data-pagefind-ignore><a href="https://fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
 </header>
-<div class="prose"><p>浏览器已经能通过机场客户端打开网页，但某个更新器、安装器或命令行软件仍提示连接失败，这不一定是节点坏了。Windows 上不同程序可能读取不同的代理入口，其中一类使用 WinHTTP 设置，和浏览器当前采用的系统代理不完全是一回事。</p>
-<h2 id="heading">先做只读检查</h2>
-<p>以普通权限打开终端，先执行：</p>
-<pre><code class="language-text">netsh winhttp show proxy
+<div class="prose"><h2 id="-windows-dns-">切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存</h2>
+<p>切换机场节点后，网页仍访问旧服务器，很多人会立刻重装客户端或反复换节点。更稳妥的做法是先分层判断：域名解析结果是否缓存、浏览器是否复用旧连接、代理客户端是否自己接管 DNS。Windows 的 DNS 客户端缓存只是其中一层，清空它并不能解决所有代理问题。</p>
+<h3 id="heading">第一步：只读查看缓存</h3>
+<p>打开命令提示符，执行：</p>
+<pre><code class="language-cmd">ipconfig /displaydns
 </code></pre>
-<p>较新的 Windows 还可以查看高级设置：</p>
-<pre><code class="language-text">netsh winhttp show advproxy
+<p>在输出中查找目标域名。如果能看到记录，记下记录类型和剩余生存时间。没有记录也不代表没有缓存，因为浏览器或机场客户端可能维护自己的解析结果。</p>
+<p>接着用系统解析命令做一次对照：</p>
+<pre><code class="language-powershell">Resolve-DnsName example.com
 </code></pre>
-<p>这两条命令用于显示当前配置，不会修改代理。微软文档说明，<code>netsh winhttp</code> 管理的是使用 Windows HTTP Services 的应用设置；因此“浏览器正常、某个后台程序失败”可能来自配置来源不同。</p>
-<h2 id="heading-1">把三组信息放在一起比</h2>
-<ol>
-<li>在机场客户端里确认核心正在运行，并记下它提供的是 HTTP、SOCKS 还是混合端口。</li>
-<li>在 Windows“设置 → 网络和 Internet → 代理”查看系统代理是否启用。</li>
-<li>查看 WinHTTP 输出是“直接访问”还是列出了代理服务器和绕过列表。</li>
-<li>只重试原来失败的那个程序，记录错误时间与错误码。</li>
-</ol>
-<p>如果浏览器走本地代理，而 WinHTTP 仍为直接访问，差异就有了定位价值；但它并不自动说明 WinHTTP 必须改成代理。有些更新服务本来就应直连，有些企业设备还受管理员策略控制。</p>
-<h2 id="-reset--import">不要一上来就 reset 或 import</h2>
-<p><code>netsh winhttp reset proxy</code> 会改变机器的 WinHTTP 配置，<code>import proxy</code> 也会导入另一套设置。家庭电脑上贸然执行，可能让原本正常的软件受影响；公司设备上还可能破坏既有管理策略。</p>
-<p>更稳妥的顺序是：先截图或保存只读输出，再查失败软件是否支持自己的代理设置；若它允许手动填写，就只使用机场客户端明确给出的本地端口，并在测试后恢复。没有明确需求时，不要把 SOCKS 端口填进只接受 HTTP 代理的字段。</p>
-<h2 id="heading-2">如何确认问题解决</h2>
-<p>完成调整后同时验证三件事：失败程序能完成一次真实请求；浏览器仍可正常访问；关闭机场客户端后，程序不会一直尝试连接已经不存在的本地端口。最后保留修改前后配置，方便下次更新或换客户端时回退。</p>
-<p>这套检查适合机场客户端运行正常、只有少数 Windows 程序联网异常的场景。如果所有应用都失败，应先回到客户端核心、端口监听和订阅状态排查。</p>
-<h2 id="heading-3">参考资料</h2>
+<p>把 <code>example.com</code> 换成出现问题的公开域名。不要用机场订阅链接测试，也不要把订阅参数贴进截图或日志。</p>
+<h3 id="heading-1">第二步：仅在证据指向系统缓存时清理</h3>
+<p>如果系统缓存中的地址明显过期，先关闭正在访问该站的浏览器标签页，再执行：</p>
+<pre><code class="language-cmd">ipconfig /flushdns
+</code></pre>
+<p>重新运行 <code>/displaydns</code>，然后打开一个新的浏览器窗口复测。微软把 <code>/flushdns</code> 定义为刷新并重置 DNS 客户端解析器缓存；它不会修改机场订阅、节点规则或代理端口。</p>
+<h3 id="heading-2">第三步：判断是否属于其他层</h3>
 <ul>
-<li><a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/netsh-winhttp">Microsoft Learn：netsh winhttp</a></li>
+<li><strong>系统解析已更新，但浏览器仍旧。</strong> 完全退出浏览器后重开，避免复用既有连接。</li>
+<li><strong>直连解析和代理内解析不同。</strong> 检查客户端的 DNS 模式、分流规则及日志，不要盲目修改系统 DNS。</li>
+<li><strong>只有一个节点异常。</strong> 保持其他条件不变，换到同地区另一个节点复测。</li>
+<li><strong>所有节点都异常。</strong> 暂停代理后测试直连，确认本地网络是否本身存在解析故障。</li>
 </ul>
+<h3 id="heading-3">验收方法</h3>
+<p>准备一个固定公开网页，按“清理前、清理后、换节点后”各访问一次，并记录系统解析结果、客户端日志时间和网页实际表现。如果只有清缓存后短暂恢复，很可能还有浏览器连接复用、代理 DNS 或上游解析问题，需要继续沿层级排查。</p>
+<p>风悠悠的客户端排障原则是一次只改一个变量。机场推荐文章里常见的“换 DNS 就好”并不适用于所有情况；先用只读命令确认，再做可回退的最小修改，能避免把简单缓存问题扩大成配置故障。</p>
+<p>微软官方 <code>ipconfig</code> 文档列出了 <code>/displaydns</code> 与 <code>/flushdns</code> 的用途和适用系统：<a href="https://learn.microsoft.com/en-gb/windows-server/administration/windows-commands/ipconfig">ipconfig 命令文档</a>。</p>
 </div>
 <div class="article-likes" data-pagefind-ignore>
 <button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
@@ -120,12 +120,12 @@
 </button><p id="page-like-message" role="status"></p>
 </div>
 <div class="article-tags" data-pagefind-ignore><a href="https://fengyy.org/tags/proxy-configuration/"># 代理配置</a><a href="https://fengyy.org/tags/troubleshooting/"># 故障排查</a></div>
-<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://fengyy.org/posts/windows-dns-cache-check/">← 上一篇</a><a href="https://fengyy.org/posts/clash-lan-device-access-check/">下一篇 →</a></nav>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://fengyy.org/posts/kxsw1/">← 上一篇</a><a href="https://fengyy.org/posts/windows-winhttp-proxy-check/">下一篇 →</a></nav>
 <section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
 </article>
 
 <div class="article-rail">
-<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#heading">先做只读检查</a><a class="level-2" href="#heading-1">把三组信息放在一起比</a><a class="level-2" href="#-reset--import">不要一上来就 reset 或 import</a><a class="level-2" href="#heading-2">如何确认问题解决</a><a class="level-2" href="#heading-3">参考资料</a></nav></aside>
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#-windows-dns-">切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存</a><a class="level-3" href="#heading">第一步：只读查看缓存</a><a class="level-3" href="#heading-1">第二步：仅在证据指向系统缓存时清理</a><a class="level-3" href="#heading-2">第三步：判断是否属于其他层</a><a class="level-3" href="#heading-3">验收方法</a></nav></aside>
 </div>
 
 </main>
@@ -159,7 +159,7 @@
 </div>
 </dialog>
 
-<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/25e745fb-135d-4385-8558-d0fbd4fb163c/","pageTitle":"浏览器能上网但软件更新失败？检查 Windows WinHTTP 代理","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/eb3ced2b-945a-44c8-ba20-d154bf9f0d34/","pageTitle":"切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
 
 </body>
 </html>
