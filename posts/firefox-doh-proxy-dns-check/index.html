@@ -4,23 +4,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存 · 风悠悠优质机场</title>
-<meta name="description" content="切换机场节点后仍访问旧地址怎么办？用ipconfig查看和刷新Windows DNS缓存，并按层级排查浏览器与客户端DNS。">
-<meta name="keywords" content="Windows DNS缓存,ipconfig flushdns,机场节点切换,代理排障">
-<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://fengyy.org/posts/windows-dns-cache-check/">
-<meta property="og:title" content="切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存">
-<meta property="og:description" content="切换机场节点后仍访问旧地址怎么办？用ipconfig查看和刷新Windows DNS缓存，并按层级排查浏览器与客户端DNS。">
-<meta property="og:url" content="https://fengyy.org/posts/windows-dns-cache-check/">
+<title>Firefox 单独打不开网站？检查 DoH 与代理 DNS 路径 · 风悠悠优质机场</title>
+<meta name="description" content="Firefox通过机场代理单独打不开网站怎么办？检查DNS over HTTPS保护级别、客户端DNS模式和浏览器对照结果。">
+<meta name="keywords" content="Firefox DoH,DNS over HTTPS,机场客户端,代理排障">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://fengyy.org/posts/firefox-doh-proxy-dns-check/">
+<meta property="og:title" content="Firefox 单独打不开网站？检查 DoH 与代理 DNS 路径">
+<meta property="og:description" content="Firefox通过机场代理单独打不开网站怎么办？检查DNS over HTTPS保护级别、客户端DNS模式和浏览器对照结果。">
+<meta property="og:url" content="https://fengyy.org/posts/firefox-doh-proxy-dns-check/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="风悠悠优质机场">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png"><meta property="og:image:alt" content="风悠悠优质机场">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存">
-<meta name="twitter:description" content="切换机场节点后仍访问旧地址怎么办？用ipconfig查看和刷新Windows DNS缓存，并按层级排查浏览器与客户端DNS。">
+<meta name="twitter:title" content="Firefox 单独打不开网站？检查 DoH 与代理 DNS 路径">
+<meta name="twitter:description" content="Firefox通过机场代理单独打不开网站怎么办？检查DNS over HTTPS保护级别、客户端DNS模式和浏览器对照结果。">
 <meta name="twitter:image" content="https://fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png">
-<meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-09-26T09:06:52&#43;08:00"><meta property="article:modified_time" content="2026-09-26T09:06:57&#43;08:00"><meta property="article:tag" content="代理配置"><meta property="article:tag" content="故障排查">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://fengyy.org/posts/windows-dns-cache-check/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-09-26T09:06:57+08:00","datePublished":"2026-09-26T09:06:52+08:00","description":"切换机场节点后仍访问旧地址怎么办？用ipconfig查看和刷新Windows DNS缓存，并按层级排查浏览器与客户端DNS。","headline":"切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://fengyy.org/posts/windows-dns-cache-check/","@type":"WebPage"},"url":"https://fengyy.org/posts/windows-dns-cache-check/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://fengyy.org/posts/windows-dns-cache-check/","name":"切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存","position":2}]}]}</script>
+<meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-09-27T09:07:00&#43;08:00"><meta property="article:modified_time" content="2026-09-27T09:07:14&#43;08:00"><meta property="article:tag" content="代理配置"><meta property="article:tag" content="故障排查">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://fengyy.org/posts/firefox-doh-proxy-dns-check/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-09-27T09:07:14+08:00","datePublished":"2026-09-27T09:07:00+08:00","description":"Firefox通过机场代理单独打不开网站怎么办？检查DNS over HTTPS保护级别、客户端DNS模式和浏览器对照结果。","headline":"Firefox 单独打不开网站？检查 DoH 与代理 DNS 路径","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://fengyy.org/posts/firefox-doh-proxy-dns-check/","@type":"WebPage"},"url":"https://fengyy.org/posts/firefox-doh-proxy-dns-check/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://fengyy.org/posts/firefox-doh-proxy-dns-check/","name":"Firefox 单独打不开网站？检查 DoH 与代理 DNS 路径","position":2}]}]}</script>
 
 <script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
 <link rel="stylesheet" href="https://fengyy.org/assets/theme/style.css">
@@ -74,44 +74,46 @@
 <div class="article-viewport"><div class="article-scroll">
 <main id="main" tabindex="-1" class="shell journal-shell article-shell" data-has-toc="true">
 
-<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存</span></li></ol></nav>
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">Firefox 单独打不开网站？检查 DoH 与代理 DNS 路径</span></li></ol></nav>
 
 
 
 <article data-pagefind-body>
 <header class="article-header">
 <div class="eyebrow" data-pagefind-ignore>字里行间</div>
-<h1 data-pagefind-meta="title">切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存</h1>
-<div class="metadata" data-pagefind-ignore><span>王牌飞行员</span><time datetime="2026-09-26T09:06:52&#43;08:00">2026-09-26</time><span><span id="page-views">—</span> 次阅读</span></div>
+<h1 data-pagefind-meta="title">Firefox 单独打不开网站？检查 DoH 与代理 DNS 路径</h1>
+<div class="metadata" data-pagefind-ignore><span>王牌飞行员</span><time datetime="2026-09-27T09:07:00&#43;08:00">2026-09-27</time><span><span id="page-views">—</span> 次阅读</span></div>
 <div class="chips" data-pagefind-ignore><a href="https://fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
 </header>
-<div class="prose"><h2 id="-windows-dns-">切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存</h2>
-<p>切换机场节点后，网页仍访问旧服务器，很多人会立刻重装客户端或反复换节点。更稳妥的做法是先分层判断：域名解析结果是否缓存、浏览器是否复用旧连接、代理客户端是否自己接管 DNS。Windows 的 DNS 客户端缓存只是其中一层，清空它并不能解决所有代理问题。</p>
-<h3 id="heading">第一步：只读查看缓存</h3>
-<p>打开命令提示符，执行：</p>
-<pre><code class="language-cmd">ipconfig /displaydns
-</code></pre>
-<p>在输出中查找目标域名。如果能看到记录，记下记录类型和剩余生存时间。没有记录也不代表没有缓存，因为浏览器或机场客户端可能维护自己的解析结果。</p>
-<p>接着用系统解析命令做一次对照：</p>
-<pre><code class="language-powershell">Resolve-DnsName example.com
-</code></pre>
-<p>把 <code>example.com</code> 换成出现问题的公开域名。不要用机场订阅链接测试，也不要把订阅参数贴进截图或日志。</p>
-<h3 id="heading-1">第二步：仅在证据指向系统缓存时清理</h3>
-<p>如果系统缓存中的地址明显过期，先关闭正在访问该站的浏览器标签页，再执行：</p>
-<pre><code class="language-cmd">ipconfig /flushdns
-</code></pre>
-<p>重新运行 <code>/displaydns</code>，然后打开一个新的浏览器窗口复测。微软把 <code>/flushdns</code> 定义为刷新并重置 DNS 客户端解析器缓存；它不会修改机场订阅、节点规则或代理端口。</p>
-<h3 id="heading-2">第三步：判断是否属于其他层</h3>
+<div class="prose"><h2 id="firefox--doh--dns-">Firefox 单独打不开网站？检查 DoH 与代理 DNS 路径</h2>
+<p>同一台电脑上，其他浏览器通过机场客户端能打开网站，Firefox 却提示找不到服务器，问题不一定在节点。Firefox 可以使用 DNS over HTTPS（DoH）把域名查询发送到 HTTPS 解析服务；这条路径可能和系统 DNS、代理客户端的 DNS 接管方式不同。</p>
+<p>DoH 是隐私功能，不应看到故障就永久关闭。正确做法是先记录当前设置，再用一次可回退的对照判断 DNS 路径是否相关。</p>
+<h3 id="heading">先完成四项只读检查</h3>
+<ol>
+<li>在 Firefox 打开 <strong>设置 → 隐私与安全 → DNS over HTTPS</strong>，记录当前保护级别与提供商。</li>
+<li>记录机场客户端使用的是系统代理、TUN 还是其他接管方式。</li>
+<li>用同一域名比较 Firefox、另一个浏览器和直连状态。</li>
+<li>查看客户端日志中是否出现该域名或对应连接，注意脱敏订阅地址。</li>
+</ol>
+<p>Mozilla 说明，DoH 会通过加密 HTTPS 连接查询域名，并可能绕过本地 DNS 解析器。Firefox 也提供不同保护级别和回退行为，因此不能只凭“开着 DoH”判断一定绕过代理。</p>
+<h3 id="heading-1">做一次临时对照</h3>
+<p>保持节点、网络和目标域名不变，只临时调整 Firefox 的 DoH 保护级别，然后完全关闭相关标签页并重新访问。记录：</p>
 <ul>
-<li><strong>系统解析已更新，但浏览器仍旧。</strong> 完全退出浏览器后重开，避免复用既有连接。</li>
-<li><strong>直连解析和代理内解析不同。</strong> 检查客户端的 DNS 模式、分流规则及日志，不要盲目修改系统 DNS。</li>
-<li><strong>只有一个节点异常。</strong> 保持其他条件不变，换到同地区另一个节点复测。</li>
-<li><strong>所有节点都异常。</strong> 暂停代理后测试直连，确认本地网络是否本身存在解析故障。</li>
+<li>错误是否从 DNS 失败变为正常连接；</li>
+<li>机场客户端日志是否出现新的解析或连接记录；</li>
+<li>其他浏览器是否仍保持原结果。</li>
+</ul>
+<p>对照完成后恢复原设置。如果关闭 DoH 后恢复，只能说明问题与 DNS 路径有关，下一步仍要核对客户端 DNS 模式、系统解析器和网络策略。不要把关闭隐私功能当成最终修复。</p>
+<h3 id="heading-2">常见误判</h3>
+<ul>
+<li>只有一个网站失败：目标域名、网站或分流规则也可能有问题。</li>
+<li>Firefox 能开、其他浏览器不能开：不代表 DoH 一定更快，可能只是解析路径不同。</li>
+<li>换节点后恢复：也可能是旧连接或缓存同时被重建。</li>
+<li>企业或校园网络：本地 DNS 可能承担过滤或内部域名解析，应遵循网络管理员要求。</li>
 </ul>
 <h3 id="heading-3">验收方法</h3>
-<p>准备一个固定公开网页，按“清理前、清理后、换节点后”各访问一次，并记录系统解析结果、客户端日志时间和网页实际表现。如果只有清缓存后短暂恢复，很可能还有浏览器连接复用、代理 DNS 或上游解析问题，需要继续沿层级排查。</p>
-<p>风悠悠的客户端排障原则是一次只改一个变量。机场推荐文章里常见的“换 DNS 就好”并不适用于所有情况；先用只读命令确认，再做可回退的最小修改，能避免把简单缓存问题扩大成配置故障。</p>
-<p>微软官方 <code>ipconfig</code> 文档列出了 <code>/displaydns</code> 与 <code>/flushdns</code> 的用途和适用系统：<a href="https://learn.microsoft.com/en-gb/windows-server/administration/windows-commands/ipconfig">ipconfig 命令文档</a>。</p>
+<p>最终设置应同时满足：常用域名可稳定解析、客户端分流符合预期、浏览器重启后仍正常、没有泄露订阅或账户信息。风悠悠的客户端排障建议一次只改一个变量，并保留恢复路径。</p>
+<p>来源：<a href="https://support.mozilla.org/en-US/kb/firefox-dns-over-https">Mozilla Firefox DNS over HTTPS 说明</a>、<a href="https://support.mozilla.org/en-US/kb/configuring-networks-disable-dns-over-https">Mozilla 的 DoH 网络配置说明</a>。</p>
 </div>
 <div class="article-likes" data-pagefind-ignore>
 <button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
@@ -120,12 +122,12 @@
 </button><p id="page-like-message" role="status"></p>
 </div>
 <div class="article-tags" data-pagefind-ignore><a href="https://fengyy.org/tags/proxy-configuration/"># 代理配置</a><a href="https://fengyy.org/tags/troubleshooting/"># 故障排查</a></div>
-<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://fengyy.org/posts/firefox-doh-proxy-dns-check/">← 上一篇</a><a href="https://fengyy.org/posts/windows-winhttp-proxy-check/">下一篇 →</a></nav>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://fengyy.org/posts/kxsw1/">← 上一篇</a><a href="https://fengyy.org/posts/windows-dns-cache-check/">下一篇 →</a></nav>
 <section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
 </article>
 
 <div class="article-rail">
-<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#-windows-dns-">切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存</a><a class="level-3" href="#heading">第一步：只读查看缓存</a><a class="level-3" href="#heading-1">第二步：仅在证据指向系统缓存时清理</a><a class="level-3" href="#heading-2">第三步：判断是否属于其他层</a><a class="level-3" href="#heading-3">验收方法</a></nav></aside>
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#firefox--doh--dns-">Firefox 单独打不开网站？检查 DoH 与代理 DNS 路径</a><a class="level-3" href="#heading">先完成四项只读检查</a><a class="level-3" href="#heading-1">做一次临时对照</a><a class="level-3" href="#heading-2">常见误判</a><a class="level-3" href="#heading-3">验收方法</a></nav></aside>
 </div>
 
 </main>
@@ -159,7 +161,7 @@
 </div>
 </dialog>
 
-<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/eb3ced2b-945a-44c8-ba20-d154bf9f0d34/","pageTitle":"切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/73364e41-571c-48f1-8e89-579c78fe08fe/","pageTitle":"Firefox 单独打不开网站？检查 DoH 与代理 DNS 路径","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
 
 </body>
 </html>
