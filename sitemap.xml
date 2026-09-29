@@ -2,15 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://fengyy.org/</loc>
-    <lastmod>2026-09-28T03:47:36Z</lastmod>
+    <lastmod>2026-09-29T11:51:19Z</lastmod>
   </url>
   <url>
     <loc>https://fengyy.org/categories/clients-and-tools/</loc>
-    <lastmod>2026-09-28T03:47:36Z</lastmod>
+    <lastmod>2026-09-29T11:51:19Z</lastmod>
   </url>
   <url>
     <loc>https://fengyy.org/page/2/</loc>
-    <lastmod>2026-09-28T03:47:36Z</lastmod>
+    <lastmod>2026-09-29T11:51:19Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fengyy.org/posts/chrome-incognito-extension-proxy/</loc>
+    <lastmod>2026-09-29T01:08:25Z</lastmod>
   </url>
   <url>
     <loc>https://fengyy.org/posts/clash-lan-device-access-check/</loc>
@@ -30,7 +34,7 @@
   </url>
   <url>
     <loc>https://fengyy.org/posts/firefox-proxy-extension-conflict/</loc>
-    <lastmod>2026-09-28T01:07:33Z</lastmod>
+    <lastmod>2026-09-29T11:51:19Z</lastmod>
   </url>
   <url>
     <loc>https://fengyy.org/posts/jccp1/</loc>
@@ -62,7 +66,7 @@
   </url>
   <url>
     <loc>https://fengyy.org/posts/kxsw1/</loc>
-    <lastmod>2026-09-28T03:47:36Z</lastmod>
+    <lastmod>2026-09-29T11:51:19Z</lastmod>
   </url>
   <url>
     <loc>https://fengyy.org/posts/mryg1/</loc>
@@ -90,10 +94,10 @@
   </url>
   <url>
     <loc>https://fengyy.org/tags/proxy-configuration/</loc>
-    <lastmod>2026-09-28T03:47:36Z</lastmod>
+    <lastmod>2026-09-29T11:51:19Z</lastmod>
   </url>
   <url>
     <loc>https://fengyy.org/tags/troubleshooting/</loc>
-    <lastmod>2026-09-28T03:47:36Z</lastmod>
+    <lastmod>2026-09-29T11:51:19Z</lastmod>
   </url>
 </urlset>
