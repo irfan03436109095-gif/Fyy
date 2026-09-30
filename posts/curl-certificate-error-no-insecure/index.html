@@ -4,23 +4,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chrome 普通窗口能用、无痕窗口不能用？检查扩展代理权限 · 风悠悠优质机场</title>
-<meta name="description" content="Chrome普通窗口能用机场代理、无痕窗口不能用怎么办？检查代理扩展的无痕权限、系统代理和TUN接管方式。">
-<meta name="keywords" content="Chrome无痕代理,代理扩展,机场客户端,浏览器排障">
-<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://fengyy.org/posts/chrome-incognito-extension-proxy/">
-<meta property="og:title" content="Chrome 普通窗口能用、无痕窗口不能用？检查扩展代理权限">
-<meta property="og:description" content="Chrome普通窗口能用机场代理、无痕窗口不能用怎么办？检查代理扩展的无痕权限、系统代理和TUN接管方式。">
-<meta property="og:url" content="https://fengyy.org/posts/chrome-incognito-extension-proxy/">
+<title>curl 证书报错能用 -k 跳过吗？先定位验证链 · 风悠悠优质机场</title>
+<meta name="description" content="curl证书报错能用-k跳过吗？按系统时间、主机名、证书来源和代理路径排查，恢复正常TLS验证。">
+<meta name="keywords" content="curl证书错误,--insecure,机场客户端,TLS验证,代理排障">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://fengyy.org/posts/curl-certificate-error-no-insecure/">
+<meta property="og:title" content="curl 证书报错能用 -k 跳过吗？先定位验证链">
+<meta property="og:description" content="curl证书报错能用-k跳过吗？按系统时间、主机名、证书来源和代理路径排查，恢复正常TLS验证。">
+<meta property="og:url" content="https://fengyy.org/posts/curl-certificate-error-no-insecure/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="风悠悠优质机场">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png"><meta property="og:image:alt" content="风悠悠优质机场">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chrome 普通窗口能用、无痕窗口不能用？检查扩展代理权限">
-<meta name="twitter:description" content="Chrome普通窗口能用机场代理、无痕窗口不能用怎么办？检查代理扩展的无痕权限、系统代理和TUN接管方式。">
+<meta name="twitter:title" content="curl 证书报错能用 -k 跳过吗？先定位验证链">
+<meta name="twitter:description" content="curl证书报错能用-k跳过吗？按系统时间、主机名、证书来源和代理路径排查，恢复正常TLS验证。">
 <meta name="twitter:image" content="https://fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png">
-<meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-09-29T09:07:54&#43;08:00"><meta property="article:modified_time" content="2026-09-29T09:08:25&#43;08:00"><meta property="article:tag" content="代理配置"><meta property="article:tag" content="故障排查">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://fengyy.org/posts/chrome-incognito-extension-proxy/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-09-29T09:08:25+08:00","datePublished":"2026-09-29T09:07:54+08:00","description":"Chrome普通窗口能用机场代理、无痕窗口不能用怎么办？检查代理扩展的无痕权限、系统代理和TUN接管方式。","headline":"Chrome 普通窗口能用、无痕窗口不能用？检查扩展代理权限","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://fengyy.org/posts/chrome-incognito-extension-proxy/","@type":"WebPage"},"url":"https://fengyy.org/posts/chrome-incognito-extension-proxy/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://fengyy.org/posts/chrome-incognito-extension-proxy/","name":"Chrome 普通窗口能用、无痕窗口不能用？检查扩展代理权限","position":2}]}]}</script>
+<meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-09-30T09:08:30&#43;08:00"><meta property="article:modified_time" content="2026-09-30T09:09:09&#43;08:00"><meta property="article:tag" content="curl"><meta property="article:tag" content="故障排查">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://fengyy.org/posts/curl-certificate-error-no-insecure/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-09-30T09:09:09+08:00","datePublished":"2026-09-30T09:08:30+08:00","description":"curl证书报错能用-k跳过吗？按系统时间、主机名、证书来源和代理路径排查，恢复正常TLS验证。","headline":"curl 证书报错能用 -k 跳过吗？先定位验证链","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://fengyy.org/posts/curl-certificate-error-no-insecure/","@type":"WebPage"},"url":"https://fengyy.org/posts/curl-certificate-error-no-insecure/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://fengyy.org/posts/curl-certificate-error-no-insecure/","name":"curl 证书报错能用 -k 跳过吗？先定位验证链","position":2}]}]}</script>
 
 <script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
 <link rel="stylesheet" href="https://fengyy.org/assets/theme/style.css">
@@ -74,36 +74,44 @@
 <div class="article-viewport"><div class="article-scroll">
 <main id="main" tabindex="-1" class="shell journal-shell article-shell" data-has-toc="true">
 
-<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">Chrome 普通窗口能用、无痕窗口不能用？检查扩展代理权限</span></li></ol></nav>
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">curl 证书报错能用 -k 跳过吗？先定位验证链</span></li></ol></nav>
 
 
 
 <article data-pagefind-body>
 <header class="article-header">
 <div class="eyebrow" data-pagefind-ignore>字里行间</div>
-<h1 data-pagefind-meta="title">Chrome 普通窗口能用、无痕窗口不能用？检查扩展代理权限</h1>
-<div class="metadata" data-pagefind-ignore><span>王牌飞行员</span><time datetime="2026-09-29T09:07:54&#43;08:00">2026-09-29</time><span><span id="page-views">—</span> 次阅读</span></div>
+<h1 data-pagefind-meta="title">curl 证书报错能用 -k 跳过吗？先定位验证链</h1>
+<div class="metadata" data-pagefind-ignore><span>王牌飞行员</span><time datetime="2026-09-30T09:08:30&#43;08:00">2026-09-30</time><span><span id="page-views">—</span> 次阅读</span></div>
 <div class="chips" data-pagefind-ignore><a href="https://fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
 </header>
-<div class="prose"><p>Chrome 普通窗口能用机场代理，无痕窗口却打不开同一网站，先不要反复换节点。两种窗口的扩展运行范围可能不同，问题常出在代理扩展没有获得无痕模式权限，或者普通窗口其实依赖了某个扩展配置。</p>
-<h2 id="heading">先判断代理由谁接管</h2>
-<p>如果机场客户端开启的是 Windows 系统代理或 TUN，Chrome 通常不需要额外代理扩展。如果只有安装代理扩展后才能访问，则普通窗口的流量路径可能由扩展控制。先记录客户端模式、系统代理状态和扩展名称，避免同时改三处设置。</p>
-<h2 id="heading-1">做普通与无痕两组对照</h2>
+<div class="prose"><h2 id="curl---k-">curl 证书报错能用 -k 跳过吗？先定位验证链</h2>
+<p>机场客户端已经连接，但 <code>curl</code> 访问 HTTPS 时提示证书验证失败，很多人会立刻加 <code>-k</code> 或 <code>--insecure</code>。这样可能让请求“看起来成功”，却同时跳过了对服务器身份的验证。它适合短暂的诊断对照，不应成为长期配置，更不能据此判断节点已经修好。</p>
+<h3 id="heading">先保留原始错误</h3>
+<p>关闭终端里可能存在的调试脚本，用原命令重试一次：</p>
+<pre><code class="language-powershell">curl.exe -v &quot;https://example.com/&quot; -o NUL
+</code></pre>
+<p>只记录错误码、主机名、系统时间和证书相关提示，不要把订阅链接、请求头或 Cookie 发到公开渠道。curl 官方证书文档说明，默认会验证证书链，也会核对证书中的名称是否与 URL 主机名匹配；任一环节失败都不该直接忽略。</p>
+<h3 id="heading-1">按顺序排查四项</h3>
 <ol>
-<li>在普通窗口打开一个允许访问的测试页面，记录是否成功。</li>
-<li>新建无痕窗口，访问完全相同的地址。</li>
-<li>打开 <code>chrome://extensions</code>，找到相关扩展并进入“详细信息”。</li>
-<li>查看“允许在无痕模式下使用”是否符合你的预期。</li>
+<li><strong>校准日期与时区。</strong> 系统时间明显错误，会让尚未生效或已经过期的证书被误判。</li>
+<li><strong>核对访问的主机名。</strong> 不要把域名替换成 IP 后期待证书仍然匹配。若只是做指定 IP 的对照，应使用能保留 URL 主机名和 SNI 的方法。</li>
+<li><strong>比较直连与代理。</strong> 在确认合规且安全的网络中，分别执行一次直连和一次明确指定本地代理的请求。只有代理路径失败，才继续查客户端的 HTTPS 解密、证书注入或上游路径。</li>
+<li><strong>检查证书来源。</strong> 公司或学校设备可能安装管理证书；安全软件也可能检查 HTTPS。先确认设备归属和管理策略，不要删除不认识的系统证书。</li>
 </ol>
-<p>Google 的 Chrome 帮助说明，扩展需要由用户单独允许在无痕模式运行。扩展的网站访问权限与底层 VPN、代理类扩展的网络控制也不是同一件事，因此不要只看“可读取此网站”就下结论。</p>
-<h2 id="heading-2">一次只验证一条路径</h2>
-<p>如果希望所有浏览器窗口都跟随机场客户端，先停用代理扩展，只保留客户端的系统代理或 TUN，再重开 Chrome 对照。如果必须使用扩展，则明确它的代理地址、端口和无痕权限，同时避免客户端再写入另一组手动代理。</p>
-<p>普通窗口和无痕窗口分别记录“页面是否打开、扩展是否运行、系统代理是否开启”。只要其中一个变量不同，就不能把失败直接归因于机场节点。</p>
-<h2 id="heading-3">验收方法</h2>
-<p>修正后，普通窗口和无痕窗口应按预期采用同一条代理路径，或者明确知道无痕窗口为何保持直连。再用另一个公开小页面复核一次；若两类窗口仍同时失败，再检查订阅、节点和客户端日志。</p>
-<h2 id="heading-4">参考资料</h2>
+<h3 id="-k-"><code>-k</code> 只做一次诊断对照</h3>
+<p>如果你理解风险，可以在不登录、不提交数据的公开测试页上做一次：</p>
+<pre><code class="language-powershell">curl.exe -k -I &quot;https://example.com/&quot;
+</code></pre>
+<p>若加 <code>-k</code> 后成功，只能说明失败发生在证书验证附近，不能证明目标身份可信，也不能证明机场线路稳定。随后应撤掉 <code>-k</code>，回到正常验证模式解决根因。不要把 <code>--insecure</code> 写进全局配置文件或日常脚本。</p>
+<h3 id="heading-2">什么情况应该立刻停止</h3>
+<p>若浏览器和 curl 同时出现陌生签发者、名称不匹配或证书突然变化，应停止输入账号密码。机场客户端若提供 HTTPS 解密或抓包功能，也要确认这是你主动开启的临时功能。未经理解就安装根证书，会扩大设备上所有 HTTPS 流量的风险面。</p>
+<h3 id="heading-3">验收方法</h3>
+<p>修复后，在不带 <code>-k</code> 的情况下重复原命令，应正常完成验证；浏览器地址栏不再报警；直连与代理路径的证书主题和目标主机名关系合理。把最终命令、错误是否消失和修复动作写入记录，避免下次又靠关闭验证绕过。</p>
+<h3 id="heading-4">参考资料</h3>
 <ul>
-<li><a href="https://support.google.com/chrome/answer/2664769?hl=en">Google Chrome 帮助：安装和管理扩展</a></li>
+<li><a href="https://curl.se/docs/sslcerts.html">curl 官方文档：TLS 证书验证</a></li>
+<li><a href="https://curl.se/docs/manpage.html">curl 官方手册：<code>--insecure</code></a></li>
 </ul>
 </div>
 <div class="article-likes" data-pagefind-ignore>
@@ -112,13 +120,13 @@
 <span id="page-like-label">点赞</span><span id="page-like-count">—</span>
 </button><p id="page-like-message" role="status"></p>
 </div>
-<div class="article-tags" data-pagefind-ignore><a href="https://fengyy.org/tags/proxy-configuration/"># 代理配置</a><a href="https://fengyy.org/tags/troubleshooting/"># 故障排查</a></div>
-<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://fengyy.org/posts/curl-certificate-error-no-insecure/">← 上一篇</a><a href="https://fengyy.org/posts/firefox-proxy-extension-conflict/">下一篇 →</a></nav>
+<div class="article-tags" data-pagefind-ignore><a href="https://fengyy.org/tags/curl/"># curl</a><a href="https://fengyy.org/tags/troubleshooting/"># 故障排查</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://fengyy.org/posts/chatgpt-gpt-61-features-proxy-plans/">← 上一篇</a><a href="https://fengyy.org/posts/chrome-incognito-extension-proxy/">下一篇 →</a></nav>
 <section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
 </article>
 
 <div class="article-rail">
-<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#heading">先判断代理由谁接管</a><a class="level-2" href="#heading-1">做普通与无痕两组对照</a><a class="level-2" href="#heading-2">一次只验证一条路径</a><a class="level-2" href="#heading-3">验收方法</a><a class="level-2" href="#heading-4">参考资料</a></nav></aside>
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#curl---k-">curl 证书报错能用 -k 跳过吗？先定位验证链</a><a class="level-3" href="#heading">先保留原始错误</a><a class="level-3" href="#heading-1">按顺序排查四项</a><a class="level-3" href="#-k-">-k 只做一次诊断对照</a><a class="level-3" href="#heading-2">什么情况应该立刻停止</a><a class="level-3" href="#heading-3">验收方法</a><a class="level-3" href="#heading-4">参考资料</a></nav></aside>
 </div>
 
 </main>
@@ -152,7 +160,7 @@
 </div>
 </dialog>
 
-<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/93377e62-1d26-48f0-b2ec-9331b1d23c13/","pageTitle":"Chrome 普通窗口能用、无痕窗口不能用？检查扩展代理权限","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/c5436f9e-f163-4ac9-8782-e08d897c62dc/","pageTitle":"curl 证书报错能用 -k 跳过吗？先定位验证链","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
 
 </body>
 </html>
