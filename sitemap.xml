@@ -2,15 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://fengyy.org/</loc>
-    <lastmod>2026-09-30T13:04:49Z</lastmod>
+    <lastmod>2026-10-01T03:58:58Z</lastmod>
   </url>
   <url>
     <loc>https://fengyy.org/categories/clients-and-tools/</loc>
-    <lastmod>2026-09-30T12:04:52Z</lastmod>
+    <lastmod>2026-10-01T03:58:58Z</lastmod>
   </url>
   <url>
     <loc>https://fengyy.org/categories/clients-and-tools/page/2/</loc>
-    <lastmod>2026-09-30T11:58:04Z</lastmod>
+    <lastmod>2026-10-01T03:58:58Z</lastmod>
   </url>
   <url>
     <loc>https://fengyy.org/categories/trending-topics/</loc>
@@ -18,11 +18,11 @@
   </url>
   <url>
     <loc>https://fengyy.org/page/2/</loc>
-    <lastmod>2026-09-30T13:04:49Z</lastmod>
+    <lastmod>2026-10-01T03:58:58Z</lastmod>
   </url>
   <url>
     <loc>https://fengyy.org/page/3/</loc>
-    <lastmod>2026-09-30T13:04:49Z</lastmod>
+    <lastmod>2026-10-01T03:58:58Z</lastmod>
   </url>
   <url>
     <loc>https://fengyy.org/posts/chatgpt-gpt-61-features-proxy-plans/</loc>
@@ -43,6 +43,10 @@
   <url>
     <loc>https://fengyy.org/posts/curl-certificate-error-no-insecure/</loc>
     <lastmod>2026-09-30T01:09:09Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fengyy.org/posts/curl-exit-18-23-download/</loc>
+    <lastmod>2026-10-01T02:59:47Z</lastmod>
   </url>
   <url>
     <loc>https://fengyy.org/posts/curl-proxy-connection-troubleshooting/</loc>
@@ -86,7 +90,7 @@
   </url>
   <url>
     <loc>https://fengyy.org/posts/kxsw1/</loc>
-    <lastmod>2026-09-30T13:04:49Z</lastmod>
+    <lastmod>2026-10-01T03:58:58Z</lastmod>
   </url>
   <url>
     <loc>https://fengyy.org/posts/mryg1/</loc>
@@ -110,11 +114,11 @@
   </url>
   <url>
     <loc>https://fengyy.org/posts/wnba-playoffs-2026-viewing-calendar-guide/</loc>
-    <lastmod>2026-09-30T13:03:49Z</lastmod>
+    <lastmod>2026-10-01T03:58:58Z</lastmod>
   </url>
   <url>
     <loc>https://fengyy.org/tags/curl/</loc>
-    <lastmod>2026-09-30T12:04:52Z</lastmod>
+    <lastmod>2026-10-01T03:58:58Z</lastmod>
   </url>
   <url>
     <loc>https://fengyy.org/tags/proxy-configuration/</loc>
@@ -126,10 +130,10 @@
   </url>
   <url>
     <loc>https://fengyy.org/tags/troubleshooting/</loc>
-    <lastmod>2026-09-30T12:04:52Z</lastmod>
+    <lastmod>2026-10-01T03:58:58Z</lastmod>
   </url>
   <url>
     <loc>https://fengyy.org/tags/troubleshooting/page/2/</loc>
-    <lastmod>2026-09-30T11:58:04Z</lastmod>
+    <lastmod>2026-10-01T03:58:58Z</lastmod>
   </url>
 </urlset>
