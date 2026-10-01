@@ -7,37 +7,37 @@
 <title>切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存 · 风悠悠优质机场</title>
 <meta name="description" content="切换机场节点后仍访问旧地址怎么办？用ipconfig查看和刷新Windows DNS缓存，并按层级排查浏览器与客户端DNS。">
 <meta name="keywords" content="Windows DNS缓存,ipconfig flushdns,机场节点切换,代理排障">
-<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://fengyy.org/posts/windows-dns-cache-check/">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://www.fengyy.org/posts/windows-dns-cache-check/">
 <meta property="og:title" content="切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存">
 <meta property="og:description" content="切换机场节点后仍访问旧地址怎么办？用ipconfig查看和刷新Windows DNS缓存，并按层级排查浏览器与客户端DNS。">
-<meta property="og:url" content="https://fengyy.org/posts/windows-dns-cache-check/">
+<meta property="og:url" content="https://www.fengyy.org/posts/windows-dns-cache-check/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="风悠悠优质机场">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png"><meta property="og:image:alt" content="风悠悠优质机场">
+<meta property="og:image" content="https://www.fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png"><meta property="og:image:alt" content="风悠悠优质机场">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存">
 <meta name="twitter:description" content="切换机场节点后仍访问旧地址怎么办？用ipconfig查看和刷新Windows DNS缓存，并按层级排查浏览器与客户端DNS。">
-<meta name="twitter:image" content="https://fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png">
+<meta name="twitter:image" content="https://www.fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png">
 <meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-09-26T09:06:52&#43;08:00"><meta property="article:modified_time" content="2026-09-26T09:06:57&#43;08:00"><meta property="article:tag" content="代理配置"><meta property="article:tag" content="故障排查">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://fengyy.org/posts/windows-dns-cache-check/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-09-26T09:06:57+08:00","datePublished":"2026-09-26T09:06:52+08:00","description":"切换机场节点后仍访问旧地址怎么办？用ipconfig查看和刷新Windows DNS缓存，并按层级排查浏览器与客户端DNS。","headline":"切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://fengyy.org/posts/windows-dns-cache-check/","@type":"WebPage"},"url":"https://fengyy.org/posts/windows-dns-cache-check/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://fengyy.org/posts/windows-dns-cache-check/","name":"切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存","position":2}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/windows-dns-cache-check/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-09-26T09:06:57+08:00","datePublished":"2026-09-26T09:06:52+08:00","description":"切换机场节点后仍访问旧地址怎么办？用ipconfig查看和刷新Windows DNS缓存，并按层级排查浏览器与客户端DNS。","headline":"切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/windows-dns-cache-check/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/windows-dns-cache-check/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/windows-dns-cache-check/","name":"切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存","position":2}]}]}</script>
 
 <script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
-<link rel="stylesheet" href="https://fengyy.org/assets/theme/style.css">
-<link rel="stylesheet" href="https://fengyy.org/assets/theme/advertisements.css">
-<link rel="stylesheet" href="https://fengyy.org/assets/theme/search.css"><script defer src="https://fengyy.org/assets/theme/search.js"></script>
-<link rel="stylesheet" href="https://fengyy.org/assets/theme/skin.css"><link rel="stylesheet" href="https://fengyy.org/assets/theme/article-cards.css">
-<link rel="stylesheet" href="https://fengyy.org/assets/theme/viewer.css">
-<link rel="stylesheet" href="https://fengyy.org/assets/theme/reader.css">
-<link rel="icon" href="https://fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png">
-<link rel="stylesheet" href="https://fengyy.org/assets/theme/artalk.css"><script defer src="https://fengyy.org/assets/theme/artalk.js"></script>
-<script defer src="https://fengyy.org/assets/theme/theme.js"></script>
-<script defer src="https://fengyy.org/assets/theme/reader.js"></script>
-<script defer src="https://fengyy.org/assets/theme/viewer.js"></script>
-<script defer src="https://fengyy.org/assets/theme/image-viewer.js"></script>
+<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/style.css">
+<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/advertisements.css">
+<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/search.css"><script defer src="https://www.fengyy.org/assets/theme/search.js"></script>
+<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/skin.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/article-cards.css">
+<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/viewer.css">
+<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/reader.css">
+<link rel="icon" href="https://www.fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png">
+<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/artalk.css"><script defer src="https://www.fengyy.org/assets/theme/artalk.js"></script>
+<script defer src="https://www.fengyy.org/assets/theme/theme.js"></script>
+<script defer src="https://www.fengyy.org/assets/theme/reader.js"></script>
+<script defer src="https://www.fengyy.org/assets/theme/viewer.js"></script>
+<script defer src="https://www.fengyy.org/assets/theme/image-viewer.js"></script>
 
-<script defer src="https://fengyy.org/assets/theme/interactions.js"></script>
-<script defer src="https://fengyy.org/assets/theme/hero-banner.js"></script><script defer src="https://fengyy.org/assets/theme/aurora.js"></script><script defer src="https://fengyy.org/assets/theme/article-cards.js"></script>
+<script defer src="https://www.fengyy.org/assets/theme/interactions.js"></script>
+<script defer src="https://www.fengyy.org/assets/theme/hero-banner.js"></script><script defer src="https://www.fengyy.org/assets/theme/aurora.js"></script><script defer src="https://www.fengyy.org/assets/theme/article-cards.js"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PH5M249V6F"></script>
 <script>
@@ -55,9 +55,9 @@
 
 <header class="site-header">
 <div class="header-inner">
-<a class="brand" href="https://fengyy.org/" aria-label="返回首页"><img src="https://fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png" alt="" width="38" height="38"></a>
-<nav id="site-navigation" aria-label="站点导航"><a href="https://fengyy.org/">首页</a><a href="https://fengyy.org/posts/jctj2/">机场推荐</a></nav>
-<a class="search-toggle" href="https://fengyy.org/search/" data-open-dialog="search-dialog" aria-haspopup="dialog" aria-controls="search-dialog" aria-label="搜索" title="搜索"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></a>
+<a class="brand" href="https://www.fengyy.org/" aria-label="返回首页"><img src="https://www.fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png" alt="" width="38" height="38"></a>
+<nav id="site-navigation" aria-label="站点导航"><a href="https://www.fengyy.org/">首页</a><a href="https://www.fengyy.org/posts/jctj2/">机场推荐</a></nav>
+<a class="search-toggle" href="https://www.fengyy.org/search/" data-open-dialog="search-dialog" aria-haspopup="dialog" aria-controls="search-dialog" aria-label="搜索" title="搜索"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></a>
 <button id="theme-mode" class="theme-toggle theme-cycle" type="button" aria-label="明暗模式：跟随系统，点击切换为明亮" title="跟随系统 · 点击切换为明亮">
 <svg class="theme-icon-system" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
 <svg class="theme-icon-moon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 15.5A8.5 8.5 0 0 1 8.5 3.8 8.5 8.5 0 1 0 20.2 15.5Z"/></svg>
@@ -74,7 +74,7 @@
 <div class="article-viewport"><div class="article-scroll">
 <main id="main" tabindex="-1" class="shell journal-shell article-shell" data-has-toc="true">
 
-<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存</span></li></ol></nav>
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://www.fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存</span></li></ol></nav>
 
 
 
@@ -83,7 +83,7 @@
 <div class="eyebrow" data-pagefind-ignore>字里行间</div>
 <h1 data-pagefind-meta="title">切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存</h1>
 <div class="metadata" data-pagefind-ignore><span>王牌飞行员</span><time datetime="2026-09-26T09:06:52&#43;08:00">2026-09-26</time><span><span id="page-views">—</span> 次阅读</span></div>
-<div class="chips" data-pagefind-ignore><a href="https://fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
+<div class="chips" data-pagefind-ignore><a href="https://www.fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
 </header>
 <div class="prose"><h2 id="-windows-dns-">切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存</h2>
 <p>切换机场节点后，网页仍访问旧服务器，很多人会立刻重装客户端或反复换节点。更稳妥的做法是先分层判断：域名解析结果是否缓存、浏览器是否复用旧连接、代理客户端是否自己接管 DNS。Windows 的 DNS 客户端缓存只是其中一层，清空它并不能解决所有代理问题。</p>
@@ -119,8 +119,8 @@
 <span id="page-like-label">点赞</span><span id="page-like-count">—</span>
 </button><p id="page-like-message" role="status"></p>
 </div>
-<div class="article-tags" data-pagefind-ignore><a href="https://fengyy.org/tags/proxy-configuration/"># 代理配置</a><a href="https://fengyy.org/tags/troubleshooting/"># 故障排查</a></div>
-<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://fengyy.org/posts/firefox-doh-proxy-dns-check/">← 上一篇</a><a href="https://fengyy.org/posts/windows-winhttp-proxy-check/">下一篇 →</a></nav>
+<div class="article-tags" data-pagefind-ignore><a href="https://www.fengyy.org/tags/proxy-configuration/"># 代理配置</a><a href="https://www.fengyy.org/tags/troubleshooting/"># 故障排查</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://www.fengyy.org/posts/firefox-doh-proxy-dns-check/">← 上一篇</a><a href="https://www.fengyy.org/posts/windows-winhttp-proxy-check/">下一篇 →</a></nav>
 <section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
 </article>
 
@@ -146,9 +146,9 @@
 <header class="reader-dialog-header"><h2 id="search-title">搜索文章</h2><button class="dialog-close" type="button" data-close-dialog aria-label="关闭搜索" title="关闭搜索">×</button></header>
 <div class="reader-dialog-body">
 
-<div id="site-search-ui" data-module="https://fengyy.org/pagefind/pagefind-component-ui.js" data-stylesheet="https://fengyy.org/pagefind/pagefind-component-ui.css" hidden>
+<div id="site-search-ui" data-module="https://www.fengyy.org/pagefind/pagefind-component-ui.js" data-stylesheet="https://www.fengyy.org/pagefind/pagefind-component-ui.css" hidden>
 
-<pagefind-config bundle-path="https://fengyy.org/pagefind/" base-url="https://fengyy.org/" lang="zh-cn" no-worker></pagefind-config>
+<pagefind-config bundle-path="https://www.fengyy.org/pagefind/" base-url="https://www.fengyy.org/" lang="zh-cn" no-worker></pagefind-config>
 <pagefind-input placeholder="搜索文章标题或正文"></pagefind-input>
 <pagefind-summary></pagefind-summary>
 <pagefind-results></pagefind-results>
