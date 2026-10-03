@@ -4,23 +4,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>curl 报错 5、6、7 有什么区别？按解析与连接阶段排查 · 风悠悠优质机场</title>
-<meta name="description" content="curl报错5、6、7怎么办？分清代理主机解析、目标域名解析和端口连接，避免把不同故障都归因于机场节点。">
-<meta name="keywords" content="curl退出码,curl 5,curl 6,curl 7,机场客户端排障">
-<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://www.fengyy.org/posts/curl-exit-5-6-7/">
-<meta property="og:title" content="curl 报错 5、6、7 有什么区别？按解析与连接阶段排查">
-<meta property="og:description" content="curl报错5、6、7怎么办？分清代理主机解析、目标域名解析和端口连接，避免把不同故障都归因于机场节点。">
-<meta property="og:url" content="https://www.fengyy.org/posts/curl-exit-5-6-7/">
+<title>PowerShell 里的 curl 是哪个程序？先查命令来源再排障 · 风悠悠优质机场</title>
+<meta name="description" content="PowerShell 执行 curl 参数报错怎么办？检查命令优先级、别名、程序路径和版本功能，再测试机场代理连接。">
+<meta name="keywords" content="PowerShell,curl.exe,命令别名,机场客户端,故障排查">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://www.fengyy.org/posts/powershell-curl-command-source/">
+<meta property="og:title" content="PowerShell 里的 curl 是哪个程序？先查命令来源再排障">
+<meta property="og:description" content="PowerShell 执行 curl 参数报错怎么办？检查命令优先级、别名、程序路径和版本功能，再测试机场代理连接。">
+<meta property="og:url" content="https://www.fengyy.org/posts/powershell-curl-command-source/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="风悠悠优质机场">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png"><meta property="og:image:alt" content="风悠悠优质机场">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="curl 报错 5、6、7 有什么区别？按解析与连接阶段排查">
-<meta name="twitter:description" content="curl报错5、6、7怎么办？分清代理主机解析、目标域名解析和端口连接，避免把不同故障都归因于机场节点。">
+<meta name="twitter:title" content="PowerShell 里的 curl 是哪个程序？先查命令来源再排障">
+<meta name="twitter:description" content="PowerShell 执行 curl 参数报错怎么办？检查命令优先级、别名、程序路径和版本功能，再测试机场代理连接。">
 <meta name="twitter:image" content="https://www.fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png">
-<meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-10-02T09:08:28&#43;08:00"><meta property="article:modified_time" content="2026-10-02T09:08:29&#43;08:00"><meta property="article:tag" content="curl"><meta property="article:tag" content="故障排查">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/curl-exit-5-6-7/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-10-02T09:08:29+08:00","datePublished":"2026-10-02T09:08:28+08:00","description":"curl报错5、6、7怎么办？分清代理主机解析、目标域名解析和端口连接，避免把不同故障都归因于机场节点。","headline":"curl 报错 5、6、7 有什么区别？按解析与连接阶段排查","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/curl-exit-5-6-7/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/curl-exit-5-6-7/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/curl-exit-5-6-7/","name":"curl 报错 5、6、7 有什么区别？按解析与连接阶段排查","position":2}]}]}</script>
+<meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-10-03T09:19:36&#43;08:00"><meta property="article:modified_time" content="2026-10-03T09:19:41&#43;08:00"><meta property="article:tag" content="curl"><meta property="article:tag" content="故障排查">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/powershell-curl-command-source/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-10-03T09:19:41+08:00","datePublished":"2026-10-03T09:19:36+08:00","description":"PowerShell 执行 curl 参数报错怎么办？检查命令优先级、别名、程序路径和版本功能，再测试机场代理连接。","headline":"PowerShell 里的 curl 是哪个程序？先查命令来源再排障","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/powershell-curl-command-source/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/powershell-curl-command-source/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/powershell-curl-command-source/","name":"PowerShell 里的 curl 是哪个程序？先查命令来源再排障","position":2}]}]}</script>
 
 <script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/style.css">
@@ -74,34 +74,52 @@
 <div class="article-viewport"><div class="article-scroll">
 <main id="main" tabindex="-1" class="shell journal-shell article-shell" data-has-toc="true">
 
-<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://www.fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">curl 报错 5、6、7 有什么区别？按解析与连接阶段排查</span></li></ol></nav>
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://www.fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">PowerShell 里的 curl 是哪个程序？先查命令来源再排障</span></li></ol></nav>
 
 
 
 <article data-pagefind-body>
 <header class="article-header">
 <div class="eyebrow" data-pagefind-ignore>字里行间</div>
-<h1 data-pagefind-meta="title">curl 报错 5、6、7 有什么区别？按解析与连接阶段排查</h1>
-<div class="metadata" data-pagefind-ignore><span>王牌飞行员</span><time datetime="2026-10-02T09:08:28&#43;08:00">2026-10-02</time><span><span id="page-views">—</span> 次阅读</span></div>
+<h1 data-pagefind-meta="title">PowerShell 里的 curl 是哪个程序？先查命令来源再排障</h1>
+<div class="metadata" data-pagefind-ignore><span>王牌飞行员</span><time datetime="2026-10-03T09:19:36&#43;08:00">2026-10-03</time><span><span id="page-views">—</span> 次阅读</span></div>
 <div class="chips" data-pagefind-ignore><a href="https://www.fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
 </header>
-<div class="prose"><p>curl 报错 5、6、7 都发生在网页内容下载之前，但代表的阶段不同：5 是代理主机解析失败，6 是目标主机解析失败，7 是已经得到地址却无法建立连接。先分清退出码，能避免盲目重装客户端。</p>
-<h2 id="-5">退出码 5：找不到代理主机</h2>
-<p>如果命令使用了形如 <code>http://proxy.example:7890</code> 的代理，而代理主机名无法解析，curl 会返回 5。机场客户端通常监听本机地址，更适合写成明确的 <code>127.0.0.1</code> 和实际端口。若你填了一个局域网设备名，先确认这个名字在当前网络可以解析。</p>
-<p>检查环境变量和命令行参数是否指向同一个代理。尤其留意 <code>HTTPS_PROXY</code>、<code>ALL_PROXY</code> 与手工 <code>--proxy</code> 是否互相覆盖。不要把订阅地址当作代理服务器地址。</p>
-<h2 id="-6">退出码 6：找不到目标主机</h2>
-<p>6 表示目标域名未解析出可用地址。先检查 URL 是否拼错，再比较系统解析与代理远程解析。SOCKS5 场景中，<code>socks5://</code> 和 <code>socks5h://</code> 的 DNS 处理位置不同；排障时应明确使用哪一种，不能只写“开了 SOCKS”。</p>
-<p>用两个不同域名对照：若都返回 6，优先检查 DNS 路径；只有单个域名失败，则核对该域名的记录和输入。不要用关闭 HTTPS 验证来处理解析失败，它与证书阶段无关。</p>
-<h2 id="-7">退出码 7：地址有了，但连不上端口</h2>
-<p>7 表示连接主机失败。此时检查客户端是否启动、代理端口是否监听、协议类型是否匹配，以及防火墙是否阻止本机连接。Windows 可用 <code>Test-NetConnection 127.0.0.1 -Port 端口</code> 验证监听；也可以让 curl 访问一个轻量 HTTPS 目标并记录错误。</p>
-<p>若本地代理端口可连，但访问目标仍返回 7，再看日志里失败的是代理入口、节点入口还是目标地址。退出码相同不代表故障位置完全相同，必须结合命令中的代理配置和日志时间。</p>
-<h2 id="heading">一张最小排障表</h2>
-<p>保留：完整但已脱敏的命令、退出码、代理类型、代理地址、目标域名、测试时间、本地端口检查结果。先修复最靠前的失败阶段：5 修代理主机解析，6 修目标解析，7 查连接与端口。</p>
-<p>连续三次对同一目标返回退出码 0、HTTP 状态符合预期，并且客户端日志没有连接失败，才算通过。这样处理机场客户端故障，比把 5、6、7 都归为“节点坏了”更准确。</p>
-<h2 id="heading-1">参考资料</h2>
+<div class="prose"><p>从教程复制 <code>curl --proxy ...</code>，PowerShell 却提示“不认识参数”，不一定是机场节点有问题。首先要确认：当前输入的 <code>curl</code> 究竟调用了什么。</p>
+<p>这篇适用于 Windows 命令行排障。先解决本地命令识别，再看 DNS、端口或证书，能避免在请求根本没有发出时不停换节点。</p>
+<h2 id="heading">第一步：列出当前命令来源</h2>
+<p>在你遇到问题的同一个 PowerShell 窗口运行：</p>
+<pre><code class="language-powershell">Get-Command curl -All | Format-Table CommandType, Name, Source, Definition -AutoSize
+Get-Command curl.exe -All | Format-Table CommandType, Name, Source -AutoSize
+$PSVersionTable.PSVersion
+</code></pre>
+<p>微软文档说明，未指定路径时，已加载命令通常按别名、函数、Cmdlet、外部程序的顺序查找；<code>Get-Command -All</code> 可找出被同名项目遮住的命令。<a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_command_precedence">命令优先级说明</a></p>
+<p>看 <code>CommandType</code>：<code>Alias</code> 是别名，<code>Function</code> 是函数，<code>Application</code> 才表示外部程序。不要仅凭终端名称或网上对某个 PowerShell 版本的描述判断自己的环境；用户配置也能改变解析结果。</p>
+<h2 id="-curl-">第二步：明确调用 curl 可执行文件</h2>
+<p>Windows 下可先用 <code>curl.exe</code>，再检查：</p>
+<pre><code class="language-powershell">curl.exe --version
+</code></pre>
+<p>如果找到多份 curl，用 <code>Get-Command</code> 返回的实际路径执行你要测试的那一份。例如把真实路径放进变量后使用调用运算符：</p>
+<pre><code class="language-powershell">$curlProgram = 'C:\你的实际路径\curl.exe'
+&amp; $curlProgram --version
+</code></pre>
+<p>这个路径是占位示例，不能直接照抄。若系统找不到程序，先核对安装位置与 PATH，而不是修改代理。也无需为了执行一次教程而永久删除别名或改写 PowerShell 配置文件。</p>
+<h2 id="heading-1">第三步：确认功能，再发最小请求</h2>
+<p>curl 不同构建的功能可能不同。需要 HTTP/2、HTTP/3 或特定协议时，先查看版本输出的协议与功能信息，不能只比较版本数字。<a href="https://curl.se/docs/manpage.html">curl 官方手册</a></p>
+<p>确认程序后，用公开、不带账号令牌的 HTTPS 页面做一次请求：</p>
+<pre><code class="language-powershell">curl.exe -q --connect-timeout 8 --max-time 20 --output NUL --write-out 'HTTP=%{http_code} total=%{time_total}\n' https://example.com/
+$LASTEXITCODE
+</code></pre>
+<p><code>-q</code> 放在首个参数位置，用于避免默认 curl 配置文件干扰这次测试。以上命令没有显式指定代理；如果需要对比客户端入口，另做一组明确带 <code>--proxy</code> 的测试，并使用客户端实际显示的端口。TUN 和环境变量等因素仍要在记录中说明。</p>
+<h2 id="heading-2">分清两类错误</h2>
+<p>如果提示参数不存在、命令找不到或路径错误，请求可能尚未进入网络阶段。若已执行 curl 并返回其退出码，再按实际解析、连接或 TLS 报错继续排查。</p>
+<p>提交工单时附上 PowerShell 版本、curl 路径、curl 版本、脱敏命令和退出码即可。不要把完整环境变量列表一并发送，其中可能包含凭据。</p>
+<h2 id="heading-3">验收清单</h2>
+<p>你应该能解释当前调用的是哪一个程序；命令能正确解析；版本具有测试所需功能；同一可执行文件在同一代理条件下可以重复运行。完成这四项，再比较不同机场节点才有参考价值。</p>
+<h2 id="heading-4">参考资料</h2>
 <ul>
-<li><a href="https://curl.se/docs/manpage.html#EXIT-CODES">curl 官方手册：Exit codes</a></li>
-<li><a href="https://curl.se/docs/manpage.html">curl 官方手册：代理协议前缀</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_command_precedence">Microsoft：PowerShell 命令优先级</a></li>
+<li><a href="https://curl.se/docs/manpage.html">curl 官方手册</a></li>
 </ul>
 </div>
 <div class="article-likes" data-pagefind-ignore>
@@ -111,12 +129,12 @@
 </button><p id="page-like-message" role="status"></p>
 </div>
 <div class="article-tags" data-pagefind-ignore><a href="https://www.fengyy.org/tags/curl/"># curl</a><a href="https://www.fengyy.org/tags/troubleshooting/"># 故障排查</a></div>
-<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://www.fengyy.org/posts/powershell-curl-command-source/">← 上一篇</a><a href="https://www.fengyy.org/posts/2026-airport-risk-roundup-service-quality/">下一篇 →</a></nav>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://www.fengyy.org/posts/kxsw1/">← 上一篇</a><a href="https://www.fengyy.org/posts/curl-exit-5-6-7/">下一篇 →</a></nav>
 <section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
 </article>
 
 <div class="article-rail">
-<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#-5">退出码 5：找不到代理主机</a><a class="level-2" href="#-6">退出码 6：找不到目标主机</a><a class="level-2" href="#-7">退出码 7：地址有了，但连不上端口</a><a class="level-2" href="#heading">一张最小排障表</a><a class="level-2" href="#heading-1">参考资料</a></nav></aside>
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#heading">第一步：列出当前命令来源</a><a class="level-2" href="#-curl-">第二步：明确调用 curl 可执行文件</a><a class="level-2" href="#heading-1">第三步：确认功能，再发最小请求</a><a class="level-2" href="#heading-2">分清两类错误</a><a class="level-2" href="#heading-3">验收清单</a><a class="level-2" href="#heading-4">参考资料</a></nav></aside>
 </div>
 
 </main>
@@ -150,7 +168,7 @@
 </div>
 </dialog>
 
-<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/ae15935b-575e-4432-aee2-9e5fe8b4ad02/","pageTitle":"curl 报错 5、6、7 有什么区别？按解析与连接阶段排查","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/5dfea0f4-76ce-4502-8a94-5e5b2bb9536e/","pageTitle":"PowerShell 里的 curl 是哪个程序？先查命令来源再排障","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
 
 </body>
 </html>
