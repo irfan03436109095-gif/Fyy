@@ -2,15 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.fengyy.org/</loc>
-    <lastmod>2026-10-04T01:23:16Z</lastmod>
+    <lastmod>2026-10-04T06:37:23Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/categories/clients-and-tools/</loc>
-    <lastmod>2026-10-04T01:23:16Z</lastmod>
+    <lastmod>2026-10-04T06:37:23Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/categories/clients-and-tools/page/2/</loc>
-    <lastmod>2026-10-04T01:23:16Z</lastmod>
+    <lastmod>2026-10-04T06:37:23Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/categories/risk-observations/</loc>
@@ -26,15 +26,19 @@
   </url>
   <url>
     <loc>https://www.fengyy.org/page/2/</loc>
-    <lastmod>2026-10-04T01:23:16Z</lastmod>
+    <lastmod>2026-10-04T06:37:23Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/page/3/</loc>
-    <lastmod>2026-10-04T01:23:16Z</lastmod>
+    <lastmod>2026-10-04T06:37:23Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/2026-airport-risk-roundup-service-quality/</loc>
     <lastmod>2026-10-03T16:07:00Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.fengyy.org/posts/airport-subscription-beginner-illustrated-2026/</loc>
+    <lastmod>2026-10-04T06:34:09Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/chatgpt-gpt-61-features-proxy-plans/</loc>
@@ -106,7 +110,7 @@
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/kxsw1/</loc>
-    <lastmod>2026-10-04T01:23:16Z</lastmod>
+    <lastmod>2026-10-04T06:37:23Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/mryg1/</loc>
@@ -122,7 +126,7 @@
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/windows-clock-tls-check/</loc>
-    <lastmod>2026-10-04T01:23:10Z</lastmod>
+    <lastmod>2026-10-04T06:37:23Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/windows-dns-cache-check/</loc>
@@ -150,18 +154,18 @@
   </url>
   <url>
     <loc>https://www.fengyy.org/tags/proxy-configuration/</loc>
-    <lastmod>2026-10-04T01:23:16Z</lastmod>
+    <lastmod>2026-10-04T06:37:23Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/tags/proxy-configuration/page/2/</loc>
-    <lastmod>2026-10-04T01:23:16Z</lastmod>
+    <lastmod>2026-10-04T06:37:23Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/tags/troubleshooting/</loc>
-    <lastmod>2026-10-04T01:23:16Z</lastmod>
+    <lastmod>2026-10-04T06:37:23Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/tags/troubleshooting/page/2/</loc>
-    <lastmod>2026-10-04T01:23:16Z</lastmod>
+    <lastmod>2026-10-04T06:37:23Z</lastmod>
   </url>
 </urlset>
