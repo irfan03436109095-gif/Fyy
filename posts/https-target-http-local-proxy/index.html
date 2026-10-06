@@ -4,23 +4,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>curl 报错 52 和 56 怎么查？分清空回复与接收中断 · 风悠悠优质机场</title>
-<meta name="description" content="curl 52 与 56 分别是什么意思？在 Windows 记录退出码、HTTP 状态和接收字节，按单一变量比较请求，形成可提交的代理排障证据。">
-<meta name="keywords" content="机场推荐,curl 52,curl 56,代理故障排查">
-<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://www.fengyy.org/posts/curl-exit-52-56-check/">
-<meta property="og:title" content="curl 报错 52 和 56 怎么查？分清空回复与接收中断">
-<meta property="og:description" content="curl 52 与 56 分别是什么意思？在 Windows 记录退出码、HTTP 状态和接收字节，按单一变量比较请求，形成可提交的代理排障证据。">
-<meta property="og:url" content="https://www.fengyy.org/posts/curl-exit-52-56-check/">
+<title>访问 HTTPS 网站，代理为什么填 http://？本地代理地址的协议检查 · 风悠悠优质机场</title>
+<meta name="description" content="curl 访问 HTTPS 网站却使用 http 本地代理正常吗？按监听协议、地址和端口核对配置，用一次公开 GET 验收，避免误填成 HTTPS 代理。">
+<meta name="keywords" content="机场推荐,本地HTTP代理,HTTPS代理地址,curl代理配置">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://www.fengyy.org/posts/https-target-http-local-proxy/">
+<meta property="og:title" content="访问 HTTPS 网站，代理为什么填 http://？本地代理地址的协议检查">
+<meta property="og:description" content="curl 访问 HTTPS 网站却使用 http 本地代理正常吗？按监听协议、地址和端口核对配置，用一次公开 GET 验收，避免误填成 HTTPS 代理。">
+<meta property="og:url" content="https://www.fengyy.org/posts/https-target-http-local-proxy/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="风悠悠优质机场">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png"><meta property="og:image:alt" content="风悠悠优质机场">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="curl 报错 52 和 56 怎么查？分清空回复与接收中断">
-<meta name="twitter:description" content="curl 52 与 56 分别是什么意思？在 Windows 记录退出码、HTTP 状态和接收字节，按单一变量比较请求，形成可提交的代理排障证据。">
+<meta name="twitter:title" content="访问 HTTPS 网站，代理为什么填 http://？本地代理地址的协议检查">
+<meta name="twitter:description" content="curl 访问 HTTPS 网站却使用 http 本地代理正常吗？按监听协议、地址和端口核对配置，用一次公开 GET 验收，避免误填成 HTTPS 代理。">
 <meta name="twitter:image" content="https://www.fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png">
-<meta name="author" content="风"><meta property="article:published_time" content="2026-10-05T09:29:50&#43;08:00"><meta property="article:modified_time" content="2026-10-05T09:29:53&#43;08:00"><meta property="article:tag" content="curl"><meta property="article:tag" content="故障排查">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/curl-exit-52-56-check/#article","@type":"BlogPosting","author":{"@type":"Person","name":"风"},"dateModified":"2026-10-05T09:29:53+08:00","datePublished":"2026-10-05T09:29:50+08:00","description":"curl 52 与 56 分别是什么意思？在 Windows 记录退出码、HTTP 状态和接收字节，按单一变量比较请求，形成可提交的代理排障证据。","headline":"curl 报错 52 和 56 怎么查？分清空回复与接收中断","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/curl-exit-52-56-check/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/curl-exit-52-56-check/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/curl-exit-52-56-check/","name":"curl 报错 52 和 56 怎么查？分清空回复与接收中断","position":2}]}]}</script>
+<meta name="author" content="风"><meta property="article:published_time" content="2026-10-06T09:20:06&#43;08:00"><meta property="article:modified_time" content="2026-10-06T09:20:18&#43;08:00"><meta property="article:tag" content="curl"><meta property="article:tag" content="代理配置"><meta property="article:tag" content="故障排查">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/https-target-http-local-proxy/#article","@type":"BlogPosting","author":{"@type":"Person","name":"风"},"dateModified":"2026-10-06T09:20:18+08:00","datePublished":"2026-10-06T09:20:06+08:00","description":"curl 访问 HTTPS 网站却使用 http 本地代理正常吗？按监听协议、地址和端口核对配置，用一次公开 GET 验收，避免误填成 HTTPS 代理。","headline":"访问 HTTPS 网站，代理为什么填 http://？本地代理地址的协议检查","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/https-target-http-local-proxy/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/https-target-http-local-proxy/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/https-target-http-local-proxy/","name":"访问 HTTPS 网站，代理为什么填 http://？本地代理地址的协议检查","position":2}]}]}</script>
 
 <script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/style.css">
@@ -74,71 +74,72 @@
 <div class="article-viewport"><div class="article-scroll">
 <main id="main" tabindex="-1" class="shell journal-shell article-shell" data-has-toc="true">
 
-<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://www.fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">curl 报错 52 和 56 怎么查？分清空回复与接收中断</span></li></ol></nav>
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://www.fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">访问 HTTPS 网站，代理为什么填 http://？本地代理地址的协议检查</span></li></ol></nav>
 
 
 
 <article data-pagefind-body>
 <header class="article-header">
 <div class="eyebrow" data-pagefind-ignore>字里行间</div>
-<h1 data-pagefind-meta="title">curl 报错 52 和 56 怎么查？分清空回复与接收中断</h1>
-<div class="metadata" data-pagefind-ignore><span>风</span><time datetime="2026-10-05T09:29:50&#43;08:00">2026-10-05</time><span><span id="page-views">—</span> 次阅读</span></div>
+<h1 data-pagefind-meta="title">访问 HTTPS 网站，代理为什么填 http://？本地代理地址的协议检查</h1>
+<div class="metadata" data-pagefind-ignore><span>风</span><time datetime="2026-10-06T09:20:06&#43;08:00">2026-10-06</time><span><span id="page-views">—</span> 次阅读</span></div>
 <div class="chips" data-pagefind-ignore><a href="https://www.fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
 </header>
-<div class="prose"><p>机场客户端显示已连接，命令行请求却出现 curl 52 或 56，先保存原始错误。两者指向不同的接收现象，但都不能单凭编号认定是机场节点坏了。</p>
-<p>本文适用于 Windows PowerShell 中的 curl.exe。使用公开的小页面检查即可，不用订单、上传或带登录凭据的请求做重试实验。</p>
-<p><img src="https://www.fengyy.org/assets/media/839ddd16-adf5-4733-b720-428c30913531.png" alt="空回复与接收中断的两条诊断路径"></p>
-<p><em>示意图：52 与 56 是两种接收现象，仍需保留原始错误定位。</em></p>
-<h2 id="52--56-">52 与 56 的差别</h2>
-<p><a href="https://curl.se/docs/manpage.html">curl 官方手册的退出码说明</a>把 52 描述为空回复，即没有收到可作为回复的数据；56 表示接收网络数据失败。56 可能出现在接收过程中，定位仍需要结合已经收到的响应与错误信息。</p>
+<div class="prose"><p>把网页地址里的 https:// 复制到本地代理地址前面，是一种容易发生的配置混淆。目标网站使用 HTTPS，与本地代理端口是否接受 TLS 连接，是两个独立问题。</p>
+<p>本文适用于 Windows PowerShell 中的 curl.exe，以及提供本地 HTTP 或混合端口的代理客户端。先查看客户端当前监听配置，文中的端口不能直接当作你的配置。</p>
+<p><img src="https://www.fengyy.org/assets/media/27ef2734-bd88-4294-8ebb-e1bb63c54162.png" alt="本地 HTTP 代理入口与目标 HTTPS 连接分开标注的两段示意"></p>
+<p><em>示意图：入口协议与目标协议分别核对，图中不表示真实线路或测量结果。</em></p>
+<h2 id="heading">先读懂两个地址</h2>
+<p>假设客户端明确提供本机 HTTP 代理入口，代理参数的 http:// 描述 curl 与该入口交谈的方式；目标 URL 的 https:// 描述要访问的网站。两者同时出现并不冲突。</p>
+<p><a href="https://everything.curl.dev/usingcurl/proxies/http.html">curl 官方 HTTP 代理说明</a>解释了 HTTPS 请求可以通过 HTTP 代理的 CONNECT 隧道传输。保留目标站点的证书验证时，不能因为本地代理地址以 http:// 开头，就认定目标 HTTPS 正文变成了普通明文请求。</p>
+<p><a href="https://everything.curl.dev/usingcurl/proxies/https.html">HTTPS 代理</a>则要求 curl 与代理本身建立 TLS 连接。把一个只接受普通 HTTP 的本地端口改写成 https://，不会自动为它增加 TLS 功能。</p>
+<h2 id="heading-1">操作前核对三项</h2>
 <table>
 <thead>
 <tr>
-<th>现象</th>
-<th>先记录什么</th>
-<th>不能直接推定什么</th>
+<th>字段</th>
+<th>查看哪里</th>
+<th>正确判断方式</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>退出码 52</td>
-<td>完整错误文字、是否有 HTTP 响应</td>
-<td>不能当作正常的空正文</td>
+<td>监听类型</td>
+<td>客户端本地端口说明</td>
+<td>HTTP、SOCKS 或混合入口分别确认</td>
 </tr>
 <tr>
-<td>退出码 56</td>
-<td>错误文字、已接收字节、是否已有响应</td>
-<td>不能据此确定是哪一段链路出错</td>
+<td>地址</td>
+<td>当前监听地址</td>
+<td>本机使用时确认是否为回环地址</td>
 </tr>
 <tr>
-<td>HTTP 204 且请求正常结束</td>
-<td>响应状态与退出码</td>
-<td>204 没有正文不等于错误 52</td>
+<td>端口</td>
+<td>客户端实际配置</td>
+<td>使用当前值，不凭教程记忆填写</td>
 </tr>
 </tbody>
 </table>
-<h2 id="heading">做一次有边界的小请求</h2>
-<p>在 PowerShell 运行以下只读 GET。示例域名不代表你的业务目标，也不保证与你遇到问题的网站具有相同路径。</p>
-<pre><code class="language-powershell">curl.exe -q --show-error --max-time 20 --output NUL --write-out &quot;HTTP:%{http_code} Received:%{size_download}\n&quot; https://example.com/
-$requestExit = $LASTEXITCODE
-$requestExit
+<p>混合入口具体支持哪些协议，仍以客户端说明为准；“混合”这个名字本身不承诺支持 HTTPS 代理。</p>
+<h2 id="heading-2">用一次小请求验收</h2>
+<p>在 PowerShell 中，先替换下面的示例端口为已经确认的 HTTP 代理端口。example.com 只是公开网页示例，不是性能测试目标。</p>
+<pre><code class="language-powershell">$proxyPort = 7890 # 示例值，先按客户端实际 HTTP 端口修改
+curl.exe -q --noproxy 'localhost' --proxy &quot;http://127.0.0.1:$proxyPort&quot; --connect-timeout 10 --max-time 20 -sS -o NUL -w 'HTTP=%{http_code}
+' 'https://example.com/'
+$LASTEXITCODE
 </code></pre>
-<p><code>-q</code> 放在第一个参数，避免默认 curl 配置影响本次示例。执行后马上保存 <code>$LASTEXITCODE</code>，不要先运行别的程序再读它。HTTP 显示 <code>000</code> 时，它表示没有拿到可报告的 HTTP 状态，不能按真实的 HTTP 状态码解释。</p>
-<h2 id="heading-1">一次只比较一个条件</h2>
-<ol>
-<li>写下时间、目标 URL、网络类型、当前选用节点和客户端模式。</li>
-<li>保持目标与命令不变，只切换一个有明确用途的条件，例如同一客户端中的另一节点。</li>
-<li>对照退出码、完整错误文字、HTTP 状态和接收量；恢复原条件再看是否能复现。</li>
-<li>若问题只出现在特定目标，继续核对该目标与客户端日志，不用一个正常页面证明所有网站都正常。</li>
-</ol>
-<p>环境代理仍可能影响请求；这条命令不自动指定或绕过你的代理路径。若需要比较路径，先按自己的客户端文档确认实际接管方式，再记录差异。</p>
-<h2 id="heading-2">排障记录怎样才有用</h2>
-<p>验收不是“终于有一次成功”，而是能说明什么条件下出现什么错误，以及是否可复现。对外提供时间、脱敏目标、退出码和客户端模式即可。不要发订阅链接、认证头或包含账号信息的整段调试日志；也不要把这里的 GET 比较方式直接套到付款或提交表单。</p>
-<h2 id="heading-3">来源与核验日期</h2>
+<p>保留两行结果：网站 HTTP 状态与 curl 退出码。请求收到响应后，再结合客户端连接记录确认这次请求使用了预期入口。示例将绕过列表限定为 localhost；目标 example.com 不匹配该项，避免环境里其他绕过规则改变这次对照。</p>
+<p>如果客户端只提供 SOCKS 入口，就按它的说明使用对应 SOCKS 参数，不能把 HTTP 字符串原样套进去。连接失败时先回查监听类型和端口，继续保存错误文字；一个失败编号并不能直接证明机场线路有问题。</p>
+<h2 id="heading-3">验收后保留什么</h2>
+<p>记录实际入口类型、端口、请求时间与结果即可，不要把代理认证密码写进截图。既不要为修复协议填写错误关闭证书验证，也不要为了本机测试把监听地址扩大到所有网卡。</p>
+<p>完成标准是：你能分别说明代理地址协议和目标网页协议，参数与实际入口一致，并得到可复查的请求结果。阅读机场推荐教程时，也应先核对自己的客户端提供什么接口。</p>
+<h2 id="heading-4">来源与核验日期</h2>
 <ul>
-<li><a href="https://curl.se/docs/manpage.html">curl 官方手册：退出码及命令选项</a></li>
+<li><a href="https://everything.curl.dev/usingcurl/proxies/http.html">everything curl：HTTP 代理与 HTTPS 隧道</a></li>
+<li><a href="https://everything.curl.dev/usingcurl/proxies/https.html">everything curl：HTTPS 代理</a></li>
+<li><a href="https://curl.se/docs/manpage.html">curl：参数参考</a></li>
 </ul>
-<p>官方资料核验日期：2026-10-05。文中的表格和流程用于自行检查，不代表本站对某家机场的实测结论。</p>
+<p>官方资料核验日期：2026-10-06。文中的表格和流程用于自行检查，不代表本站对某家机场的实测结论。</p>
 </div>
 <div class="article-likes" data-pagefind-ignore>
 <button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
@@ -146,13 +147,13 @@ $requestExit
 <span id="page-like-label">点赞</span><span id="page-like-count">—</span>
 </button><p id="page-like-message" role="status"></p>
 </div>
-<div class="article-tags" data-pagefind-ignore><a href="https://www.fengyy.org/tags/curl/"># curl</a><a href="https://www.fengyy.org/tags/troubleshooting/"># 故障排查</a></div>
-<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://www.fengyy.org/posts/https-target-http-local-proxy/">← 上一篇</a><a href="https://www.fengyy.org/posts/airport-subscription-beginner-illustrated-2026/">下一篇 →</a></nav>
+<div class="article-tags" data-pagefind-ignore><a href="https://www.fengyy.org/tags/curl/"># curl</a><a href="https://www.fengyy.org/tags/proxy-configuration/"># 代理配置</a><a href="https://www.fengyy.org/tags/troubleshooting/"># 故障排查</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://www.fengyy.org/posts/kxsw1/">← 上一篇</a><a href="https://www.fengyy.org/posts/curl-exit-52-56-check/">下一篇 →</a></nav>
 <section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
 </article>
 
 <div class="article-rail">
-<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#52--56-">52 与 56 的差别</a><a class="level-2" href="#heading">做一次有边界的小请求</a><a class="level-2" href="#heading-1">一次只比较一个条件</a><a class="level-2" href="#heading-2">排障记录怎样才有用</a><a class="level-2" href="#heading-3">来源与核验日期</a></nav></aside>
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#heading">先读懂两个地址</a><a class="level-2" href="#heading-1">操作前核对三项</a><a class="level-2" href="#heading-2">用一次小请求验收</a><a class="level-2" href="#heading-3">验收后保留什么</a><a class="level-2" href="#heading-4">来源与核验日期</a></nav></aside>
 <aside class="ad-slot" aria-label="文章相关内容" data-ad-position="article_sidebar" data-pagefind-ignore><a class="ad-card" href="https://goflybit.com/#/register?code=gPinVG8C" target="_blank" rel="sponsored noopener noreferrer" aria-label="FlyBit · 内容页侧边邀请入口（在新标签页打开）" data-ad-link>
 
 <div class="ad-copy"><h3>FlyBit</h3>
@@ -202,7 +203,7 @@ $requestExit
 </div>
 </dialog>
 
-<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/4e41338c-d8ac-4a6a-aff1-21633fc754a8/","pageTitle":"curl 报错 52 和 56 怎么查？分清空回复与接收中断","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/8fd45bc1-00d2-4358-b545-e4a3ed116a0e/","pageTitle":"访问 HTTPS 网站，代理为什么填 http://？本地代理地址的协议检查","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
 
 </body>
 </html>
