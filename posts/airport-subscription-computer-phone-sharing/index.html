@@ -4,23 +4,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Firefox 已填代理，部分网站为何仍直连？检查代理例外 · 风悠悠优质机场</title>
-<meta name="description" content="Firefox 代理设置正常却有网站直连怎么办？核对 No Proxy For、当前代理来源及扩展控制，单项修改后用客户端记录和真实请求验收。">
-<meta name="keywords" content="机场推荐,Firefox代理例外,No Proxy For,浏览器直连排查">
-<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://www.fengyy.org/posts/firefox-no-proxy-exceptions/">
-<meta property="og:title" content="Firefox 已填代理，部分网站为何仍直连？检查代理例外">
-<meta property="og:description" content="Firefox 代理设置正常却有网站直连怎么办？核对 No Proxy For、当前代理来源及扩展控制，单项修改后用客户端记录和真实请求验收。">
-<meta property="og:url" content="https://www.fengyy.org/posts/firefox-no-proxy-exceptions/">
+<title>一份机场订阅能同时用电脑和手机吗？多设备使用与流量核对 · 风悠悠优质机场</title>
+<meta name="description" content="一份机场订阅能否同时用于电脑和手机，要看服务的多设备规则与客户端格式。分清设备、连接数、IP 数和热点共享，按单设备、双设备与切网三轮检查。">
+<meta name="keywords" content="机场多设备,电脑手机共用机场,机场订阅,设备限制,机场流量">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://www.fengyy.org/posts/airport-subscription-computer-phone-sharing/">
+<meta property="og:title" content="一份机场订阅能同时用电脑和手机吗？多设备使用与流量核对">
+<meta property="og:description" content="一份机场订阅能否同时用于电脑和手机，要看服务的多设备规则与客户端格式。分清设备、连接数、IP 数和热点共享，按单设备、双设备与切网三轮检查。">
+<meta property="og:url" content="https://www.fengyy.org/posts/airport-subscription-computer-phone-sharing/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="风悠悠优质机场">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png"><meta property="og:image:alt" content="风悠悠优质机场">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Firefox 已填代理，部分网站为何仍直连？检查代理例外">
-<meta name="twitter:description" content="Firefox 代理设置正常却有网站直连怎么办？核对 No Proxy For、当前代理来源及扩展控制，单项修改后用客户端记录和真实请求验收。">
+<meta name="twitter:title" content="一份机场订阅能同时用电脑和手机吗？多设备使用与流量核对">
+<meta name="twitter:description" content="一份机场订阅能否同时用于电脑和手机，要看服务的多设备规则与客户端格式。分清设备、连接数、IP 数和热点共享，按单设备、双设备与切网三轮检查。">
 <meta name="twitter:image" content="https://www.fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png">
-<meta name="author" content="风"><meta property="article:published_time" content="2026-10-07T09:19:13&#43;08:00"><meta property="article:modified_time" content="2026-10-07T09:19:18&#43;08:00"><meta property="article:tag" content="代理配置"><meta property="article:tag" content="故障排查">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/firefox-no-proxy-exceptions/#article","@type":"BlogPosting","author":{"@type":"Person","name":"风"},"dateModified":"2026-10-07T09:19:18+08:00","datePublished":"2026-10-07T09:19:13+08:00","description":"Firefox 代理设置正常却有网站直连怎么办？核对 No Proxy For、当前代理来源及扩展控制，单项修改后用客户端记录和真实请求验收。","headline":"Firefox 已填代理，部分网站为何仍直连？检查代理例外","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/firefox-no-proxy-exceptions/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/firefox-no-proxy-exceptions/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/firefox-no-proxy-exceptions/","name":"Firefox 已填代理，部分网站为何仍直连？检查代理例外","position":2}]}]}</script>
+<meta name="author" content="风"><meta property="article:published_time" content="2026-10-07T21:24:36&#43;08:00"><meta property="article:modified_time" content="2026-10-07T21:24:46&#43;08:00"><meta property="article:tag" content="代理配置"><meta property="article:tag" content="故障排查">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/airport-subscription-computer-phone-sharing/#article","@type":"BlogPosting","author":{"@type":"Person","name":"风"},"dateModified":"2026-10-07T21:24:46+08:00","datePublished":"2026-10-07T21:24:36+08:00","description":"一份机场订阅能否同时用于电脑和手机，要看服务的多设备规则与客户端格式。分清设备、连接数、IP 数和热点共享，按单设备、双设备与切网三轮检查。","headline":"一份机场订阅能同时用电脑和手机吗？多设备使用与流量核对","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/airport-subscription-computer-phone-sharing/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/airport-subscription-computer-phone-sharing/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/airport-subscription-computer-phone-sharing/","name":"一份机场订阅能同时用电脑和手机吗？多设备使用与流量核对","position":2}]}]}</script>
 
 <script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/style.css">
@@ -74,74 +74,79 @@
 <div class="article-viewport"><div class="article-scroll">
 <main id="main" tabindex="-1" class="shell journal-shell article-shell" data-has-toc="true">
 
-<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://www.fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">Firefox 已填代理，部分网站为何仍直连？检查代理例外</span></li></ol></nav>
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://www.fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">一份机场订阅能同时用电脑和手机吗？多设备使用与流量核对</span></li></ol></nav>
 
 
 
 <article data-pagefind-body>
 <header class="article-header">
 <div class="eyebrow" data-pagefind-ignore>字里行间</div>
-<h1 data-pagefind-meta="title">Firefox 已填代理，部分网站为何仍直连？检查代理例外</h1>
-<div class="metadata" data-pagefind-ignore><span>风</span><time datetime="2026-10-07T09:19:13&#43;08:00">2026-10-07</time><span><span id="page-views">—</span> 次阅读</span></div>
+<h1 data-pagefind-meta="title">一份机场订阅能同时用电脑和手机吗？多设备使用与流量核对</h1>
+<div class="metadata" data-pagefind-ignore><span>风</span><time datetime="2026-10-07T21:24:36&#43;08:00">2026-10-07</time><span><span id="page-views">—</span> 次阅读</span></div>
 <div class="chips" data-pagefind-ignore><a href="https://www.fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
 </header>
-<div class="prose"><p>Firefox 中填写了代理地址和端口，并不表示每个网站请求都会使用这个代理。连接设置里的例外列表，可能有意让一部分主机绕过浏览器代理。</p>
-<p>本文处理 Firefox 自身的代理选择。若电脑同时启用 TUN、企业网络接管或其他 VPN，浏览器“不使用代理”的请求仍可能被其他层接管，不能仅凭一个设置断言最终出口。</p>
-<p><img src="https://www.fengyy.org/assets/media/fcfc1036-9d85-4036-ba8e-6ee8dbeedc35.png" alt="浏览器根据例外列表选择代理路径或直接路径的判断示意"></p>
-<p><em>示意图：浏览器代理例外影响这一层的选择，最终路径还要结合其他网络接管检查。</em></p>
-<h2 id="heading">“不使用代理”具体是什么</h2>
-<p><a href="https://support.mozilla.org/en-US/kb/connection-settings-firefox">Mozilla 官方连接设置说明</a>把 No Proxy For 定义为不经代理的主机名或 IP 地址列表，并说明 <code>&lt;local&gt;</code> 可用于没有句点的简单主机名。它是连接选择条件，不是网页广告过滤器。</p>
-<p>先确认你选用的是手动代理、系统代理、自动检测还是 PAC。不同来源需要检查相应配置，不能看到手动代理栏有旧地址，就认定当前正在使用它。官方说明还指出，连接设置会显示控制网络连接的扩展。</p>
-<h2 id="heading-1">按四步找出一个目标的例外</h2>
-<ol>
-<li><strong>记录问题页面的主机名。</strong> 只记域名及时间，不复制带账号令牌的完整 URL。登录页跳到另一个域名时，将两个主机名分别记录。</li>
-<li><strong>进入当前连接设置。</strong> 在 Firefox 设置中搜索“代理”或“连接设置”，按当前版本找到代理配置窗口；界面位置可能变化，可对照文末官方文档。</li>
-<li><strong>私下保存现有配置。</strong> 记录代理来源、端口、例外列表以及是否由扩展控制。公开求助时遮盖内部域名、账号和其他敏感项。</li>
-<li><strong>只核对相关例外。</strong> 对照目标主机名与现有条目。若列表含单位内网或本机访问要求，保留它们；不要把整个列表清空作为第一步。</li>
-</ol>
-<p>如果你不确定一个条目的匹配范围，先查看客户端或浏览器的当前官方说明。不要把“不使用代理”的写法直接当成 PAC 语法，也不要套用另一个客户端的域名规则。</p>
-<h2 id="heading-2">怎样证明改动实际生效</h2>
-<p>仅在你能确认用途的情况下，暂时移除与目标相关的一个误加条目，保存后重新发起目标请求。保持节点、客户端模式、其他扩展和目标任务不变。</p>
-<p>同时查看本地代理客户端提供的连接记录：有没有出现这次目标请求、采用什么规则、选择什么节点。日志没有出现也可能是日志级别或观察方式不完整，应记录为“未观察到”，继续核对，而不是直接认定直连。</p>
+<div class="prose"><p>电脑能连，手机也能连，是不是可以两台一起用？还需要核对套餐的同时在线、IP 数或连接数限制。多设备不是一个统一口径，同一个词在不同服务的规则里可能指不同条件。</p>
+<h2 id="heading">多设备先按图核对</h2>
+<p><img src="https://www.fengyy.org/assets/media/8e1d9f5c-219b-4e13-a88b-bebb5e811bf2.png" alt="电脑和手机共用机场时核对设备限制、订阅格式、独立验收、同时连接和实际扣量的流程图"></p>
+<h2 id="1-">1. 先问四个具体问题</h2>
+<p>这个套餐允许多少台设备配置？最多几台同时在线？是否限制连接数或不同 IP 数？是否允许把账户或订阅给其他人使用？</p>
+<p>例如电脑连家庭 Wi-Fi，手机使用蜂窝网络，服务可能按不同出口记录它们。是否允许这样的同时使用，要看当前套餐规则，不能根据两台都能导入就推断没有限制。</p>
+<h2 id="2-">2. 同一账户不代表同一种订阅格式</h2>
+<p>电脑和手机可能使用不同客户端，服务提供的配置格式需要分别匹配。先选择软件，再从自己的账户页面复制对应的私人订阅。</p>
+<p>Clash Verge Rev 官方文档区分远程订阅与本地配置导入，说明客户端如何读取配置；它并不规定商家允许几台设备使用。软件支持与套餐授权，应分别核对。<a href="https://www.clashverge.dev/guide/profile.html">官方订阅导入说明</a>。</p>
+<h2 id="3-">3. 两台设备先独立测试</h2>
+<p>电脑单独连接，完成一项常用任务；断开后，让手机单独完成同一类任务。手机如需系统 VPN 授权，按系统提示确认当前连接的客户端。</p>
+<p>Android 官方文档说明，系统 VPN 机制负责设备上的接管与授权。因此，手机导入了订阅与手机已经建立接管连接，是不同阶段。<a href="https://developer.android.com/develop/connectivity/vpn">Android 官方 VPN 说明</a>。</p>
+<h2 id="4-">4. 再做一次允许范围内的同时使用</h2>
+<p>两端独立通过之后，再同时打开普通网页或常用任务。出现一端断开时，先查看在线、IP 数或连接限制与客户端提示；不要直接判断服务线路坏了。</p>
 <table>
 <thead>
 <tr>
-<th>对照项</th>
-<th>修改前</th>
-<th>修改后</th>
+<th>观察结果</th>
+<th>下一步核对</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>当前代理来源</td>
-<td>自行填写</td>
-<td>应保持一致</td>
+<td>各自能用，一起用就异常</td>
+<td>套餐的同时在线、IP 或连接限制</td>
 </tr>
 <tr>
-<td>相关例外条目</td>
-<td>自行填写</td>
-<td>只改变该项</td>
+<td>只有手机不能用</td>
+<td>手机订阅格式、节点与系统授权</td>
 </tr>
 <tr>
-<td>客户端中的目标连接记录</td>
-<td>有／无／无法观察</td>
-<td>有／无／无法观察</td>
+<td>只有电脑某些软件不能用</td>
+<td>软件是否采用当前代理接管方式</td>
 </tr>
 <tr>
-<td>原页面或登录任务</td>
-<td>成功／失败及提示</td>
-<td>成功／失败及提示</td>
+<td>换到蜂窝网络后异常</td>
+<td>新网络、当前节点与服务规则</td>
 </tr>
 </tbody>
 </table>
-<p>如果改动无效，恢复原条目，再查 PAC、扩展、客户端分流或目标服务。不要连续改动多套设置，让前后条件无法比较。</p>
-<h2 id="heading-3">验收时还要检查本地访问</h2>
-<p>目标网站恢复之后，检查原本需要直连的本地页面或单位内网是否仍可使用。机场推荐中的客户端教程，应该帮助你明确每个请求由哪处配置决定，而不是要求所有目标无差别走代理。</p>
-<h2 id="heading-4">来源与核验日期</h2>
+<p>一次只改变一个条件，更容易辨别是设备配置、网络变化还是套餐限制。</p>
+<h2 id="5-">5. 套餐流量与手机流量是两本账</h2>
+<p>如果套餐说明两端共享额度，两台设备的计费使用量就应一起纳入预算。各自都有 100GB 的说法，只有规则明确分别配额时才成立。</p>
+<p>手机蜂窝数据还受运营商账单与系统统计影响，代理服务额度则按该服务的计费方式变化。用两个账单各自核对，不把其中一个剩余额度当成另一个。</p>
+<h2 id="6-">6. 开热点不等于自动分享代理</h2>
+<p>手机已连接客户端，电脑通过手机热点上网，不能仅凭这一点判断电脑也走同一代理路径。电脑需要单独验收当前接管方式与实际任务。</p>
+<p>若你希望电脑直接运行自己的客户端，可以在套餐允许的范围内为电脑导入订阅。不要把热点连接成功当成机场已经在电脑上配置成功。</p>
+<h2 id="7-">7. 私人订阅不要当成公开共享入口</h2>
+<p>订阅可能包含读取配置的私密参数。自己多设备使用时，通过自己控制的方式传递；联系客服或发截图时先遮挡完整地址与二维码。</p>
+<p>先问清规则、两端分别通过、再同时验证，就能把能否共用的问题变成具体结果。</p>
+<h2 id="heading-1">接下来可以看什么</h2>
 <ul>
-<li><a href="https://support.mozilla.org/en-US/kb/connection-settings-firefox">Mozilla：Firefox 连接设置与 No Proxy For</a></li>
+<li><a href="https://www.fengyy.org/posts/airport-subscription-beginner-illustrated-2026/">电脑、安卓与 iPhone 新手图解</a></li>
 </ul>
-<p>官方资料核验日期：2026-10-07。本文提供自行操作与记录的方法，不代表本站对某家机场的实测结论。</p>
+<p>先按本文完成核对，再从本站的候选与教程继续比较。文中的检查方法不替代服务的当前套餐条件，价格、活动与限制请在购买前重新确认。</p>
+<h2 id="heading-2">资料与核对范围</h2>
+<ul>
+<li><a href="https://www.clashverge.dev/guide/profile.html">Clash Verge Rev 官方订阅导入说明</a></li>
+<li><a href="https://developer.android.com/develop/connectivity/vpn">Android 官方 VPN 说明</a></li>
+</ul>
+<p>官方资料用于说明客户端或测量机制，文章中的选择清单为本站整理，不代表任何服务商的性能承诺。</p>
+<p>资料核对日期：2026 年 10 月 7 日。插图为原创要点示意，不是客户端界面截图。</p>
 </div>
 <div class="article-likes" data-pagefind-ignore>
 <button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
@@ -150,12 +155,12 @@
 </button><p id="page-like-message" role="status"></p>
 </div>
 <div class="article-tags" data-pagefind-ignore><a href="https://www.fengyy.org/tags/proxy-configuration/"># 代理配置</a><a href="https://www.fengyy.org/tags/troubleshooting/"># 故障排查</a></div>
-<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://www.fengyy.org/posts/airport-subscription-computer-phone-sharing/">← 上一篇</a><a href="https://www.fengyy.org/posts/https-target-http-local-proxy/">下一篇 →</a></nav>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://www.fengyy.org/posts/kxsw1/">← 上一篇</a><a href="https://www.fengyy.org/posts/firefox-no-proxy-exceptions/">下一篇 →</a></nav>
 <section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
 </article>
 
 <div class="article-rail">
-<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#heading">“不使用代理”具体是什么</a><a class="level-2" href="#heading-1">按四步找出一个目标的例外</a><a class="level-2" href="#heading-2">怎样证明改动实际生效</a><a class="level-2" href="#heading-3">验收时还要检查本地访问</a><a class="level-2" href="#heading-4">来源与核验日期</a></nav></aside>
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#heading">多设备先按图核对</a><a class="level-2" href="#1-">1. 先问四个具体问题</a><a class="level-2" href="#2-">2. 同一账户不代表同一种订阅格式</a><a class="level-2" href="#3-">3. 两台设备先独立测试</a><a class="level-2" href="#4-">4. 再做一次允许范围内的同时使用</a><a class="level-2" href="#5-">5. 套餐流量与手机流量是两本账</a><a class="level-2" href="#6-">6. 开热点不等于自动分享代理</a><a class="level-2" href="#7-">7. 私人订阅不要当成公开共享入口</a><a class="level-2" href="#heading-1">接下来可以看什么</a><a class="level-2" href="#heading-2">资料与核对范围</a></nav></aside>
 <aside class="ad-slot" aria-label="文章相关内容" data-ad-position="article_sidebar" data-pagefind-ignore><a class="ad-card" href="https://goflybit.com/#/register?code=gPinVG8C" target="_blank" rel="sponsored noopener noreferrer" aria-label="FlyBit · 内容页侧边邀请入口（在新标签页打开）" data-ad-link>
 
 <div class="ad-copy"><h3>FlyBit</h3>
@@ -205,7 +210,7 @@
 </div>
 </dialog>
 
-<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/a118426a-19b8-4ce3-9c75-f956ffeedfee/","pageTitle":"Firefox 已填代理，部分网站为何仍直连？检查代理例外","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/aab856e4-a671-4d78-bb10-3f0eaa52f1d6/","pageTitle":"一份机场订阅能同时用电脑和手机吗？多设备使用与流量核对","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
 
 </body>
 </html>
