@@ -4,23 +4,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南 · 风悠悠优质机场</title>
-<meta name="description" content="我会根据长期测速、实际使用体验和用户反馈更新推荐，线路有变化也会跟进。选机场时，我主要看长期稳定性、线路质量和性价比。运营时间至少两年以上；官网可在中国大陆正常访问，并支持支付宝或微信等主流支付方式；拥有活跃的用户群体；提供可靠的工单或客服支持；价格合理，不虚高；稳定性良好，不频繁掉线或更换订阅链接；网络上无明显负面评价或纠纷。">
-<meta name="keywords" content="科学上网,机场推荐,VPN推荐,梯子推荐,高端专线,性价比,免费试用,网络机场,机场科普,代理服务,代理节点,订阅链接,网络线路,网络隐私">
-<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://www.fengyy.org/posts/kxsw1/">
-<meta property="og:title" content="翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南">
-<meta property="og:description" content="我会根据长期测速、实际使用体验和用户反馈更新推荐，线路有变化也会跟进。选机场时，我主要看长期稳定性、线路质量和性价比。运营时间至少两年以上；官网可在中国大陆正常访问，并支持支付宝或微信等主流支付方式；拥有活跃的用户群体；提供可靠的工单或客服支持；价格合理，不虚高；稳定性良好，不频繁掉线或更换订阅链接；网络上无明显负面评价或纠纷。">
-<meta property="og:url" content="https://www.fengyy.org/posts/kxsw1/">
+<title>Firefox 已填代理，部分网站为何仍直连？检查代理例外 · 风悠悠优质机场</title>
+<meta name="description" content="Firefox 代理设置正常却有网站直连怎么办？核对 No Proxy For、当前代理来源及扩展控制，单项修改后用客户端记录和真实请求验收。">
+<meta name="keywords" content="机场推荐,Firefox代理例外,No Proxy For,浏览器直连排查">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://www.fengyy.org/posts/firefox-no-proxy-exceptions/">
+<meta property="og:title" content="Firefox 已填代理，部分网站为何仍直连？检查代理例外">
+<meta property="og:description" content="Firefox 代理设置正常却有网站直连怎么办？核对 No Proxy For、当前代理来源及扩展控制，单项修改后用客户端记录和真实请求验收。">
+<meta property="og:url" content="https://www.fengyy.org/posts/firefox-no-proxy-exceptions/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="风悠悠优质机场">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png"><meta property="og:image:alt" content="风悠悠优质机场">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南">
-<meta name="twitter:description" content="我会根据长期测速、实际使用体验和用户反馈更新推荐，线路有变化也会跟进。选机场时，我主要看长期稳定性、线路质量和性价比。运营时间至少两年以上；官网可在中国大陆正常访问，并支持支付宝或微信等主流支付方式；拥有活跃的用户群体；提供可靠的工单或客服支持；价格合理，不虚高；稳定性良好，不频繁掉线或更换订阅链接；网络上无明显负面评价或纠纷。">
+<meta name="twitter:title" content="Firefox 已填代理，部分网站为何仍直连？检查代理例外">
+<meta name="twitter:description" content="Firefox 代理设置正常却有网站直连怎么办？核对 No Proxy For、当前代理来源及扩展控制，单项修改后用客户端记录和真实请求验收。">
 <meta name="twitter:image" content="https://www.fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png">
-<meta name="author" content="CPU干冒烟了"><meta property="article:published_time" content="2026-09-15T15:14:38&#43;08:00"><meta property="article:modified_time" content="2026-09-20T16:48:38&#43;08:00">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/kxsw1/#article","@type":"BlogPosting","author":{"@type":"Person","name":"CPU干冒烟了"},"dateModified":"2026-09-20T16:48:38+08:00","datePublished":"2026-09-15T15:14:38+08:00","description":"我会根据长期测速、实际使用体验和用户反馈更新推荐，线路有变化也会跟进。选机场时，我主要看长期稳定性、线路质量和性价比。运营时间至少两年以上；官网可在中国大陆正常访问，并支持支付宝或微信等主流支付方式；拥有活跃的用户群体；提供可靠的工单或客服支持；价格合理，不虚高；稳定性良好，不频繁掉线或更换订阅链接；网络上无明显负面评价或纠纷。","headline":"翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/kxsw1/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/kxsw1/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/kxsw1/","name":"翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南","position":2}]}]}</script>
+<meta name="author" content="风"><meta property="article:published_time" content="2026-10-07T09:19:13&#43;08:00"><meta property="article:modified_time" content="2026-10-07T09:19:18&#43;08:00"><meta property="article:tag" content="代理配置"><meta property="article:tag" content="故障排查">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/firefox-no-proxy-exceptions/#article","@type":"BlogPosting","author":{"@type":"Person","name":"风"},"dateModified":"2026-10-07T09:19:18+08:00","datePublished":"2026-10-07T09:19:13+08:00","description":"Firefox 代理设置正常却有网站直连怎么办？核对 No Proxy For、当前代理来源及扩展控制，单项修改后用客户端记录和真实请求验收。","headline":"Firefox 已填代理，部分网站为何仍直连？检查代理例外","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/firefox-no-proxy-exceptions/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/firefox-no-proxy-exceptions/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/firefox-no-proxy-exceptions/","name":"Firefox 已填代理，部分网站为何仍直连？检查代理例外","position":2}]}]}</script>
 
 <script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/style.css">
@@ -74,46 +74,74 @@
 <div class="article-viewport"><div class="article-scroll">
 <main id="main" tabindex="-1" class="shell journal-shell article-shell" data-has-toc="true">
 
-<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://www.fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南</span></li></ol></nav>
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://www.fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">Firefox 已填代理，部分网站为何仍直连？检查代理例外</span></li></ol></nav>
 
 
 
 <article data-pagefind-body>
 <header class="article-header">
-<div class="eyebrow" data-pagefind-ignore>字里行间 · 置顶</div>
-<h1 data-pagefind-meta="title">翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南</h1>
-<div class="metadata" data-pagefind-ignore><span>CPU干冒烟了</span><time datetime="2026-09-15T15:14:38&#43;08:00">2026-09-15</time><span><span id="page-views">—</span> 次阅读</span></div>
-
+<div class="eyebrow" data-pagefind-ignore>字里行间</div>
+<h1 data-pagefind-meta="title">Firefox 已填代理，部分网站为何仍直连？检查代理例外</h1>
+<div class="metadata" data-pagefind-ignore><span>风</span><time datetime="2026-10-07T09:19:13&#43;08:00">2026-10-07</time><span><span id="page-views">—</span> 次阅读</span></div>
+<div class="chips" data-pagefind-ignore><a href="https://www.fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
 </header>
-<div class="prose"><h2 id="2026vpn">2026年翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南(长期更新)✨</h2>
-<p>我会根据长期测速、实际使用体验和用户反馈更新推荐，线路有变化也会跟进。选机场时，我主要看长期稳定性、线路质量和性价比。运营时间至少两年以上；官网可在中国大陆正常访问，并支持支付宝或微信等主流支付方式；拥有活跃的用户群体；提供可靠的工单或客服支持；价格合理，不虚高；稳定性良好，不频繁掉线或更换订阅链接；网络上无明显负面评价或纠纷。🔥</p>
-<h3 id="1flybit">1.FLYbit机场评测与推荐：高性价比的稳定加速服务，让你的网络更自由！</h3>
-<p>在全球互联网时代，一个稳定、安全、快速的网络加速工具已经成为跨境用户的必备。今天要给大家推荐的是一款备受好评的加速服务——​FLYbit机场​。它以高性价比、稳定线路和丰富节点著称，特别适合日常上网、远程办公、游戏加速以及访问AI工具（如 ChatGPT、Claude 等）的用户。</p>
-<p><img src="https://www.fengyy.org/assets/media/89d536bc-3daf-45ab-b86b-cbd70048f62a.png" alt=""></p>
-<p>官网注册地址 -&gt;&gt;&gt; <a href="https://goflybit.com/#/register?code=gPinVG8C">Flybit</a></p>
-<p>线路： IEPL+中转</p>
-<p>倍率： 全部都是x1 (实属良心)</p>
-<p>套餐：月套餐最低 12元/100G/月，不限时套餐最低100G/28元</p>
-<p>优惠：九折优惠码 【flybit】， 没有使用限制</p>
-<p>试用：1天2G</p>
-<p>支付： 微信、支付宝</p>
-<p>解锁：各种流媒体+AI (看节点，并不是所有节点能解锁所有流媒体和AI, 但是需要解锁的基本都能找到对应的节点，需要自己尝试)</p>
-<p>节点：节点可用率还是比较高的，维护很积极</p>
-<p>成立时间： 2023年</p>
-<p>推荐指数： 🌟🌟🌟🌟🌟</p>
-<p><img src="https://www.fengyy.org/assets/media/dedef782-b6fd-4237-8505-427d2feef5fa.png" alt="Flybit套餐截图"></p>
-<h3 id="299">2.99吧机场评测与推荐：高性价比的稳定加速服务，让你的网络更自由！</h3>
-<p><img src="https://www.fengyy.org/assets/media/e3158b59-34eb-45f6-a01a-6c83407163fc.png" alt=""></p>
-<p>官网注册地址 -&gt;&gt;&gt; <a href="https://99ba.net/#/register?code=sExBbdk9">99吧官网</a></p>
-<p>线路： IEPL+中转</p>
-<p>倍率： 全部都是x1</p>
-<p>套餐：月套餐最低 9.99元/99G/月，不限时套餐最低111G/29.9元</p>
-<p>试用：1天1G</p>
-<p>支付： 微信、支付宝</p>
-<p>解锁：各种流媒体+AI</p>
-<p>节点：节点几乎全部可用，维护积极</p>
-<p>成立时间： 2024年</p>
-<p>推荐指数： 🌟🌟🌟🌟</p>
+<div class="prose"><p>Firefox 中填写了代理地址和端口，并不表示每个网站请求都会使用这个代理。连接设置里的例外列表，可能有意让一部分主机绕过浏览器代理。</p>
+<p>本文处理 Firefox 自身的代理选择。若电脑同时启用 TUN、企业网络接管或其他 VPN，浏览器“不使用代理”的请求仍可能被其他层接管，不能仅凭一个设置断言最终出口。</p>
+<p><img src="https://www.fengyy.org/assets/media/fcfc1036-9d85-4036-ba8e-6ee8dbeedc35.png" alt="浏览器根据例外列表选择代理路径或直接路径的判断示意"></p>
+<p><em>示意图：浏览器代理例外影响这一层的选择，最终路径还要结合其他网络接管检查。</em></p>
+<h2 id="heading">“不使用代理”具体是什么</h2>
+<p><a href="https://support.mozilla.org/en-US/kb/connection-settings-firefox">Mozilla 官方连接设置说明</a>把 No Proxy For 定义为不经代理的主机名或 IP 地址列表，并说明 <code>&lt;local&gt;</code> 可用于没有句点的简单主机名。它是连接选择条件，不是网页广告过滤器。</p>
+<p>先确认你选用的是手动代理、系统代理、自动检测还是 PAC。不同来源需要检查相应配置，不能看到手动代理栏有旧地址，就认定当前正在使用它。官方说明还指出，连接设置会显示控制网络连接的扩展。</p>
+<h2 id="heading-1">按四步找出一个目标的例外</h2>
+<ol>
+<li><strong>记录问题页面的主机名。</strong> 只记域名及时间，不复制带账号令牌的完整 URL。登录页跳到另一个域名时，将两个主机名分别记录。</li>
+<li><strong>进入当前连接设置。</strong> 在 Firefox 设置中搜索“代理”或“连接设置”，按当前版本找到代理配置窗口；界面位置可能变化，可对照文末官方文档。</li>
+<li><strong>私下保存现有配置。</strong> 记录代理来源、端口、例外列表以及是否由扩展控制。公开求助时遮盖内部域名、账号和其他敏感项。</li>
+<li><strong>只核对相关例外。</strong> 对照目标主机名与现有条目。若列表含单位内网或本机访问要求，保留它们；不要把整个列表清空作为第一步。</li>
+</ol>
+<p>如果你不确定一个条目的匹配范围，先查看客户端或浏览器的当前官方说明。不要把“不使用代理”的写法直接当成 PAC 语法，也不要套用另一个客户端的域名规则。</p>
+<h2 id="heading-2">怎样证明改动实际生效</h2>
+<p>仅在你能确认用途的情况下，暂时移除与目标相关的一个误加条目，保存后重新发起目标请求。保持节点、客户端模式、其他扩展和目标任务不变。</p>
+<p>同时查看本地代理客户端提供的连接记录：有没有出现这次目标请求、采用什么规则、选择什么节点。日志没有出现也可能是日志级别或观察方式不完整，应记录为“未观察到”，继续核对，而不是直接认定直连。</p>
+<table>
+<thead>
+<tr>
+<th>对照项</th>
+<th>修改前</th>
+<th>修改后</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>当前代理来源</td>
+<td>自行填写</td>
+<td>应保持一致</td>
+</tr>
+<tr>
+<td>相关例外条目</td>
+<td>自行填写</td>
+<td>只改变该项</td>
+</tr>
+<tr>
+<td>客户端中的目标连接记录</td>
+<td>有／无／无法观察</td>
+<td>有／无／无法观察</td>
+</tr>
+<tr>
+<td>原页面或登录任务</td>
+<td>成功／失败及提示</td>
+<td>成功／失败及提示</td>
+</tr>
+</tbody>
+</table>
+<p>如果改动无效，恢复原条目，再查 PAC、扩展、客户端分流或目标服务。不要连续改动多套设置，让前后条件无法比较。</p>
+<h2 id="heading-3">验收时还要检查本地访问</h2>
+<p>目标网站恢复之后，检查原本需要直连的本地页面或单位内网是否仍可使用。机场推荐中的客户端教程，应该帮助你明确每个请求由哪处配置决定，而不是要求所有目标无差别走代理。</p>
+<h2 id="heading-4">来源与核验日期</h2>
+<ul>
+<li><a href="https://support.mozilla.org/en-US/kb/connection-settings-firefox">Mozilla：Firefox 连接设置与 No Proxy For</a></li>
+</ul>
+<p>官方资料核验日期：2026-10-07。本文提供自行操作与记录的方法，不代表本站对某家机场的实测结论。</p>
 </div>
 <div class="article-likes" data-pagefind-ignore>
 <button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
@@ -121,13 +149,13 @@
 <span id="page-like-label">点赞</span><span id="page-like-count">—</span>
 </button><p id="page-like-message" role="status"></p>
 </div>
-
-<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://www.fengyy.org/posts/jccp1/">← 上一篇</a><a href="https://www.fengyy.org/posts/firefox-no-proxy-exceptions/">下一篇 →</a></nav>
+<div class="article-tags" data-pagefind-ignore><a href="https://www.fengyy.org/tags/proxy-configuration/"># 代理配置</a><a href="https://www.fengyy.org/tags/troubleshooting/"># 故障排查</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://www.fengyy.org/posts/kxsw1/">← 上一篇</a><a href="https://www.fengyy.org/posts/https-target-http-local-proxy/">下一篇 →</a></nav>
 <section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
 </article>
 
 <div class="article-rail">
-<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#2026vpn">2026年翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南(长期更新)✨</a><a class="level-3" href="#1flybit">1.FLYbit机场评测与推荐：高性价比的稳定加速服务，让你的网络更自由！</a><a class="level-3" href="#299">2.99吧机场评测与推荐：高性价比的稳定加速服务，让你的网络更自由！</a></nav></aside>
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#heading">“不使用代理”具体是什么</a><a class="level-2" href="#heading-1">按四步找出一个目标的例外</a><a class="level-2" href="#heading-2">怎样证明改动实际生效</a><a class="level-2" href="#heading-3">验收时还要检查本地访问</a><a class="level-2" href="#heading-4">来源与核验日期</a></nav></aside>
 <aside class="ad-slot" aria-label="文章相关内容" data-ad-position="article_sidebar" data-pagefind-ignore><a class="ad-card" href="https://goflybit.com/#/register?code=gPinVG8C" target="_blank" rel="sponsored noopener noreferrer" aria-label="FlyBit · 内容页侧边邀请入口（在新标签页打开）" data-ad-link>
 
 <div class="ad-copy"><h3>FlyBit</h3>
@@ -177,7 +205,7 @@
 </div>
 </dialog>
 
-<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/0c4d8fc4-fb65-4f4d-b1dc-37bd9581fe54/","pageTitle":"翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/a118426a-19b8-4ce3-9c75-f956ffeedfee/","pageTitle":"Firefox 已填代理，部分网站为何仍直连？检查代理例外","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
 
 </body>
 </html>
