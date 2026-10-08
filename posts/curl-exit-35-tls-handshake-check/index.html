@@ -4,23 +4,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南 · 风悠悠优质机场</title>
-<meta name="description" content="我会根据长期测速、实际使用体验和用户反馈更新推荐，线路有变化也会跟进。选机场时，我主要看长期稳定性、线路质量和性价比。运营时间至少两年以上；官网可在中国大陆正常访问，并支持支付宝或微信等主流支付方式；拥有活跃的用户群体；提供可靠的工单或客服支持；价格合理，不虚高；稳定性良好，不频繁掉线或更换订阅链接；网络上无明显负面评价或纠纷。">
-<meta name="keywords" content="科学上网,机场推荐,VPN推荐,梯子推荐,高端专线,性价比,免费试用,网络机场,机场科普,代理服务,代理节点,订阅链接,网络线路,网络隐私">
-<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://www.fengyy.org/posts/kxsw1/">
-<meta property="og:title" content="翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南">
-<meta property="og:description" content="我会根据长期测速、实际使用体验和用户反馈更新推荐，线路有变化也会跟进。选机场时，我主要看长期稳定性、线路质量和性价比。运营时间至少两年以上；官网可在中国大陆正常访问，并支持支付宝或微信等主流支付方式；拥有活跃的用户群体；提供可靠的工单或客服支持；价格合理，不虚高；稳定性良好，不频繁掉线或更换订阅链接；网络上无明显负面评价或纠纷。">
-<meta property="og:url" content="https://www.fengyy.org/posts/kxsw1/">
+<title>curl 报错 35 怎样查？先定位失败的 TLS 握手 · 风悠悠优质机场</title>
+<meta name="description" content="curl SSL connect error 35 怎么排查？查看实际 TLS 后端、代理地址与握手对象，保留错误原文，避免盲目关闭证书验证或降级协议。">
+<meta name="keywords" content="机场推荐,curl报错35,TLS握手失败,代理连接排查">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://www.fengyy.org/posts/curl-exit-35-tls-handshake-check/">
+<meta property="og:title" content="curl 报错 35 怎样查？先定位失败的 TLS 握手">
+<meta property="og:description" content="curl SSL connect error 35 怎么排查？查看实际 TLS 后端、代理地址与握手对象，保留错误原文，避免盲目关闭证书验证或降级协议。">
+<meta property="og:url" content="https://www.fengyy.org/posts/curl-exit-35-tls-handshake-check/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="风悠悠优质机场">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png"><meta property="og:image:alt" content="风悠悠优质机场">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南">
-<meta name="twitter:description" content="我会根据长期测速、实际使用体验和用户反馈更新推荐，线路有变化也会跟进。选机场时，我主要看长期稳定性、线路质量和性价比。运营时间至少两年以上；官网可在中国大陆正常访问，并支持支付宝或微信等主流支付方式；拥有活跃的用户群体；提供可靠的工单或客服支持；价格合理，不虚高；稳定性良好，不频繁掉线或更换订阅链接；网络上无明显负面评价或纠纷。">
+<meta name="twitter:title" content="curl 报错 35 怎样查？先定位失败的 TLS 握手">
+<meta name="twitter:description" content="curl SSL connect error 35 怎么排查？查看实际 TLS 后端、代理地址与握手对象，保留错误原文，避免盲目关闭证书验证或降级协议。">
 <meta name="twitter:image" content="https://www.fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png">
-<meta name="author" content="CPU干冒烟了"><meta property="article:published_time" content="2026-09-15T15:14:38&#43;08:00"><meta property="article:modified_time" content="2026-09-20T16:48:38&#43;08:00">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/kxsw1/#article","@type":"BlogPosting","author":{"@type":"Person","name":"CPU干冒烟了"},"dateModified":"2026-09-20T16:48:38+08:00","datePublished":"2026-09-15T15:14:38+08:00","description":"我会根据长期测速、实际使用体验和用户反馈更新推荐，线路有变化也会跟进。选机场时，我主要看长期稳定性、线路质量和性价比。运营时间至少两年以上；官网可在中国大陆正常访问，并支持支付宝或微信等主流支付方式；拥有活跃的用户群体；提供可靠的工单或客服支持；价格合理，不虚高；稳定性良好，不频繁掉线或更换订阅链接；网络上无明显负面评价或纠纷。","headline":"翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/kxsw1/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/kxsw1/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/kxsw1/","name":"翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南","position":2}]}]}</script>
+<meta name="author" content="风"><meta property="article:published_time" content="2026-10-08T09:27:56&#43;08:00"><meta property="article:modified_time" content="2026-10-08T09:27:59&#43;08:00"><meta property="article:tag" content="curl"><meta property="article:tag" content="故障排查">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/curl-exit-35-tls-handshake-check/#article","@type":"BlogPosting","author":{"@type":"Person","name":"风"},"dateModified":"2026-10-08T09:27:59+08:00","datePublished":"2026-10-08T09:27:56+08:00","description":"curl SSL connect error 35 怎么排查？查看实际 TLS 后端、代理地址与握手对象，保留错误原文，避免盲目关闭证书验证或降级协议。","headline":"curl 报错 35 怎样查？先定位失败的 TLS 握手","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/curl-exit-35-tls-handshake-check/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/curl-exit-35-tls-handshake-check/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/curl-exit-35-tls-handshake-check/","name":"curl 报错 35 怎样查？先定位失败的 TLS 握手","position":2}]}]}</script>
 
 <script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/style.css">
@@ -74,46 +74,68 @@
 <div class="article-viewport"><div class="article-scroll">
 <main id="main" tabindex="-1" class="shell journal-shell article-shell" data-has-toc="true">
 
-<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://www.fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南</span></li></ol></nav>
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://www.fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">curl 报错 35 怎样查？先定位失败的 TLS 握手</span></li></ol></nav>
 
 
 
 <article data-pagefind-body>
 <header class="article-header">
-<div class="eyebrow" data-pagefind-ignore>字里行间 · 置顶</div>
-<h1 data-pagefind-meta="title">翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南</h1>
-<div class="metadata" data-pagefind-ignore><span>CPU干冒烟了</span><time datetime="2026-09-15T15:14:38&#43;08:00">2026-09-15</time><span><span id="page-views">—</span> 次阅读</span></div>
-
+<div class="eyebrow" data-pagefind-ignore>字里行间</div>
+<h1 data-pagefind-meta="title">curl 报错 35 怎样查？先定位失败的 TLS 握手</h1>
+<div class="metadata" data-pagefind-ignore><span>风</span><time datetime="2026-10-08T09:27:56&#43;08:00">2026-10-08</time><span><span id="page-views">—</span> 次阅读</span></div>
+<div class="chips" data-pagefind-ignore><a href="https://www.fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
 </header>
-<div class="prose"><h2 id="2026vpn">2026年翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南(长期更新)✨</h2>
-<p>我会根据长期测速、实际使用体验和用户反馈更新推荐，线路有变化也会跟进。选机场时，我主要看长期稳定性、线路质量和性价比。运营时间至少两年以上；官网可在中国大陆正常访问，并支持支付宝或微信等主流支付方式；拥有活跃的用户群体；提供可靠的工单或客服支持；价格合理，不虚高；稳定性良好，不频繁掉线或更换订阅链接；网络上无明显负面评价或纠纷。🔥</p>
-<h3 id="1flybit">1.FLYbit机场评测与推荐：高性价比的稳定加速服务，让你的网络更自由！</h3>
-<p>在全球互联网时代，一个稳定、安全、快速的网络加速工具已经成为跨境用户的必备。今天要给大家推荐的是一款备受好评的加速服务——​FLYbit机场​。它以高性价比、稳定线路和丰富节点著称，特别适合日常上网、远程办公、游戏加速以及访问AI工具（如 ChatGPT、Claude 等）的用户。</p>
-<p><img src="https://www.fengyy.org/assets/media/89d536bc-3daf-45ab-b86b-cbd70048f62a.png" alt=""></p>
-<p>官网注册地址 -&gt;&gt;&gt; <a href="https://goflybit.com/#/register?code=gPinVG8C">Flybit</a></p>
-<p>线路： IEPL+中转</p>
-<p>倍率： 全部都是x1 (实属良心)</p>
-<p>套餐：月套餐最低 12元/100G/月，不限时套餐最低100G/28元</p>
-<p>优惠：九折优惠码 【flybit】， 没有使用限制</p>
-<p>试用：1天2G</p>
-<p>支付： 微信、支付宝</p>
-<p>解锁：各种流媒体+AI (看节点，并不是所有节点能解锁所有流媒体和AI, 但是需要解锁的基本都能找到对应的节点，需要自己尝试)</p>
-<p>节点：节点可用率还是比较高的，维护很积极</p>
-<p>成立时间： 2023年</p>
-<p>推荐指数： 🌟🌟🌟🌟🌟</p>
-<p><img src="https://www.fengyy.org/assets/media/dedef782-b6fd-4237-8505-427d2feef5fa.png" alt="Flybit套餐截图"></p>
-<h3 id="299">2.99吧机场评测与推荐：高性价比的稳定加速服务，让你的网络更自由！</h3>
-<p><img src="https://www.fengyy.org/assets/media/e3158b59-34eb-45f6-a01a-6c83407163fc.png" alt=""></p>
-<p>官网注册地址 -&gt;&gt;&gt; <a href="https://99ba.net/#/register?code=sExBbdk9">99吧官网</a></p>
-<p>线路： IEPL+中转</p>
-<p>倍率： 全部都是x1</p>
-<p>套餐：月套餐最低 9.99元/99G/月，不限时套餐最低111G/29.9元</p>
-<p>试用：1天1G</p>
-<p>支付： 微信、支付宝</p>
-<p>解锁：各种流媒体+AI</p>
-<p>节点：节点几乎全部可用，维护积极</p>
-<p>成立时间： 2024年</p>
-<p>推荐指数： 🌟🌟🌟🌟</p>
+<div class="prose"><p>浏览器能打开页面，curl 却报告 <code>35</code>，并不能直接证明机场节点坏了。两个程序可能采用不同代理来源、TLS 后端和连接条件，先找出失败的是哪一次握手。</p>
+<p>本文以 Windows PowerShell 调用 <code>curl.exe</code> 为例，只对你有权限的小型公开页面做检查，不携带账号、订阅链接或认证请求。</p>
+<p><img src="https://www.fengyy.org/assets/media/c7123220-7b5e-476c-ae24-3bd8ebee6e2f.png" alt="设备经代理连接目标网站时逐段核对 TLS 握手对象的示意"></p>
+<p><em>示意图：先找出握手发生在哪段连接，再核对错误和单项对照。</em></p>
+<h2 id="35--60-">35 与 60 分别说明什么</h2>
+<p><a href="https://curl.se/docs/manpage.html">curl 官方手册</a>将 35 定义为 SSL/TLS 握手失败；60 则表示对端证书无法通过已知 CA 认证。这些是错误类别，不是足以唯一确定故障来源的诊断结果。</p>
+<p>先保存错误原文和发生时间。不要仅凭数字，就把所有问题都按“缺少根证书”处理，也不要用 <code>-k</code> 作为通用修复。</p>
+<h2 id="heading">第一步：确认正在使用哪个程序</h2>
+<p>在 PowerShell 中执行：</p>
+<pre><code class="language-powershell">curl.exe --version
+</code></pre>
+<p>记录版本输出中实际的 TLS 后端及支持能力。不要把另一台电脑的结果当成本机配置，也不要因网上示例使用某个后端就临时混装多个程序。</p>
+<p>核对命令是否明确写了 <code>--proxy</code>，以及当前代理地址的协议和端口是否与客户端说明一致。HTTP 代理、HTTPS 代理和 SOCKS 入口不能仅凭端口号互换名称。</p>
+<h2 id="heading-1">第二步：在日志里找握手对象</h2>
+<p>可先对一个公开小页面运行如下诊断示例；这不是本机实测结果：</p>
+<pre><code class="language-powershell">curl.exe -q --retry 0 --connect-timeout 10 --max-time 20 --verbose --output NUL https://example.com/
+</code></pre>
+<p><code>-q</code> 放在前面用于排除默认配置文件干扰。这条命令没有指定本地代理，仍须核对环境变量或系统接管条件；若要对照某个代理，只使用客户端明确给出的入口另做一轮。</p>
+<p>阅读日志时标记：连接到哪个主机、是否先连接代理、是否已经建立代理隧道、错误出现在哪里。使用 HTTPS 代理时还可能存在到代理本身的 TLS 连接，不能把每一条 TLS 提示都当成目标网站握手。</p>
+<p>日志可能包含地址和请求信息。公开求助前遮盖内部域名、账号、Cookie、Authorization 和带令牌的 URL；不提交未经检查的完整日志。</p>
+<h2 id="heading-2">第三步：只改变一个条件</h2>
+<table>
+<thead>
+<tr>
+<th>对照条件</th>
+<th>记录重点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>同一目标、同一代理入口，换候选节点</td>
+<td>握手阶段和错误是否改变</td>
+</tr>
+<tr>
+<td>同一目标、同一程序，换可用网络</td>
+<td>本地网络路径是否相关</td>
+</tr>
+<tr>
+<td>同一设备，核对浏览器实际代理来源</td>
+<td>是否原本在比较不同路径</td>
+</tr>
+</tbody>
+</table>
+<p>不同时更换节点、DNS、证书库和 TLS 参数。没有官方兼容要求时，不随意降级 TLS 或放宽加密配置；单位管理的电脑应先核对管理要求。</p>
+<h2 id="heading-3">怎样算排查有结果</h2>
+<p>你能说明实际程序、代理入口、失败握手对象和单项对照结果，就可以提交有用的记录。若握手恢复，继续确认 HTTPS 验证和原任务都成功；仅错误数字消失仍不足以证明完成使用。机场推荐中的客户端体验，也应说明所用环境而非泛称“所有设备都正常”。</p>
+<h2 id="heading-4">来源与核验日期</h2>
+<ul>
+<li><a href="https://curl.se/docs/manpage.html">curl：退出码、版本信息与代理选项</a></li>
+</ul>
+<p>官方资料核验日期：2026-10-08。本文提供自行操作与记录的方法，不代表本站对某家机场的实测结论。</p>
 </div>
 <div class="article-likes" data-pagefind-ignore>
 <button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
@@ -121,13 +143,13 @@
 <span id="page-like-label">点赞</span><span id="page-like-count">—</span>
 </button><p id="page-like-message" role="status"></p>
 </div>
-
-<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://www.fengyy.org/posts/jccp1/">← 上一篇</a><a href="https://www.fengyy.org/posts/curl-exit-35-tls-handshake-check/">下一篇 →</a></nav>
+<div class="article-tags" data-pagefind-ignore><a href="https://www.fengyy.org/tags/curl/"># curl</a><a href="https://www.fengyy.org/tags/troubleshooting/"># 故障排查</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://www.fengyy.org/posts/kxsw1/">← 上一篇</a><a href="https://www.fengyy.org/posts/airport-subscription-computer-phone-sharing/">下一篇 →</a></nav>
 <section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
 </article>
 
 <div class="article-rail">
-<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#2026vpn">2026年翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南(长期更新)✨</a><a class="level-3" href="#1flybit">1.FLYbit机场评测与推荐：高性价比的稳定加速服务，让你的网络更自由！</a><a class="level-3" href="#299">2.99吧机场评测与推荐：高性价比的稳定加速服务，让你的网络更自由！</a></nav></aside>
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#35--60-">35 与 60 分别说明什么</a><a class="level-2" href="#heading">第一步：确认正在使用哪个程序</a><a class="level-2" href="#heading-1">第二步：在日志里找握手对象</a><a class="level-2" href="#heading-2">第三步：只改变一个条件</a><a class="level-2" href="#heading-3">怎样算排查有结果</a><a class="level-2" href="#heading-4">来源与核验日期</a></nav></aside>
 <aside class="ad-slot" aria-label="文章相关内容" data-ad-position="article_sidebar" data-pagefind-ignore><a class="ad-card" href="https://goflybit.com/#/register?code=gPinVG8C" target="_blank" rel="sponsored noopener noreferrer" aria-label="FlyBit · 内容页侧边邀请入口（在新标签页打开）" data-ad-link>
 
 <div class="ad-copy"><h3>FlyBit</h3>
@@ -177,7 +199,7 @@
 </div>
 </dialog>
 
-<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/0c4d8fc4-fb65-4f4d-b1dc-37bd9581fe54/","pageTitle":"翻墙机场推荐：便宜好用的VPN机场评测与科学上网指南","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/7012681a-7edc-4425-9a81-b358ec9e5e16/","pageTitle":"curl 报错 35 怎样查？先定位失败的 TLS 握手","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
 
 </body>
 </html>
