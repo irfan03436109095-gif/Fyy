@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.fengyy.org/</loc>
-    <lastmod>2026-10-09T01:18:58Z</lastmod>
+    <lastmod>2026-10-10T01:19:07Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/categories/clients-and-tools/</loc>
-    <lastmod>2026-10-09T01:18:58Z</lastmod>
+    <lastmod>2026-10-10T01:19:07Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/categories/clients-and-tools/page/2/</loc>
-    <lastmod>2026-10-09T01:18:58Z</lastmod>
+    <lastmod>2026-10-10T01:19:07Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/categories/clients-and-tools/page/3/</loc>
-    <lastmod>2026-10-09T01:18:58Z</lastmod>
+    <lastmod>2026-10-10T01:19:07Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/categories/risk-observations/</loc>
@@ -30,15 +30,15 @@
   </url>
   <url>
     <loc>https://www.fengyy.org/page/2/</loc>
-    <lastmod>2026-10-09T01:18:58Z</lastmod>
+    <lastmod>2026-10-10T01:19:07Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/page/3/</loc>
-    <lastmod>2026-10-09T01:18:58Z</lastmod>
+    <lastmod>2026-10-10T01:19:07Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/page/4/</loc>
-    <lastmod>2026-10-09T01:18:58Z</lastmod>
+    <lastmod>2026-10-10T01:19:07Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/2026-airport-risk-roundup-service-quality/</loc>
@@ -77,12 +77,16 @@
     <lastmod>2026-10-09T01:18:58Z</lastmod>
   </url>
   <url>
+    <loc>https://www.fengyy.org/posts/curl-exit-28-timeout-phases/</loc>
+    <lastmod>2026-10-10T01:18:57Z</lastmod>
+  </url>
+  <url>
     <loc>https://www.fengyy.org/posts/curl-exit-35-tls-handshake-check/</loc>
     <lastmod>2026-10-09T01:18:58Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/curl-exit-47-redirect-loop-check/</loc>
-    <lastmod>2026-10-09T01:18:51Z</lastmod>
+    <lastmod>2026-10-10T01:19:07Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/curl-exit-5-6-7/</loc>
@@ -142,7 +146,7 @@
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/kxsw1/</loc>
-    <lastmod>2026-10-09T01:18:58Z</lastmod>
+    <lastmod>2026-10-10T01:19:07Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/mryg1/</loc>
@@ -182,26 +186,26 @@
   </url>
   <url>
     <loc>https://www.fengyy.org/tags/curl/</loc>
-    <lastmod>2026-10-09T01:18:58Z</lastmod>
+    <lastmod>2026-10-10T01:19:07Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/tags/proxy-configuration/</loc>
-    <lastmod>2026-10-09T01:18:58Z</lastmod>
+    <lastmod>2026-10-10T01:19:07Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/tags/proxy-configuration/page/2/</loc>
-    <lastmod>2026-10-09T01:18:58Z</lastmod>
+    <lastmod>2026-10-10T01:19:07Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/tags/troubleshooting/</loc>
-    <lastmod>2026-10-09T01:18:58Z</lastmod>
+    <lastmod>2026-10-10T01:19:07Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/tags/troubleshooting/page/2/</loc>
-    <lastmod>2026-10-09T01:18:58Z</lastmod>
+    <lastmod>2026-10-10T01:19:07Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/tags/troubleshooting/page/3/</loc>
-    <lastmod>2026-10-09T01:18:58Z</lastmod>
+    <lastmod>2026-10-10T01:19:07Z</lastmod>
   </url>
 </urlset>

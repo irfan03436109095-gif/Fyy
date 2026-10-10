@@ -4,23 +4,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>curl 报错 47 就该换节点吗？先查重定向循环 · 风悠悠优质机场</title>
-<meta name="description" content="curl 47 Too many redirects 怎样排查？用有限跳转记录状态与 Location，区分循环、正常长链和浏览器特有跳转，保持 HTTPS 验证。">
-<meta name="keywords" content="机场推荐,curl报错47,重定向循环,客户端故障排查">
-<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://www.fengyy.org/posts/curl-exit-47-redirect-loop-check/">
-<meta property="og:title" content="curl 报错 47 就该换节点吗？先查重定向循环">
-<meta property="og:description" content="curl 47 Too many redirects 怎样排查？用有限跳转记录状态与 Location，区分循环、正常长链和浏览器特有跳转，保持 HTTPS 验证。">
-<meta property="og:url" content="https://www.fengyy.org/posts/curl-exit-47-redirect-loop-check/">
+<title>curl 报错 28 怎样排查？把连接超时与总等待时间分开 · 风悠悠优质机场</title>
+<meta name="description" content="curl 28 超时如何排查？区分 DNS 与握手所在的连接阶段和整次传输时间，设置有限等待，记录真实错误并只改变一个条件。">
+<meta name="keywords" content="机场推荐,curl报错28,连接超时,客户端排障">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://www.fengyy.org/posts/curl-exit-28-timeout-phases/">
+<meta property="og:title" content="curl 报错 28 怎样排查？把连接超时与总等待时间分开">
+<meta property="og:description" content="curl 28 超时如何排查？区分 DNS 与握手所在的连接阶段和整次传输时间，设置有限等待，记录真实错误并只改变一个条件。">
+<meta property="og:url" content="https://www.fengyy.org/posts/curl-exit-28-timeout-phases/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="风悠悠优质机场">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png"><meta property="og:image:alt" content="风悠悠优质机场">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="curl 报错 47 就该换节点吗？先查重定向循环">
-<meta name="twitter:description" content="curl 47 Too many redirects 怎样排查？用有限跳转记录状态与 Location，区分循环、正常长链和浏览器特有跳转，保持 HTTPS 验证。">
+<meta name="twitter:title" content="curl 报错 28 怎样排查？把连接超时与总等待时间分开">
+<meta name="twitter:description" content="curl 28 超时如何排查？区分 DNS 与握手所在的连接阶段和整次传输时间，设置有限等待，记录真实错误并只改变一个条件。">
 <meta name="twitter:image" content="https://www.fengyy.org/assets/media/7f7a60c4-f7e9-4620-a184-4096be422773.png">
-<meta name="author" content="风"><meta property="article:published_time" content="2026-10-09T09:18:48&#43;08:00"><meta property="article:modified_time" content="2026-10-09T09:18:51&#43;08:00"><meta property="article:tag" content="curl"><meta property="article:tag" content="故障排查">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/curl-exit-47-redirect-loop-check/#article","@type":"BlogPosting","author":{"@type":"Person","name":"风"},"dateModified":"2026-10-09T09:18:51+08:00","datePublished":"2026-10-09T09:18:48+08:00","description":"curl 47 Too many redirects 怎样排查？用有限跳转记录状态与 Location，区分循环、正常长链和浏览器特有跳转，保持 HTTPS 验证。","headline":"curl 报错 47 就该换节点吗？先查重定向循环","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/curl-exit-47-redirect-loop-check/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/curl-exit-47-redirect-loop-check/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/curl-exit-47-redirect-loop-check/","name":"curl 报错 47 就该换节点吗？先查重定向循环","position":2}]}]}</script>
+<meta name="author" content="风"><meta property="article:published_time" content="2026-10-10T09:18:54&#43;08:00"><meta property="article:modified_time" content="2026-10-10T09:18:57&#43;08:00"><meta property="article:tag" content="curl"><meta property="article:tag" content="代理配置"><meta property="article:tag" content="故障排查">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/curl-exit-28-timeout-phases/#article","@type":"BlogPosting","author":{"@type":"Person","name":"风"},"dateModified":"2026-10-10T09:18:57+08:00","datePublished":"2026-10-10T09:18:54+08:00","description":"curl 28 超时如何排查？区分 DNS 与握手所在的连接阶段和整次传输时间，设置有限等待，记录真实错误并只改变一个条件。","headline":"curl 报错 28 怎样排查？把连接超时与总等待时间分开","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/curl-exit-28-timeout-phases/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/curl-exit-28-timeout-phases/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/curl-exit-28-timeout-phases/","name":"curl 报错 28 怎样排查？把连接超时与总等待时间分开","position":2}]}]}</script>
 
 <script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/style.css">
@@ -74,64 +74,72 @@
 <div class="article-viewport"><div class="article-scroll">
 <main id="main" tabindex="-1" class="shell journal-shell article-shell" data-has-toc="true">
 
-<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://www.fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">curl 报错 47 就该换节点吗？先查重定向循环</span></li></ol></nav>
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://www.fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">curl 报错 28 怎样排查？把连接超时与总等待时间分开</span></li></ol></nav>
 
 
 
 <article data-pagefind-body>
 <header class="article-header">
 <div class="eyebrow" data-pagefind-ignore>字里行间</div>
-<h1 data-pagefind-meta="title">curl 报错 47 就该换节点吗？先查重定向循环</h1>
-<div class="metadata" data-pagefind-ignore><span>风</span><time datetime="2026-10-09T09:18:48&#43;08:00">2026-10-09</time><span><span id="page-views">—</span> 次阅读</span></div>
+<h1 data-pagefind-meta="title">curl 报错 28 怎样排查？把连接超时与总等待时间分开</h1>
+<div class="metadata" data-pagefind-ignore><span>风</span><time datetime="2026-10-10T09:18:54&#43;08:00">2026-10-10</time><span><span id="page-views">—</span> 次阅读</span></div>
 <div class="chips" data-pagefind-ignore><a href="https://www.fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
 </header>
-<div class="prose"><p>curl 提示 47，往往表示跟随重定向时达到限制。这与“连接不上代理端口”是不同现象。先看服务器把请求引向哪里，再决定是否需要换节点。</p>
-<p>只对你有权访问的公开小页面操作。不要把订阅令牌、Cookie 或账号密码带进这轮诊断，也不要拿付款、注册或上传请求测试跳转。</p>
-<p><img src="https://www.fengyy.org/assets/media/58f849c8-fb8a-4ec6-a342-c813386b54ce.png" alt="两个网页地址反复跳转后停下检查链条的示意"></p>
-<p><em>示意图：达到跳转边界后检查实际链条，不无限追加请求。</em></p>
-<h2 id="heading">先保存入口与错误原文</h2>
-<p><a href="https://curl.se/docs/manpage.html">curl 官方手册</a>将 47 列为重定向次数过多；<code>--max-redirs</code> 用于限制跟随次数。达到你设置的较小上限，不一定已经证明网站有循环，需要查看实际链条。</p>
-<p>记录当前 URL、时间、curl 版本、节点和命令。浏览器能打开也不是直接反证：浏览器可能执行页面脚本或使用已登录状态，而 curl 不会自动执行网页里的 JavaScript 跳转。这一点可参照 <a href="https://everything.curl.dev/http/redirects.html">everything curl 的重定向说明</a>。</p>
-<h2 id="heading-1">做一轮有边界的公开页面检查</h2>
-<p>下面在 Windows PowerShell 使用示例域名说明命令结构，不预先声称它会跳转。运行前确认当前目录没有要保留的同名文件：</p>
-<pre><code class="language-powershell">curl.exe -q --location --max-redirs 5 --proto-redir '=https' --connect-timeout 10 --max-time 20 --dump-header redirect-check-headers.txt --output redirect-check-body.html https://example.com/
-$LASTEXITCODE
-</code></pre>
-<p>这个示例最多跟随五次，只接受 HTTPS 跳转，不携带认证。遇到 HTTP 跳转可能因协议限制而停止，应记录这个真实原因；不能把所有非零退出码都写成 47。示例中的五次只是诊断边界，不是网站必须遵守的标准。</p>
-<p>查看响应头中各次状态与 <code>Location</code>。相对地址需要结合该次请求地址理解；头文件也可能包含 Cookie 等敏感字段，分享前逐项脱敏。</p>
-<h2 id="heading-2">三种情况分别处理</h2>
+<div class="prose"><p>curl 提示 28，首先说明某个超时条件被触发。它没有直接指出是节点、DNS、握手还是正文传输出了问题，也不能仅凭编号认定机场失效。</p>
+<p>本文面向已使用 curl 的个人用户，只对允许访问的公开小页面做有限请求。不用登录、付款或上传操作测试超时，也不以不断重试增加负担。</p>
+<p><img src="https://www.fengyy.org/assets/media/b1d4059b-17bc-4baa-83af-77bcb4ae1253.png" alt="连接阶段的短时间区间与覆盖整个传输的总时间区间示意"></p>
+<p><em>示意图：总时间覆盖整次传输，连接时间只约束其中的连接阶段。</em></p>
+<h2 id="heading">两个时间限制覆盖不同范围</h2>
+<p><a href="https://everything.curl.dev/usingcurl/timeouts.html">everything curl</a>介绍了连接阶段与整次传输的时间限制；<a href="https://everything.curl.dev/cmdline/exitcode.html">退出码说明</a>将 28 列为操作超时。</p>
+<p>按 <a href="https://curl.se/docs/manpage.html">curl 官方手册</a>，<code>--connect-timeout</code> 覆盖连接阶段，包括所需 DNS 查询以及 TCP、TLS 或 QUIC 握手；连接建立后的正文传输不由这一项单独限制。<code>--max-time</code> 则限制每次传输的总时长。</p>
 <table>
 <thead>
 <tr>
-<th>观察到的链条</th>
-<th>下一步</th>
+<th>设置</th>
+<th>回答的问题</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>两个地址来回出现或同一地址反复出现</td>
-<td>检查原入口，向站方提供脱敏链条</td>
+<td>connect-timeout</td>
+<td>这次连接最多等多久</td>
 </tr>
 <tr>
-<td>各地址不同，达到自设上限才停止</td>
-<td>核对正式访问流程是否确实需要更长链</td>
+<td>max-time</td>
+<td>整次传输最多持续多久</td>
 </tr>
 <tr>
-<td>进入登录页、验证页或陌生域名</td>
-<td>先核对访问条件与目标来源</td>
+<td>错误文本与已收字节</td>
+<td>超时前实际观察到了什么</td>
 </tr>
 </tbody>
 </table>
-<p>不要直接改成无限跳转，也不要使用会把认证扩展给其他目标的信任选项来“修复”。若正式文档确实要求更多跳转，再按已确认流程有限调整，并重新核对最终页面。</p>
-<h2 id="heading-3">什么时候才需要对照节点</h2>
-<p>先固定相同公开 URL、命令和网络，仅更换一个候选节点，记录是否仍出现同一链条。两个节点都重复同样的跳转，只能说明这轮观察一致；还需结合站方状态与入口条件定位。</p>
-<p>验收应包括：错误原文、实际跳转链、最终 URL、响应正文是不是所需页面，以及原本的小任务能否完成。机场推荐中的排障依据不能只写“把跳转次数加大后不报错了”。</p>
+<p>总时长不是在连接时间之外额外赠送的等待时间。如果总限制设置得更短，它可能先被触发。</p>
+<h2 id="heading-1">保存一轮有明确上限的请求</h2>
+<p>Windows PowerShell 示例：</p>
+<pre><code class="language-powershell">$target = 'https://example.com/'
+curl.exe -q --connect-timeout 8 --max-time 30 -o timeout-check-body.txt -w 'http=%{http_code} bytes=%{size_download} total=%{time_total}\n' --url $target
+$LASTEXITCODE
+</code></pre>
+<p>8 秒和 30 秒只是示例诊断预算，并非所有机场的合格阈值。目标换为允许访问的小页面，输出用新文件名；保存控制台的完整错误原文。</p>
+<p><code>-q</code> 用于排除默认配置文件的影响，但环境变量中的代理设置仍需单独核对。要测试本地代理时，明确使用自己客户端提供的实际协议和端口，记录客户端模式。没有记录路径，就不能把结果自动归属给某个节点。</p>
+<h2 id="heading-2">按超时前的观察继续检查</h2>
+<ol>
+<li><strong>先看是否已有 HTTP 响应或正文。</strong> 已收到部分正文时，把观察重点放在后续等待；未收到也不能直接推断是 DNS。</li>
+<li><strong>核对实际超时设置。</strong> 完整命令、环境和工具版本要能复查，尤其留意是否另有总时间或低速条件。</li>
+<li><strong>只做一次单项对照。</strong> 同一小页面、网络和节点下，若原连接预算明显不够，可以适度增加连接等待；其他设置保持一致。若已有正文但总时长不足，则单独评估总限制。</li>
+<li><strong>保留失败结果。</strong> 延长后仍失败，记录等待阶段线索，继续核对目标服务与本地路径，不用无限等待代替诊断。</li>
+</ol>
+<p>超时后，保存的文件可能只有部分内容；存在文件不等于任务完成。成功验收要同时核对退出状态、目标响应和预期内容。</p>
+<h2 id="heading-3">怎样算定位取得进展</h2>
+<p>能够说明“哪个限制、超时前是否有响应、改了哪一项、同一任务是否完成”，就有了可用于下一步排障的证据。整理机场推荐中的客户端体验时，写清这轮预算与环境，不把一次超时或一次延长后成功当作长期稳定性证明。</p>
 <h2 id="heading-4">来源与核验日期</h2>
 <ul>
-<li><a href="https://curl.se/docs/manpage.html">curl：退出码 47 与跳转限制选项</a></li>
-<li><a href="https://everything.curl.dev/http/redirects.html">everything curl：HTTP 跳转与浏览器跳转的区别</a></li>
+<li><a href="https://everything.curl.dev/usingcurl/timeouts.html">everything curl：超时范围</a></li>
+<li><a href="https://everything.curl.dev/cmdline/exitcode.html">everything curl：退出码 28</a></li>
+<li><a href="https://curl.se/docs/manpage.html">curl：connect-timeout、max-time 与输出选项</a></li>
 </ul>
-<p>官方资料核验日期：2026-10-09。操作示例与记录表供读者自行核对，不代表本站对某家机场的实测结论。</p>
+<p>官方资料核验日期：2026-10-10。本文的操作与判断方法供读者自行核对，不代表本站对某家机场的实测结论。</p>
 </div>
 <div class="article-likes" data-pagefind-ignore>
 <button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
@@ -139,13 +147,13 @@ $LASTEXITCODE
 <span id="page-like-label">点赞</span><span id="page-like-count">—</span>
 </button><p id="page-like-message" role="status"></p>
 </div>
-<div class="article-tags" data-pagefind-ignore><a href="https://www.fengyy.org/tags/curl/"># curl</a><a href="https://www.fengyy.org/tags/troubleshooting/"># 故障排查</a></div>
-<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://www.fengyy.org/posts/curl-exit-28-timeout-phases/">← 上一篇</a><a href="https://www.fengyy.org/posts/curl-exit-35-tls-handshake-check/">下一篇 →</a></nav>
+<div class="article-tags" data-pagefind-ignore><a href="https://www.fengyy.org/tags/curl/"># curl</a><a href="https://www.fengyy.org/tags/proxy-configuration/"># 代理配置</a><a href="https://www.fengyy.org/tags/troubleshooting/"># 故障排查</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://www.fengyy.org/posts/kxsw1/">← 上一篇</a><a href="https://www.fengyy.org/posts/curl-exit-47-redirect-loop-check/">下一篇 →</a></nav>
 <section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
 </article>
 
 <div class="article-rail">
-<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#heading">先保存入口与错误原文</a><a class="level-2" href="#heading-1">做一轮有边界的公开页面检查</a><a class="level-2" href="#heading-2">三种情况分别处理</a><a class="level-2" href="#heading-3">什么时候才需要对照节点</a><a class="level-2" href="#heading-4">来源与核验日期</a></nav></aside>
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#heading">两个时间限制覆盖不同范围</a><a class="level-2" href="#heading-1">保存一轮有明确上限的请求</a><a class="level-2" href="#heading-2">按超时前的观察继续检查</a><a class="level-2" href="#heading-3">怎样算定位取得进展</a><a class="level-2" href="#heading-4">来源与核验日期</a></nav></aside>
 <aside class="ad-slot" aria-label="文章相关内容" data-ad-position="article_sidebar" data-pagefind-ignore><a class="ad-card" href="https://goflybit.com/#/register?code=gPinVG8C" target="_blank" rel="sponsored noopener noreferrer" aria-label="FlyBit · 内容页侧边邀请入口（在新标签页打开）" data-ad-link>
 
 <div class="ad-copy"><h3>FlyBit</h3>
@@ -195,7 +203,7 @@ $LASTEXITCODE
 </div>
 </dialog>
 
-<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/a7d067be-e6ad-4186-8b37-f541244ced81/","pageTitle":"curl 报错 47 就该换节点吗？先查重定向循环","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/d293d0c4-3f4f-4656-b6f9-90ffbfc5eb7c/","pageTitle":"curl 报错 28 怎样排查？把连接超时与总等待时间分开","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
 
 </body>
 </html>
