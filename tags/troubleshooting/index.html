@@ -1,7 +1,8 @@
 <!doctype html>
-<html lang="zh-CN" data-theme="liubai-journal">
+<html lang="zh-CN" data-theme="liubai-journal-seo">
 
 <head>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>故障排查 · 风悠悠优质机场</title>
@@ -26,7 +27,7 @@
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/style.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/advertisements.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/search.css"><script defer src="https://www.fengyy.org/assets/theme/search.js"></script>
-<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/skin.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/article-cards.css">
+<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/skin.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/article-cards.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/seo-images.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/viewer.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/reader.css">
 <link rel="icon" href="https://www.fengyy.org/assets/media/511f1774-abc1-4165-a91a-b63dad2feff6.webp">
@@ -37,16 +38,8 @@
 <script defer src="https://www.fengyy.org/assets/theme/image-viewer.js"></script>
 
 <script defer src="https://www.fengyy.org/assets/theme/interactions.js"></script>
-<script defer src="https://www.fengyy.org/assets/theme/hero-banner.js"></script><script defer src="https://www.fengyy.org/assets/theme/aurora.js"></script><script defer src="https://www.fengyy.org/assets/theme/article-cards.js"></script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PH5M249V6F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<script defer src="https://www.fengyy.org/assets/theme/hero-banner.js"></script><script defer src="https://www.fengyy.org/assets/theme/aurora.js"></script><script defer src="https://www.fengyy.org/assets/theme/article-cards.js"></script><script defer src="https://www.fengyy.org/assets/theme/seo-enhancements.js"></script><script defer src="https://www.fengyy.org/assets/theme/analytics-guard.js"></script>
 
-  gtag('config', 'G-PH5M249V6F');
-</script>
 
 <script defer src="https://www.fengyy.org/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-PH5M249V6F" data-site-hosts="www.fengyy.org"></script></head>
 
@@ -77,13 +70,14 @@
 <nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://www.fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">故障排查</span></li></ol></nav>
 
 
-<header class="journal-archive"><p class="journal-kicker">按主题阅读</p><h1>故障排查</h1><p>按错误证据和对照步骤定位代理连接问题。</p></header>
+
+<header class="archive-header journal-archive-header"><h1>故障排查</h1><p>按错误证据和对照步骤定位代理连接问题。</p></header>
 
 <div class="journal-layout">
 <div class="content-column">
 
 
-<header class="journal-section-heading" id="latest"><h2>文章选集</h2><p>记录日常，分享思考。每一次阅读，都是一次新的发现。</p></header>
+
 
 <section class="article-list journal-grid" aria-label="文章列表">
 <article class="article-card journal-card">
@@ -94,8 +88,7 @@
 <p class="card-summary">将 HTTP 状态、curl 退出码和服务端错误正文分别保存，使用只读 GET 保留失败线索，避免把错误页面当正常下载。</p>
 <div class="journal-card-meta"><span>风</span><time datetime="2026-10-11T09:18:13&#43;08:00">2026-10-11</time></div>
 <div class="journal-card-bottom"><a class="read-more" href="https://www.fengyy.org/posts/curl-exit-22-error-body-check/" aria-label="阅读curl 报错 22 怎样保留原因？用 --fail-with-body 同时核对状态码与错误正文">阅读更多 <span aria-hidden="true">›</span></a></div>
-</div>
-</article><article class="article-card journal-card">
+</div></article><article class="article-card journal-card">
 <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><g class="glyph glyph-spark"><path d="M28 9c0 12-5 17-17 17 12 0 17 5 17 17 0-12 5-17 17-17-12 0-17-5-17-17Z"/><path d="M11 3c0 6-2 8-8 8 6 0 8 2 8 8 0-6 2-8 8-8-6 0-8-2-8-8Zm35 32c0 6-2 8-8 8 6 0 8 2 8 8 0-6 2-8 8-8-6 0-8-2-8-8Z"/></g><g class="glyph glyph-book"><path d="M28 15C20 9 12 9 5 10v34c8-2 16 0 23 5 7-5 15-7 23-5V10c-7-1-15-1-23 5Zm0 0v34M11 18c4 0 8 1 11 3m-11 5c4 0 8 1 11 3m12-8c3-2 7-3 11-3m-11 11c3-2 7-3 11-3"/></g><g class="glyph glyph-orbit"><circle cx="28" cy="28" r="14"/><ellipse cx="28" cy="28" rx="27" ry="9" transform="rotate(-35 28 28)"/><path d="M37 10v-7m-4 3.5h8M7 43v8m-4-4h8"/></g><g class="glyph glyph-window"><rect x="10" y="5" width="36" height="46" rx="3"/><path d="M10 15h36M28 15v36M10 33h36M16 10h1m5 0h1"/></g><g class="glyph glyph-pen"><path d="m9 39 27-27 8 8-27 27-12 4Zm6-6 8 8M36 12l4-4a5.7 5.7 0 0 1 8 8l-4 4M6 51h42"/></g><g class="glyph glyph-leaf"><path d="M10 43C-1 20 19 4 49 7c2 29-13 44-36 33M7 51l31-32M20 37l-1-14m10 5 13 1"/></g></svg></div>
 
 <div class="journal-card-copy">
@@ -103,8 +96,7 @@
 <p class="card-summary">核对 connect-timeout 与 max-time 的作用范围，保留错误、响应状态和有限对照条件，不把超时编号当成节点故障定位。</p>
 <div class="journal-card-meta"><span>风</span><time datetime="2026-10-10T09:18:54&#43;08:00">2026-10-10</time></div>
 <div class="journal-card-bottom"><a class="read-more" href="https://www.fengyy.org/posts/curl-exit-28-timeout-phases/" aria-label="阅读curl 报错 28 怎样排查？把连接超时与总等待时间分开">阅读更多 <span aria-hidden="true">›</span></a></div>
-</div>
-</article><article class="article-card journal-card">
+</div></article><article class="article-card journal-card">
 <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><g class="glyph glyph-spark"><path d="M28 9c0 12-5 17-17 17 12 0 17 5 17 17 0-12 5-17 17-17-12 0-17-5-17-17Z"/><path d="M11 3c0 6-2 8-8 8 6 0 8 2 8 8 0-6 2-8 8-8-6 0-8-2-8-8Zm35 32c0 6-2 8-8 8 6 0 8 2 8 8 0-6 2-8 8-8-6 0-8-2-8-8Z"/></g><g class="glyph glyph-book"><path d="M28 15C20 9 12 9 5 10v34c8-2 16 0 23 5 7-5 15-7 23-5V10c-7-1-15-1-23 5Zm0 0v34M11 18c4 0 8 1 11 3m-11 5c4 0 8 1 11 3m12-8c3-2 7-3 11-3m-11 11c3-2 7-3 11-3"/></g><g class="glyph glyph-orbit"><circle cx="28" cy="28" r="14"/><ellipse cx="28" cy="28" rx="27" ry="9" transform="rotate(-35 28 28)"/><path d="M37 10v-7m-4 3.5h8M7 43v8m-4-4h8"/></g><g class="glyph glyph-window"><rect x="10" y="5" width="36" height="46" rx="3"/><path d="M10 15h36M28 15v36M10 33h36M16 10h1m5 0h1"/></g><g class="glyph glyph-pen"><path d="m9 39 27-27 8 8-27 27-12 4Zm6-6 8 8M36 12l4-4a5.7 5.7 0 0 1 8 8l-4 4M6 51h42"/></g><g class="glyph glyph-leaf"><path d="M10 43C-1 20 19 4 49 7c2 29-13 44-36 33M7 51l31-32M20 37l-1-14m10 5 13 1"/></g></svg></div>
 
 <div class="journal-card-copy">
@@ -112,8 +104,7 @@
 <p class="card-summary">达到跳转上限时先保存响应链，核对重复地址与入口，而不是无限放宽跳转或携带账号反复请求。</p>
 <div class="journal-card-meta"><span>风</span><time datetime="2026-10-09T09:18:48&#43;08:00">2026-10-09</time></div>
 <div class="journal-card-bottom"><a class="read-more" href="https://www.fengyy.org/posts/curl-exit-47-redirect-loop-check/" aria-label="阅读curl 报错 47 就该换节点吗？先查重定向循环">阅读更多 <span aria-hidden="true">›</span></a></div>
-</div>
-</article><article class="article-card journal-card">
+</div></article><article class="article-card journal-card">
 <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><g class="glyph glyph-spark"><path d="M28 9c0 12-5 17-17 17 12 0 17 5 17 17 0-12 5-17 17-17-12 0-17-5-17-17Z"/><path d="M11 3c0 6-2 8-8 8 6 0 8 2 8 8 0-6 2-8 8-8-6 0-8-2-8-8Zm35 32c0 6-2 8-8 8 6 0 8 2 8 8 0-6 2-8 8-8-6 0-8-2-8-8Z"/></g><g class="glyph glyph-book"><path d="M28 15C20 9 12 9 5 10v34c8-2 16 0 23 5 7-5 15-7 23-5V10c-7-1-15-1-23 5Zm0 0v34M11 18c4 0 8 1 11 3m-11 5c4 0 8 1 11 3m12-8c3-2 7-3 11-3m-11 11c3-2 7-3 11-3"/></g><g class="glyph glyph-orbit"><circle cx="28" cy="28" r="14"/><ellipse cx="28" cy="28" rx="27" ry="9" transform="rotate(-35 28 28)"/><path d="M37 10v-7m-4 3.5h8M7 43v8m-4-4h8"/></g><g class="glyph glyph-window"><rect x="10" y="5" width="36" height="46" rx="3"/><path d="M10 15h36M28 15v36M10 33h36M16 10h1m5 0h1"/></g><g class="glyph glyph-pen"><path d="m9 39 27-27 8 8-27 27-12 4Zm6-6 8 8M36 12l4-4a5.7 5.7 0 0 1 8 8l-4 4M6 51h42"/></g><g class="glyph glyph-leaf"><path d="M10 43C-1 20 19 4 49 7c2 29-13 44-36 33M7 51l31-32M20 37l-1-14m10 5 13 1"/></g></svg></div>
 
 <div class="journal-card-copy">
@@ -121,8 +112,7 @@
 <p class="card-summary">把 curl 35 的握手失败与证书认证失败分开，核对程序、代理协议和日志中的连接对象，再做一次单项对照。</p>
 <div class="journal-card-meta"><span>风</span><time datetime="2026-10-08T09:27:56&#43;08:00">2026-10-08</time></div>
 <div class="journal-card-bottom"><a class="read-more" href="https://www.fengyy.org/posts/curl-exit-35-tls-handshake-check/" aria-label="阅读curl 报错 35 怎样查？先定位失败的 TLS 握手">阅读更多 <span aria-hidden="true">›</span></a></div>
-</div>
-</article><article class="article-card journal-card">
+</div></article><article class="article-card journal-card">
 <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><g class="glyph glyph-spark"><path d="M28 9c0 12-5 17-17 17 12 0 17 5 17 17 0-12 5-17 17-17-12 0-17-5-17-17Z"/><path d="M11 3c0 6-2 8-8 8 6 0 8 2 8 8 0-6 2-8 8-8-6 0-8-2-8-8Zm35 32c0 6-2 8-8 8 6 0 8 2 8 8 0-6 2-8 8-8-6 0-8-2-8-8Z"/></g><g class="glyph glyph-book"><path d="M28 15C20 9 12 9 5 10v34c8-2 16 0 23 5 7-5 15-7 23-5V10c-7-1-15-1-23 5Zm0 0v34M11 18c4 0 8 1 11 3m-11 5c4 0 8 1 11 3m12-8c3-2 7-3 11-3m-11 11c3-2 7-3 11-3"/></g><g class="glyph glyph-orbit"><circle cx="28" cy="28" r="14"/><ellipse cx="28" cy="28" rx="27" ry="9" transform="rotate(-35 28 28)"/><path d="M37 10v-7m-4 3.5h8M7 43v8m-4-4h8"/></g><g class="glyph glyph-window"><rect x="10" y="5" width="36" height="46" rx="3"/><path d="M10 15h36M28 15v36M10 33h36M16 10h1m5 0h1"/></g><g class="glyph glyph-pen"><path d="m9 39 27-27 8 8-27 27-12 4Zm6-6 8 8M36 12l4-4a5.7 5.7 0 0 1 8 8l-4 4M6 51h42"/></g><g class="glyph glyph-leaf"><path d="M10 43C-1 20 19 4 49 7c2 29-13 44-36 33M7 51l31-32M20 37l-1-14m10 5 13 1"/></g></svg></div>
 
 <div class="journal-card-copy">
@@ -130,8 +120,7 @@
 <p class="card-summary">一份机场订阅能否同时用于电脑和手机，要看服务的多设备规则与客户端格式。分清设备、连接数、IP 数和热点共享，按单设备、双设备与切网三轮检查。</p>
 <div class="journal-card-meta"><span>风</span><time datetime="2026-10-07T21:24:36&#43;08:00">2026-10-07</time></div>
 <div class="journal-card-bottom"><a class="read-more" href="https://www.fengyy.org/posts/airport-subscription-computer-phone-sharing/" aria-label="阅读一份机场订阅能同时用电脑和手机吗？多设备使用与流量核对">阅读更多 <span aria-hidden="true">›</span></a></div>
-</div>
-</article><article class="article-card journal-card">
+</div></article><article class="article-card journal-card">
 <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><g class="glyph glyph-spark"><path d="M28 9c0 12-5 17-17 17 12 0 17 5 17 17 0-12 5-17 17-17-12 0-17-5-17-17Z"/><path d="M11 3c0 6-2 8-8 8 6 0 8 2 8 8 0-6 2-8 8-8-6 0-8-2-8-8Zm35 32c0 6-2 8-8 8 6 0 8 2 8 8 0-6 2-8 8-8-6 0-8-2-8-8Z"/></g><g class="glyph glyph-book"><path d="M28 15C20 9 12 9 5 10v34c8-2 16 0 23 5 7-5 15-7 23-5V10c-7-1-15-1-23 5Zm0 0v34M11 18c4 0 8 1 11 3m-11 5c4 0 8 1 11 3m12-8c3-2 7-3 11-3m-11 11c3-2 7-3 11-3"/></g><g class="glyph glyph-orbit"><circle cx="28" cy="28" r="14"/><ellipse cx="28" cy="28" rx="27" ry="9" transform="rotate(-35 28 28)"/><path d="M37 10v-7m-4 3.5h8M7 43v8m-4-4h8"/></g><g class="glyph glyph-window"><rect x="10" y="5" width="36" height="46" rx="3"/><path d="M10 15h36M28 15v36M10 33h36M16 10h1m5 0h1"/></g><g class="glyph glyph-pen"><path d="m9 39 27-27 8 8-27 27-12 4Zm6-6 8 8M36 12l4-4a5.7 5.7 0 0 1 8 8l-4 4M6 51h42"/></g><g class="glyph glyph-leaf"><path d="M10 43C-1 20 19 4 49 7c2 29-13 44-36 33M7 51l31-32M20 37l-1-14m10 5 13 1"/></g></svg></div>
 
 <div class="journal-card-copy">
@@ -139,8 +128,7 @@
 <p class="card-summary">在 Firefox 连接设置中核对“不使用代理”列表，保留本地与单位必要例外，只对一个目标做恢复对照。</p>
 <div class="journal-card-meta"><span>风</span><time datetime="2026-10-07T09:19:13&#43;08:00">2026-10-07</time></div>
 <div class="journal-card-bottom"><a class="read-more" href="https://www.fengyy.org/posts/firefox-no-proxy-exceptions/" aria-label="阅读Firefox 已填代理，部分网站为何仍直连？检查代理例外">阅读更多 <span aria-hidden="true">›</span></a></div>
-</div>
-</article><article class="article-card journal-card">
+</div></article><article class="article-card journal-card">
 <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><g class="glyph glyph-spark"><path d="M28 9c0 12-5 17-17 17 12 0 17 5 17 17 0-12 5-17 17-17-12 0-17-5-17-17Z"/><path d="M11 3c0 6-2 8-8 8 6 0 8 2 8 8 0-6 2-8 8-8-6 0-8-2-8-8Zm35 32c0 6-2 8-8 8 6 0 8 2 8 8 0-6 2-8 8-8-6 0-8-2-8-8Z"/></g><g class="glyph glyph-book"><path d="M28 15C20 9 12 9 5 10v34c8-2 16 0 23 5 7-5 15-7 23-5V10c-7-1-15-1-23 5Zm0 0v34M11 18c4 0 8 1 11 3m-11 5c4 0 8 1 11 3m12-8c3-2 7-3 11-3m-11 11c3-2 7-3 11-3"/></g><g class="glyph glyph-orbit"><circle cx="28" cy="28" r="14"/><ellipse cx="28" cy="28" rx="27" ry="9" transform="rotate(-35 28 28)"/><path d="M37 10v-7m-4 3.5h8M7 43v8m-4-4h8"/></g><g class="glyph glyph-window"><rect x="10" y="5" width="36" height="46" rx="3"/><path d="M10 15h36M28 15v36M10 33h36M16 10h1m5 0h1"/></g><g class="glyph glyph-pen"><path d="m9 39 27-27 8 8-27 27-12 4Zm6-6 8 8M36 12l4-4a5.7 5.7 0 0 1 8 8l-4 4M6 51h42"/></g><g class="glyph glyph-leaf"><path d="M10 43C-1 20 19 4 49 7c2 29-13 44-36 33M7 51l31-32M20 37l-1-14m10 5 13 1"/></g></svg></div>
 
 <div class="journal-card-copy">
@@ -148,8 +136,7 @@
 <p class="card-summary">代理 URL 的协议描述你怎样连接代理，不由目标网页是否 HTTPS 决定。核对本地监听类型再填写地址。</p>
 <div class="journal-card-meta"><span>风</span><time datetime="2026-10-06T09:20:06&#43;08:00">2026-10-06</time></div>
 <div class="journal-card-bottom"><a class="read-more" href="https://www.fengyy.org/posts/https-target-http-local-proxy/" aria-label="阅读访问 HTTPS 网站，代理为什么填 http://？本地代理地址的协议检查">阅读更多 <span aria-hidden="true">›</span></a></div>
-</div>
-</article><article class="article-card journal-card">
+</div></article><article class="article-card journal-card">
 <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><g class="glyph glyph-spark"><path d="M28 9c0 12-5 17-17 17 12 0 17 5 17 17 0-12 5-17 17-17-12 0-17-5-17-17Z"/><path d="M11 3c0 6-2 8-8 8 6 0 8 2 8 8 0-6 2-8 8-8-6 0-8-2-8-8Zm35 32c0 6-2 8-8 8 6 0 8 2 8 8 0-6 2-8 8-8-6 0-8-2-8-8Z"/></g><g class="glyph glyph-book"><path d="M28 15C20 9 12 9 5 10v34c8-2 16 0 23 5 7-5 15-7 23-5V10c-7-1-15-1-23 5Zm0 0v34M11 18c4 0 8 1 11 3m-11 5c4 0 8 1 11 3m12-8c3-2 7-3 11-3m-11 11c3-2 7-3 11-3"/></g><g class="glyph glyph-orbit"><circle cx="28" cy="28" r="14"/><ellipse cx="28" cy="28" rx="27" ry="9" transform="rotate(-35 28 28)"/><path d="M37 10v-7m-4 3.5h8M7 43v8m-4-4h8"/></g><g class="glyph glyph-window"><rect x="10" y="5" width="36" height="46" rx="3"/><path d="M10 15h36M28 15v36M10 33h36M16 10h1m5 0h1"/></g><g class="glyph glyph-pen"><path d="m9 39 27-27 8 8-27 27-12 4Zm6-6 8 8M36 12l4-4a5.7 5.7 0 0 1 8 8l-4 4M6 51h42"/></g><g class="glyph glyph-leaf"><path d="M10 43C-1 20 19 4 49 7c2 29-13 44-36 33M7 51l31-32M20 37l-1-14m10 5 13 1"/></g></svg></div>
 
 <div class="journal-card-copy">
@@ -157,8 +144,7 @@
 <p class="card-summary">用一次小型 GET 和独立错误记录，区分 curl 的空回复与接收失败，减少盲目换节点。</p>
 <div class="journal-card-meta"><span>风</span><time datetime="2026-10-05T09:29:50&#43;08:00">2026-10-05</time></div>
 <div class="journal-card-bottom"><a class="read-more" href="https://www.fengyy.org/posts/curl-exit-52-56-check/" aria-label="阅读curl 报错 52 和 56 怎么查？分清空回复与接收中断">阅读更多 <span aria-hidden="true">›</span></a></div>
-</div>
-</article><article class="article-card journal-card">
+</div></article><article class="article-card journal-card">
 <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><g class="glyph glyph-spark"><path d="M28 9c0 12-5 17-17 17 12 0 17 5 17 17 0-12 5-17 17-17-12 0-17-5-17-17Z"/><path d="M11 3c0 6-2 8-8 8 6 0 8 2 8 8 0-6 2-8 8-8-6 0-8-2-8-8Zm35 32c0 6-2 8-8 8 6 0 8 2 8 8 0-6 2-8 8-8-6 0-8-2-8-8Z"/></g><g class="glyph glyph-book"><path d="M28 15C20 9 12 9 5 10v34c8-2 16 0 23 5 7-5 15-7 23-5V10c-7-1-15-1-23 5Zm0 0v34M11 18c4 0 8 1 11 3m-11 5c4 0 8 1 11 3m12-8c3-2 7-3 11-3m-11 11c3-2 7-3 11-3"/></g><g class="glyph glyph-orbit"><circle cx="28" cy="28" r="14"/><ellipse cx="28" cy="28" rx="27" ry="9" transform="rotate(-35 28 28)"/><path d="M37 10v-7m-4 3.5h8M7 43v8m-4-4h8"/></g><g class="glyph glyph-window"><rect x="10" y="5" width="36" height="46" rx="3"/><path d="M10 15h36M28 15v36M10 33h36M16 10h1m5 0h1"/></g><g class="glyph glyph-pen"><path d="m9 39 27-27 8 8-27 27-12 4Zm6-6 8 8M36 12l4-4a5.7 5.7 0 0 1 8 8l-4 4M6 51h42"/></g><g class="glyph glyph-leaf"><path d="M10 43C-1 20 19 4 49 7c2 29-13 44-36 33M7 51l31-32M20 37l-1-14m10 5 13 1"/></g></svg></div>
 
 <div class="journal-card-copy">
@@ -166,8 +152,7 @@
 <p class="card-summary">从注册购买、复制订阅到导入节点和开启连接，按 Windows、Mac、安卓与 iPhone 分别讲解。配有五张原创操作图、官方客户端下载入口和四项连接排查表。</p>
 <div class="journal-card-meta"><span>风</span><time datetime="2026-10-04T14:34:04&#43;08:00">2026-10-04</time></div>
 <div class="journal-card-bottom"><a class="read-more" href="https://www.fengyy.org/posts/airport-subscription-beginner-illustrated-2026/" aria-label="阅读机场怎么订阅和使用？电脑与手机一步一步图文教程">阅读更多 <span aria-hidden="true">›</span></a></div>
-</div>
-</article><article class="article-card journal-card">
+</div></article><article class="article-card journal-card">
 <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"><g class="glyph glyph-spark"><path d="M28 9c0 12-5 17-17 17 12 0 17 5 17 17 0-12 5-17 17-17-12 0-17-5-17-17Z"/><path d="M11 3c0 6-2 8-8 8 6 0 8 2 8 8 0-6 2-8 8-8-6 0-8-2-8-8Zm35 32c0 6-2 8-8 8 6 0 8 2 8 8 0-6 2-8 8-8-6 0-8-2-8-8Z"/></g><g class="glyph glyph-book"><path d="M28 15C20 9 12 9 5 10v34c8-2 16 0 23 5 7-5 15-7 23-5V10c-7-1-15-1-23 5Zm0 0v34M11 18c4 0 8 1 11 3m-11 5c4 0 8 1 11 3m12-8c3-2 7-3 11-3m-11 11c3-2 7-3 11-3"/></g><g class="glyph glyph-orbit"><circle cx="28" cy="28" r="14"/><ellipse cx="28" cy="28" rx="27" ry="9" transform="rotate(-35 28 28)"/><path d="M37 10v-7m-4 3.5h8M7 43v8m-4-4h8"/></g><g class="glyph glyph-window"><rect x="10" y="5" width="36" height="46" rx="3"/><path d="M10 15h36M28 15v36M10 33h36M16 10h1m5 0h1"/></g><g class="glyph glyph-pen"><path d="m9 39 27-27 8 8-27 27-12 4Zm6-6 8 8M36 12l4-4a5.7 5.7 0 0 1 8 8l-4 4M6 51h42"/></g><g class="glyph glyph-leaf"><path d="M10 43C-1 20 19 4 49 7c2 29-13 44-36 33M7 51l31-32M20 37l-1-14m10 5 13 1"/></g></svg></div>
 
 <div class="journal-card-copy">
@@ -175,10 +160,8 @@
 <p class="card-summary">遇到证书尚未生效或已过期提示时，先核对 Windows 日期、时区、时间源与最近同步，再验证原域名；给出只读查询和恢复验收方法。</p>
 <div class="journal-card-meta"><span>王牌飞行员</span><time datetime="2026-10-04T09:23:07&#43;08:00">2026-10-04</time></div>
 <div class="journal-card-bottom"><a class="read-more" href="https://www.fengyy.org/posts/windows-clock-tls-check/" aria-label="阅读Windows 时间不同步导致机场证书错误？先看时区与同步状态">阅读更多 <span aria-hidden="true">›</span></a></div>
-</div>
-</article>
+</div></article>
 </section>
-
 
 <nav class="pagination" aria-label="分页"><span></span><span>1 / 3</span><a href="https://www.fengyy.org/tags/troubleshooting/page/2/">下一页 →</a></nav>
 
@@ -192,9 +175,8 @@
 
 <footer class="site-footer journal-footer">
 <nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">同频的朋友</span><a href="https://kkjichang.cc/" target="_blank" rel="noopener noreferrer">可靠机场推荐 ↗</a><a href="https://pyjichang.cc/" target="_blank" rel="noopener noreferrer">便宜机场推荐 ↗</a><a href="https://www.yaoyaolingxian.blog/" target="_blank" rel="noopener noreferrer">遥遥领先 ↗</a><a href="https://wdjichang.cc/" target="_blank" rel="noopener noreferrer">稳定机场推荐 ↗</a><a href="https://zjtf.org/" target="_blank" rel="noopener noreferrer">酌酒听风 ↗</a></nav>
-<div class="journal-footer-line"><span>© 2026 风悠悠优质机场</span></div>
-</footer>
 
+</footer>
 
 
 <dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>

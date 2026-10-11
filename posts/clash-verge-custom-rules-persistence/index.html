@@ -1,7 +1,8 @@
 <!doctype html>
-<html lang="zh-CN" data-theme="liubai-journal">
+<html lang="zh-CN" data-theme="liubai-journal-seo">
 
 <head>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Clash Verge Rev更新订阅后规则丢了？自定义规则的保存与验收 · 风悠悠优质机场</title>
@@ -26,7 +27,7 @@
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/style.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/advertisements.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/search.css"><script defer src="https://www.fengyy.org/assets/theme/search.js"></script>
-<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/skin.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/article-cards.css">
+<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/skin.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/article-cards.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/seo-images.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/viewer.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/reader.css">
 <link rel="icon" href="https://www.fengyy.org/assets/media/511f1774-abc1-4165-a91a-b63dad2feff6.webp">
@@ -37,16 +38,8 @@
 <script defer src="https://www.fengyy.org/assets/theme/image-viewer.js"></script>
 
 <script defer src="https://www.fengyy.org/assets/theme/interactions.js"></script>
-<script defer src="https://www.fengyy.org/assets/theme/hero-banner.js"></script><script defer src="https://www.fengyy.org/assets/theme/aurora.js"></script><script defer src="https://www.fengyy.org/assets/theme/article-cards.js"></script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PH5M249V6F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<script defer src="https://www.fengyy.org/assets/theme/hero-banner.js"></script><script defer src="https://www.fengyy.org/assets/theme/aurora.js"></script><script defer src="https://www.fengyy.org/assets/theme/article-cards.js"></script><script defer src="https://www.fengyy.org/assets/theme/seo-enhancements.js"></script><script defer src="https://www.fengyy.org/assets/theme/analytics-guard.js"></script>
 
-  gtag('config', 'G-PH5M249V6F');
-</script>
 
 <script defer src="https://www.fengyy.org/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-PH5M249V6F" data-site-hosts="www.fengyy.org"></script></head>
 
@@ -85,7 +78,8 @@
 <div class="metadata" data-pagefind-ignore><span>王牌飞行员</span><time datetime="2026-09-22T11:31:37&#43;08:00">2026-09-22</time><span><span id="page-views">—</span> 次阅读</span></div>
 <div class="chips" data-pagefind-ignore><a href="https://www.fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
 </header>
-<div class="prose"><p>刚改好的分流规则，更新机场订阅后又失效，先检查修改保存在哪里。远程订阅内容、本地扩展与客户端最终使用的配置是不同层次；仅在某个编辑窗口里看见规则，不等于它会在更新后继续生效。</p>
+<div class="prose">
+<p>刚改好的分流规则，更新机场订阅后又失效，先检查修改保存在哪里。远程订阅内容、本地扩展与客户端最终使用的配置是不同层次；仅在某个编辑窗口里看见规则，不等于它会在更新后继续生效。</p>
 <p>本文面向已经能够正常连接、只想保留少量个人分流规则的 Clash Verge Rev 用户。不同版本的菜单可能不同，操作前记录应用版本，并以对应官方文档和实际界面为准。</p>
 <h2 id="heading">先保留能够正常工作的配置</h2>
 <p>不要一开始就粘贴整份网络配置。先记下当前生效订阅、代理模式、常用策略组和希望改变的一个域名；备份已有自定义内容，订阅链接等凭据单独私密保存。</p>
@@ -145,6 +139,7 @@
 <p><strong>更新后找不到规则：</strong> 核对是否只改了下载得到的订阅原文，或扩展附在另一份订阅上。恢复备份时只恢复必要修改，不覆盖新订阅中的全部节点信息。</p>
 <p><strong>换订阅就出错：</strong> 检查全局规则引用的策略名称在新订阅是否存在。适用于一个服务的策略名称，不宜默认适用于所有服务。</p>
 <p>如果仍有异常，向支持方提供应用版本、规则类型、修改入口和脱敏后的报错；不要公开整份订阅或访问令牌。保留“更新前能用、更新后仍能用”的证据，比堆积大量自定义规则更有用。</p>
+
 </div>
 <div class="article-likes" data-pagefind-ignore>
 <button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
@@ -186,9 +181,8 @@
 
 <footer class="site-footer journal-footer">
 <nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">同频的朋友</span><a href="https://kkjichang.cc/" target="_blank" rel="noopener noreferrer">可靠机场推荐 ↗</a><a href="https://pyjichang.cc/" target="_blank" rel="noopener noreferrer">便宜机场推荐 ↗</a><a href="https://www.yaoyaolingxian.blog/" target="_blank" rel="noopener noreferrer">遥遥领先 ↗</a><a href="https://wdjichang.cc/" target="_blank" rel="noopener noreferrer">稳定机场推荐 ↗</a><a href="https://zjtf.org/" target="_blank" rel="noopener noreferrer">酌酒听风 ↗</a></nav>
-<div class="journal-footer-line"><span>© 2026 风悠悠优质机场</span></div>
-</footer>
 
+</footer>
 
 
 <dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>

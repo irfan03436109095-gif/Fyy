@@ -1,7 +1,8 @@
 <!doctype html>
-<html lang="zh-CN" data-theme="liubai-journal">
+<html lang="zh-CN" data-theme="liubai-journal-seo">
 
 <head>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存 · 风悠悠优质机场</title>
@@ -26,7 +27,7 @@
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/style.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/advertisements.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/search.css"><script defer src="https://www.fengyy.org/assets/theme/search.js"></script>
-<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/skin.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/article-cards.css">
+<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/skin.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/article-cards.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/seo-images.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/viewer.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/reader.css">
 <link rel="icon" href="https://www.fengyy.org/assets/media/511f1774-abc1-4165-a91a-b63dad2feff6.webp">
@@ -37,16 +38,8 @@
 <script defer src="https://www.fengyy.org/assets/theme/image-viewer.js"></script>
 
 <script defer src="https://www.fengyy.org/assets/theme/interactions.js"></script>
-<script defer src="https://www.fengyy.org/assets/theme/hero-banner.js"></script><script defer src="https://www.fengyy.org/assets/theme/aurora.js"></script><script defer src="https://www.fengyy.org/assets/theme/article-cards.js"></script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PH5M249V6F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<script defer src="https://www.fengyy.org/assets/theme/hero-banner.js"></script><script defer src="https://www.fengyy.org/assets/theme/aurora.js"></script><script defer src="https://www.fengyy.org/assets/theme/article-cards.js"></script><script defer src="https://www.fengyy.org/assets/theme/seo-enhancements.js"></script><script defer src="https://www.fengyy.org/assets/theme/analytics-guard.js"></script>
 
-  gtag('config', 'G-PH5M249V6F');
-</script>
 
 <script defer src="https://www.fengyy.org/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-PH5M249V6F" data-site-hosts="www.fengyy.org"></script></head>
 
@@ -85,7 +78,8 @@
 <div class="metadata" data-pagefind-ignore><span>王牌飞行员</span><time datetime="2026-09-26T09:06:52&#43;08:00">2026-09-26</time><span><span id="page-views">—</span> 次阅读</span></div>
 <div class="chips" data-pagefind-ignore><a href="https://www.fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
 </header>
-<div class="prose"><h2 id="-windows-dns-">切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存</h2>
+<div class="prose">
+<h2 id="-windows-dns-">切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存</h2>
 <p>切换机场节点后，网页仍访问旧服务器，很多人会立刻重装客户端或反复换节点。更稳妥的做法是先分层判断：域名解析结果是否缓存、浏览器是否复用旧连接、代理客户端是否自己接管 DNS。Windows 的 DNS 客户端缓存只是其中一层，清空它并不能解决所有代理问题。</p>
 <h3 id="heading">第一步：只读查看缓存</h3>
 <p>打开命令提示符，执行：</p>
@@ -112,6 +106,7 @@
 <p>准备一个固定公开网页，按“清理前、清理后、换节点后”各访问一次，并记录系统解析结果、客户端日志时间和网页实际表现。如果只有清缓存后短暂恢复，很可能还有浏览器连接复用、代理 DNS 或上游解析问题，需要继续沿层级排查。</p>
 <p>风悠悠的客户端排障原则是一次只改一个变量。机场推荐文章里常见的“换 DNS 就好”并不适用于所有情况；先用只读命令确认，再做可回退的最小修改，能避免把简单缓存问题扩大成配置故障。</p>
 <p>微软官方 <code>ipconfig</code> 文档列出了 <code>/displaydns</code> 与 <code>/flushdns</code> 的用途和适用系统：<a href="https://learn.microsoft.com/en-gb/windows-server/administration/windows-commands/ipconfig">ipconfig 命令文档</a>。</p>
+
 </div>
 <div class="article-likes" data-pagefind-ignore>
 <button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
@@ -153,9 +148,8 @@
 
 <footer class="site-footer journal-footer">
 <nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">同频的朋友</span><a href="https://kkjichang.cc/" target="_blank" rel="noopener noreferrer">可靠机场推荐 ↗</a><a href="https://pyjichang.cc/" target="_blank" rel="noopener noreferrer">便宜机场推荐 ↗</a><a href="https://www.yaoyaolingxian.blog/" target="_blank" rel="noopener noreferrer">遥遥领先 ↗</a><a href="https://wdjichang.cc/" target="_blank" rel="noopener noreferrer">稳定机场推荐 ↗</a><a href="https://zjtf.org/" target="_blank" rel="noopener noreferrer">酌酒听风 ↗</a></nav>
-<div class="journal-footer-line"><span>© 2026 风悠悠优质机场</span></div>
-</footer>
 
+</footer>
 
 
 <dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>

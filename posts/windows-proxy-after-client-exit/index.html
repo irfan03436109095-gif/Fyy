@@ -1,7 +1,8 @@
 <!doctype html>
-<html lang="zh-CN" data-theme="liubai-journal">
+<html lang="zh-CN" data-theme="liubai-journal-seo">
 
 <head>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>关闭机场客户端后网页打不开？Windows残留代理排查步骤 · 风悠悠优质机场</title>
@@ -26,7 +27,7 @@
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/style.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/advertisements.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/search.css"><script defer src="https://www.fengyy.org/assets/theme/search.js"></script>
-<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/skin.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/article-cards.css">
+<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/skin.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/article-cards.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/seo-images.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/viewer.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/reader.css">
 <link rel="icon" href="https://www.fengyy.org/assets/media/511f1774-abc1-4165-a91a-b63dad2feff6.webp">
@@ -37,16 +38,8 @@
 <script defer src="https://www.fengyy.org/assets/theme/image-viewer.js"></script>
 
 <script defer src="https://www.fengyy.org/assets/theme/interactions.js"></script>
-<script defer src="https://www.fengyy.org/assets/theme/hero-banner.js"></script><script defer src="https://www.fengyy.org/assets/theme/aurora.js"></script><script defer src="https://www.fengyy.org/assets/theme/article-cards.js"></script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PH5M249V6F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<script defer src="https://www.fengyy.org/assets/theme/hero-banner.js"></script><script defer src="https://www.fengyy.org/assets/theme/aurora.js"></script><script defer src="https://www.fengyy.org/assets/theme/article-cards.js"></script><script defer src="https://www.fengyy.org/assets/theme/seo-enhancements.js"></script><script defer src="https://www.fengyy.org/assets/theme/analytics-guard.js"></script>
 
-  gtag('config', 'G-PH5M249V6F');
-</script>
 
 <script defer src="https://www.fengyy.org/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-PH5M249V6F" data-site-hosts="www.fengyy.org"></script></head>
 
@@ -85,7 +78,8 @@
 <div class="metadata" data-pagefind-ignore><span>王牌飞行员</span><time datetime="2026-09-21T14:26:07&#43;08:00">2026-09-21</time><span><span id="page-views">—</span> 次阅读</span></div>
 <div class="chips" data-pagefind-ignore><a href="https://www.fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
 </header>
-<div class="prose"><p>代理客户端运行时网页正常，退出后浏览器立即提示无法连接代理服务器，这种现象应先检查本地代理配置。可能是应用还在把请求交给已经关闭的监听端口，而不是宽带或机场节点同时失效。</p>
+<div class="prose">
+<p>代理客户端运行时网页正常，退出后浏览器立即提示无法连接代理服务器，这种现象应先检查本地代理配置。可能是应用还在把请求交给已经关闭的监听端口，而不是宽带或机场节点同时失效。</p>
 <p>本文适用于自己管理的Windows电脑。若设备由公司或学校统一管理，先保留设置并联系管理员；组织代理、登录脚本或设备策略不应被当作“残留”删除。</p>
 <h2 id="1-">1. 先确认断网的范围</h2>
 <p>选择一个在当前网络原本能够直接访问的普通网站，分别测试浏览器和另一个应用。记录错误文本，以及退出客户端之前、之后的区别。</p>
@@ -146,6 +140,7 @@
 <p>如果错误已经从“代理连接失败”变成“证书验证失败”，应按照新的错误查系统时间、目标名称和证书，不要通过关闭证书验证来凑出成功结果。若只有特定网站失败，也应比较目标与规则，而不是把整个系统恢复到默认值。</p>
 <p>试用机场客户端时，“退出后能否恢复原来的上网状态”值得加入自己的验收清单。记录成功的启用和退出步骤，以后更换节点或订阅时就能区分账号问题与本地配置问题。</p>
 <p>资料核对日期：2026年9月21日。</p>
+
 </div>
 <div class="article-likes" data-pagefind-ignore>
 <button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
@@ -187,9 +182,8 @@
 
 <footer class="site-footer journal-footer">
 <nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">同频的朋友</span><a href="https://kkjichang.cc/" target="_blank" rel="noopener noreferrer">可靠机场推荐 ↗</a><a href="https://pyjichang.cc/" target="_blank" rel="noopener noreferrer">便宜机场推荐 ↗</a><a href="https://www.yaoyaolingxian.blog/" target="_blank" rel="noopener noreferrer">遥遥领先 ↗</a><a href="https://wdjichang.cc/" target="_blank" rel="noopener noreferrer">稳定机场推荐 ↗</a><a href="https://zjtf.org/" target="_blank" rel="noopener noreferrer">酌酒听风 ↗</a></nav>
-<div class="journal-footer-line"><span>© 2026 风悠悠优质机场</span></div>
-</footer>
 
+</footer>
 
 
 <dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>

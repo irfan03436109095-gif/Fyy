@@ -1,7 +1,8 @@
 <!doctype html>
-<html lang="zh-CN" data-theme="liubai-journal">
+<html lang="zh-CN" data-theme="liubai-journal-seo">
 
 <head>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Clash 类客户端提示端口被占用怎么办？Windows监听端口排查 · 风悠悠优质机场</title>
@@ -26,7 +27,7 @@
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/style.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/advertisements.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/search.css"><script defer src="https://www.fengyy.org/assets/theme/search.js"></script>
-<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/skin.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/article-cards.css">
+<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/skin.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/article-cards.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/seo-images.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/viewer.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/reader.css">
 <link rel="icon" href="https://www.fengyy.org/assets/media/511f1774-abc1-4165-a91a-b63dad2feff6.webp">
@@ -37,16 +38,8 @@
 <script defer src="https://www.fengyy.org/assets/theme/image-viewer.js"></script>
 
 <script defer src="https://www.fengyy.org/assets/theme/interactions.js"></script>
-<script defer src="https://www.fengyy.org/assets/theme/hero-banner.js"></script><script defer src="https://www.fengyy.org/assets/theme/aurora.js"></script><script defer src="https://www.fengyy.org/assets/theme/article-cards.js"></script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PH5M249V6F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<script defer src="https://www.fengyy.org/assets/theme/hero-banner.js"></script><script defer src="https://www.fengyy.org/assets/theme/aurora.js"></script><script defer src="https://www.fengyy.org/assets/theme/article-cards.js"></script><script defer src="https://www.fengyy.org/assets/theme/seo-enhancements.js"></script><script defer src="https://www.fengyy.org/assets/theme/analytics-guard.js"></script>
 
-  gtag('config', 'G-PH5M249V6F');
-</script>
 
 <script defer src="https://www.fengyy.org/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-PH5M249V6F" data-site-hosts="www.fengyy.org"></script></head>
 
@@ -85,7 +78,8 @@
 <div class="metadata" data-pagefind-ignore><span>王牌飞行员</span><time datetime="2026-09-23T13:24:02&#43;08:00">2026-09-23</time><span><span id="page-views">—</span> 次阅读</span></div>
 <div class="chips" data-pagefind-ignore><a href="https://www.fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
 </header>
-<div class="prose"><p>机场订阅能导入，但客户端核心启动失败，日志出现 <code>address already in use</code> 或“绑定端口失败”时，先检查电脑上的监听端口。更换订阅通常不能解决本地程序争用端口的问题。本文以 Windows 和使用本地 HTTP、SOCKS 或混合端口的客户端为例，具体设置名称以你正在使用的版本为准。</p>
+<div class="prose">
+<p>机场订阅能导入，但客户端核心启动失败，日志出现 <code>address already in use</code> 或“绑定端口失败”时，先检查电脑上的监听端口。更换订阅通常不能解决本地程序争用端口的问题。本文以 Windows 和使用本地 HTTP、SOCKS 或混合端口的客户端为例，具体设置名称以你正在使用的版本为准。</p>
 <h2 id="heading">第一步：抄下报错中的完整地址</h2>
 <p>记录日志中的地址、端口、协议和时间，再到客户端设置核对实际配置。<code>127.0.0.1:7890</code> 只是示例，不代表所有客户端都使用 7890。还要区分代理入口与控制接口：两者用途不同，不能只看到端口数字相近就互换。</p>
 <p><a href="https://wiki.metacubex.one/config/inbound/port/">mihomo 官方文档</a>区分 HTTP、SOCKS 和混合端口，其中混合端口可以接受 HTTP 或 SOCKS 代理连接。本文只检查你当前启用的入口，不要求新增端口或开放局域网访问。</p>
@@ -108,6 +102,7 @@
 <p>如果不方便梳理依赖旧端口的应用，优先解决重复客户端的来源，通常比随意换端口更容易保持配置一致。</p>
 <h2 id="heading-4">最后做一次完整验收</h2>
 <p>确认启动日志不再出现该绑定错误，目标端口由预期进程监听，再用一个明确配置了代理的应用访问熟悉的网站。关闭并重新打开客户端后复测一次。只有核心、入口和应用访问都通过，才算处理完成；机场推荐或选购中的远端线路评价，应在本地入口正常后再进行。</p>
+
 </div>
 <div class="article-likes" data-pagefind-ignore>
 <button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
@@ -149,9 +144,8 @@
 
 <footer class="site-footer journal-footer">
 <nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">同频的朋友</span><a href="https://kkjichang.cc/" target="_blank" rel="noopener noreferrer">可靠机场推荐 ↗</a><a href="https://pyjichang.cc/" target="_blank" rel="noopener noreferrer">便宜机场推荐 ↗</a><a href="https://www.yaoyaolingxian.blog/" target="_blank" rel="noopener noreferrer">遥遥领先 ↗</a><a href="https://wdjichang.cc/" target="_blank" rel="noopener noreferrer">稳定机场推荐 ↗</a><a href="https://zjtf.org/" target="_blank" rel="noopener noreferrer">酌酒听风 ↗</a></nav>
-<div class="journal-footer-line"><span>© 2026 风悠悠优质机场</span></div>
-</footer>
 
+</footer>
 
 
 <dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>

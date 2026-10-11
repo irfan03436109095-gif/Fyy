@@ -72,7 +72,7 @@
   });
 
   const heroHeading = document.querySelector('#journal-title');
-  if (heroHeading && (settings.heroTitle || settings.heroTitleSecond)) {
+  if (heroHeading && !heroHeading.hasAttribute("data-seo-title") && (settings.heroTitle || settings.heroTitleSecond)) {
     const lines = [settings.heroTitle, settings.heroTitleSecond].filter(Boolean);
     heroHeading.replaceChildren(...lines.map((text) => {
       const line = document.createElement('span');

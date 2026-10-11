@@ -1,7 +1,8 @@
 <!doctype html>
-<html lang="zh-CN" data-theme="liubai-journal">
+<html lang="zh-CN" data-theme="liubai-journal-seo">
 
 <head>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>curl 报错 22 怎样保留原因？用 --fail-with-body 同时核对状态码与错误正文 · 风悠悠优质机场</title>
@@ -26,7 +27,7 @@
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/style.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/advertisements.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/search.css"><script defer src="https://www.fengyy.org/assets/theme/search.js"></script>
-<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/skin.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/article-cards.css">
+<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/skin.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/article-cards.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/seo-images.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/viewer.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/reader.css">
 <link rel="icon" href="https://www.fengyy.org/assets/media/511f1774-abc1-4165-a91a-b63dad2feff6.webp">
@@ -37,16 +38,8 @@
 <script defer src="https://www.fengyy.org/assets/theme/image-viewer.js"></script>
 
 <script defer src="https://www.fengyy.org/assets/theme/interactions.js"></script>
-<script defer src="https://www.fengyy.org/assets/theme/hero-banner.js"></script><script defer src="https://www.fengyy.org/assets/theme/aurora.js"></script><script defer src="https://www.fengyy.org/assets/theme/article-cards.js"></script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PH5M249V6F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<script defer src="https://www.fengyy.org/assets/theme/hero-banner.js"></script><script defer src="https://www.fengyy.org/assets/theme/aurora.js"></script><script defer src="https://www.fengyy.org/assets/theme/article-cards.js"></script><script defer src="https://www.fengyy.org/assets/theme/seo-enhancements.js"></script><script defer src="https://www.fengyy.org/assets/theme/analytics-guard.js"></script>
 
-  gtag('config', 'G-PH5M249V6F');
-</script>
 
 <script defer src="https://www.fengyy.org/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-PH5M249V6F" data-site-hosts="www.fengyy.org"></script></head>
 
@@ -85,9 +78,11 @@
 <div class="metadata" data-pagefind-ignore><span>风</span><time datetime="2026-10-11T09:18:13&#43;08:00">2026-10-11</time><span><span id="page-views">—</span> 次阅读</span></div>
 <div class="chips" data-pagefind-ignore><a href="https://www.fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
 </header>
-<div class="prose"><p>终端出现 curl 的 22 号错误时，先查看实际 HTTP 状态。这个数字不会直接告诉你节点是否失效；使用了哪些选项，会影响 curl 怎样把服务端响应转换成退出状态。</p>
+<div class="prose">
+
+<p>终端出现 curl 的 22 号错误时，先查看实际 HTTP 状态。这个数字不会直接告诉你节点是否失效；使用了哪些选项，会影响 curl 怎样把服务端响应转换成退出状态。</p>
 <p>本文适合自己的 Windows PowerShell 与 curl.exe，只测试你有权读取的小型公开资源。不要把订阅令牌、登录接口或会产生写入的请求复制进排障示例。</p>
-<p><img src="https://www.fengyy.org/assets/media/7193bc05-9d27-4da2-ab57-dc0f97ef11e6.webp" alt="curl请求的HTTP状态、退出码和错误正文分开保存的示意"></p>
+<p><img src="https://www.fengyy.org/assets/media/7193bc05-9d27-4da2-ab57-dc0f97ef11e6.webp" alt="curl请求的HTTP状态、退出码和错误正文分开保存的示意" width="1536" height="1024" loading="eager" decoding="async"></p>
 <p><em>示意图：HTTP 响应、工具退出码与正文内容分别核对，保存文件不等于下载成功。</em></p>
 <h2 id="heading">先分清两个失败选项</h2>
 <p><a href="https://curl.se/docs/manpage.html#--fail-with-body">curl 官方手册</a>说明：通常情况下，<code>--fail-with-body</code> 在 HTTP 状态为 400 或更高时返回错误 22，同时保留响应正文；<code>--fail</code> 会抑制这类错误正文。两者互斥，不一起添加。</p>
@@ -137,6 +132,8 @@ $curlExitCode = $LASTEXITCODE
 <li><a href="https://curl.se/docs/manpage.html#--fail-with-body">curl 官方手册：--fail-with-body 与 --fail</a></li>
 </ul>
 <p>官方资料核验日期：2026-10-11。本文提供操作与判断方法，不代表本站对某家机场的实测结论。</p>
+
+
 </div>
 <div class="article-likes" data-pagefind-ignore>
 <button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
@@ -178,9 +175,8 @@ $curlExitCode = $LASTEXITCODE
 
 <footer class="site-footer journal-footer">
 <nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">同频的朋友</span><a href="https://kkjichang.cc/" target="_blank" rel="noopener noreferrer">可靠机场推荐 ↗</a><a href="https://pyjichang.cc/" target="_blank" rel="noopener noreferrer">便宜机场推荐 ↗</a><a href="https://www.yaoyaolingxian.blog/" target="_blank" rel="noopener noreferrer">遥遥领先 ↗</a><a href="https://wdjichang.cc/" target="_blank" rel="noopener noreferrer">稳定机场推荐 ↗</a><a href="https://zjtf.org/" target="_blank" rel="noopener noreferrer">酌酒听风 ↗</a></nav>
-<div class="journal-footer-line"><span>© 2026 风悠悠优质机场</span></div>
-</footer>
 
+</footer>
 
 
 <dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>

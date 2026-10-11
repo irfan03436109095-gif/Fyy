@@ -1,7 +1,8 @@
 <!doctype html>
-<html lang="zh-CN" data-theme="liubai-journal">
+<html lang="zh-CN" data-theme="liubai-journal-seo">
 
 <head>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Windows 时间不同步导致机场证书错误？先看时区与同步状态 · 风悠悠优质机场</title>
@@ -26,7 +27,7 @@
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/style.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/advertisements.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/search.css"><script defer src="https://www.fengyy.org/assets/theme/search.js"></script>
-<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/skin.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/article-cards.css">
+<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/skin.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/article-cards.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/seo-images.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/viewer.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/reader.css">
 <link rel="icon" href="https://www.fengyy.org/assets/media/511f1774-abc1-4165-a91a-b63dad2feff6.webp">
@@ -37,16 +38,8 @@
 <script defer src="https://www.fengyy.org/assets/theme/image-viewer.js"></script>
 
 <script defer src="https://www.fengyy.org/assets/theme/interactions.js"></script>
-<script defer src="https://www.fengyy.org/assets/theme/hero-banner.js"></script><script defer src="https://www.fengyy.org/assets/theme/aurora.js"></script><script defer src="https://www.fengyy.org/assets/theme/article-cards.js"></script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PH5M249V6F"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<script defer src="https://www.fengyy.org/assets/theme/hero-banner.js"></script><script defer src="https://www.fengyy.org/assets/theme/aurora.js"></script><script defer src="https://www.fengyy.org/assets/theme/article-cards.js"></script><script defer src="https://www.fengyy.org/assets/theme/seo-enhancements.js"></script><script defer src="https://www.fengyy.org/assets/theme/analytics-guard.js"></script>
 
-  gtag('config', 'G-PH5M249V6F');
-</script>
 
 <script defer src="https://www.fengyy.org/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-PH5M249V6F" data-site-hosts="www.fengyy.org"></script></head>
 
@@ -85,8 +78,10 @@
 <div class="metadata" data-pagefind-ignore><span>王牌飞行员</span><time datetime="2026-10-04T09:23:07&#43;08:00">2026-10-04</time><span><span id="page-views">—</span> 次阅读</span></div>
 <div class="chips" data-pagefind-ignore><a href="https://www.fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
 </header>
-<div class="prose"><p>客户端更新订阅或访问机场官网时，如果提示证书尚未生效、已经过期，电脑日期明显不对就值得先查。系统时间正确也不能排除其他证书问题：域名不匹配、证书链不完整，需要另行处理。</p>
-<p><img src="https://www.fengyy.org/assets/media/45a3e015-0a7b-4c6d-8f16-2a2445c597b5.webp" alt="日期和时间检查、时间同步检查、原 HTTPS 连接复测的三步示意"></p>
+<div class="prose">
+
+<p>客户端更新订阅或访问机场官网时，如果提示证书尚未生效、已经过期，电脑日期明显不对就值得先查。系统时间正确也不能排除其他证书问题：域名不匹配、证书链不完整，需要另行处理。</p>
+<p><img src="https://www.fengyy.org/assets/media/45a3e015-0a7b-4c6d-8f16-2a2445c597b5.webp" alt="日期和时间检查、时间同步检查、原 HTTPS 连接复测的三步示意" width="1536" height="1024" loading="eager" decoding="async"></p>
 <p><em>示意图：时间校准是证书排障的一项检查，不能修复域名不匹配或服务器证书本身的问题。</em></p>
 <h2 id="heading">先核对日期，不要只看右下角的小时</h2>
 <p>打开 Windows“日期和时间”设置，核对年月日、所在时区以及显示时间。跨时区出行时，显示的小时变化可能合理；真正影响证书有效期判断的是系统时刻。不要为了绕过错误，把日期手动调到证书看起来能用的某一天。</p>
@@ -115,6 +110,8 @@ w32tm /query /configuration
 <li><a href="https://learn.microsoft.com/en-us/windows-server/networking/windows-time-service/windows-time-service-tools-and-settings">Microsoft：Windows Time 服务工具与设置</a></li>
 <li><a href="https://curl.se/docs/sslcerts.html">curl：TLS 证书验证</a></li>
 </ul>
+
+
 </div>
 <div class="article-likes" data-pagefind-ignore>
 <button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
@@ -156,9 +153,8 @@ w32tm /query /configuration
 
 <footer class="site-footer journal-footer">
 <nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">同频的朋友</span><a href="https://kkjichang.cc/" target="_blank" rel="noopener noreferrer">可靠机场推荐 ↗</a><a href="https://pyjichang.cc/" target="_blank" rel="noopener noreferrer">便宜机场推荐 ↗</a><a href="https://www.yaoyaolingxian.blog/" target="_blank" rel="noopener noreferrer">遥遥领先 ↗</a><a href="https://wdjichang.cc/" target="_blank" rel="noopener noreferrer">稳定机场推荐 ↗</a><a href="https://zjtf.org/" target="_blank" rel="noopener noreferrer">酌酒听风 ↗</a></nav>
-<div class="journal-footer-line"><span>© 2026 风悠悠优质机场</span></div>
-</footer>
 
+</footer>
 
 
 <dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>
