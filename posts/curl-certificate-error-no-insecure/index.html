@@ -1,8 +1,7 @@
 <!doctype html>
-<html lang="zh-CN" data-theme="liubai-journal-seo">
+<html lang="zh-CN" data-theme="hangxian-picks">
 
 <head>
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>curl 证书报错能用 -k 跳过吗？先定位验证链 · 风悠悠优质机场</title>
@@ -15,22 +14,22 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="风悠悠优质机场">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.fengyy.org/assets/media/511f1774-abc1-4165-a91a-b63dad2feff6.webp"><meta property="og:image:alt" content="风悠悠优质机场">
+<meta property="og:image" content="https://www.fengyy.org/assets/media/0aaa4052-c6d3-4ef3-8dd9-379c17d9d82f.png"><meta property="og:image:alt" content="风悠悠优质机场">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="curl 证书报错能用 -k 跳过吗？先定位验证链">
 <meta name="twitter:description" content="curl证书报错能用-k跳过吗？按系统时间、主机名、证书来源和代理路径排查，恢复正常TLS验证。">
-<meta name="twitter:image" content="https://www.fengyy.org/assets/media/511f1774-abc1-4165-a91a-b63dad2feff6.webp">
-<meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-09-30T09:08:30&#43;08:00"><meta property="article:modified_time" content="2026-09-30T09:09:09&#43;08:00"><meta property="article:tag" content="curl"><meta property="article:tag" content="故障排查">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/curl-certificate-error-no-insecure/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-09-30T09:09:09+08:00","datePublished":"2026-09-30T09:08:30+08:00","description":"curl证书报错能用-k跳过吗？按系统时间、主机名、证书来源和代理路径排查，恢复正常TLS验证。","headline":"curl 证书报错能用 -k 跳过吗？先定位验证链","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/curl-certificate-error-no-insecure/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/curl-certificate-error-no-insecure/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/curl-certificate-error-no-insecure/","name":"curl 证书报错能用 -k 跳过吗？先定位验证链","position":2}]}]}</script>
+<meta name="twitter:image" content="https://www.fengyy.org/assets/media/0aaa4052-c6d3-4ef3-8dd9-379c17d9d82f.png">
+<meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-09-30T09:08:30&#43;08:00"><meta property="article:modified_time" content="2026-10-15T20:12:33&#43;08:00"><meta property="article:tag" content="curl"><meta property="article:tag" content="故障排查">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/curl-certificate-error-no-insecure/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-10-15T20:12:33+08:00","datePublished":"2026-09-30T09:08:30+08:00","description":"curl证书报错能用-k跳过吗？按系统时间、主机名、证书来源和代理路径排查，恢复正常TLS验证。","headline":"curl 证书报错能用 -k 跳过吗？先定位验证链","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/curl-certificate-error-no-insecure/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/curl-certificate-error-no-insecure/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/curl-certificate-error-no-insecure/","name":"curl 证书报错能用 -k 跳过吗？先定位验证链","position":2}]}]}</script>
 
 <script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/style.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/advertisements.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/search.css"><script defer src="https://www.fengyy.org/assets/theme/search.js"></script>
-<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/skin.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/article-cards.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/seo-images.css">
+<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/guide.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/uu-style.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/viewer.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/reader.css">
-<link rel="icon" href="https://www.fengyy.org/assets/media/511f1774-abc1-4165-a91a-b63dad2feff6.webp">
+<link rel="icon" href="https://www.fengyy.org/assets/media/0aaa4052-c6d3-4ef3-8dd9-379c17d9d82f.png">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/artalk.css"><script defer src="https://www.fengyy.org/assets/theme/artalk.js"></script>
 <script defer src="https://www.fengyy.org/assets/theme/theme.js"></script>
 <script defer src="https://www.fengyy.org/assets/theme/reader.js"></script>
@@ -38,18 +37,18 @@
 <script defer src="https://www.fengyy.org/assets/theme/image-viewer.js"></script>
 
 <script defer src="https://www.fengyy.org/assets/theme/interactions.js"></script>
-<script defer src="https://www.fengyy.org/assets/theme/hero-banner.js"></script><script defer src="https://www.fengyy.org/assets/theme/aurora.js"></script><script defer src="https://www.fengyy.org/assets/theme/article-cards.js"></script><script defer src="https://www.fengyy.org/assets/theme/seo-enhancements.js"></script><script defer src="https://www.fengyy.org/assets/theme/analytics-guard.js"></script>
+<script defer src="https://www.fengyy.org/assets/theme/guide.js"></script><script defer src="https://www.fengyy.org/assets/theme/section-index.js"></script>
 <style id="xblog-article-images-half">main article .prose img{width:50%;max-width:50%;height:auto;display:block;margin-left:auto;margin-right:auto;}</style>
 
 <script defer src="https://www.fengyy.org/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-PH5M249V6F" data-site-hosts="www.fengyy.org"></script></head>
 
-<body class="journal article-page">
+<body class="reader-page hx-page article-page">
 <a class="skip" href="#main">跳到正文</a>
 
 <header class="site-header">
 <div class="header-inner">
-<a class="brand" href="https://www.fengyy.org/" aria-label="返回首页"><img src="https://www.fengyy.org/assets/media/511f1774-abc1-4165-a91a-b63dad2feff6.webp" alt="" width="38" height="38"></a>
-<nav id="site-navigation" aria-label="站点导航"><a href="https://www.fengyy.org/">首页</a><a href="https://www.fengyy.org/posts/jctj2/">机场推荐</a></nav>
+<a class="brand" href="https://www.fengyy.org/"><img src="https://www.fengyy.org/assets/media/0aaa4052-c6d3-4ef3-8dd9-379c17d9d82f.png" alt="" width="38" height="38"><span>风悠悠优质机场</span></a>
+<nav id="site-navigation" aria-label="站点导航"><a href="https://www.fengyy.org/">首页</a><a href="https://www.fengyy.org/posts/jctj2/">机场推荐</a><a href="https://www.fengyy.org/posts/kxsw1/">套餐对比</a><a href="https://www.fengyy.org/posts/airport-subscription-beginner-illustrated-2026/">新手指南</a><a href="https://www.fengyy.org/posts/tools-download/">工具下载</a><a href="https://www.fengyy.org/posts/about-fengyy/">关于本站</a></nav>
 <a class="search-toggle" href="https://www.fengyy.org/search/" data-open-dialog="search-dialog" aria-haspopup="dialog" aria-controls="search-dialog" aria-label="搜索" title="搜索"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></a>
 <button id="theme-mode" class="theme-toggle theme-cycle" type="button" aria-label="明暗模式：跟随系统，点击切换为明亮" title="跟随系统 · 点击切换为明亮">
 <svg class="theme-icon-system" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
@@ -64,8 +63,8 @@
 </div>
 </header>
 
-<div class="article-viewport"><div class="article-scroll">
-<main id="main" tabindex="-1" class="shell journal-shell article-shell" data-has-toc="true">
+<div class="page-viewport article-viewport"><div class="page-scroll article-scroll">
+<main id="main" tabindex="-1" class="shell hx-shell article-shell" data-has-toc="true">
 
 <nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://www.fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">curl 证书报错能用 -k 跳过吗？先定位验证链</span></li></ol></nav>
 
@@ -73,41 +72,40 @@
 
 <article data-pagefind-body>
 <header class="article-header">
-<div class="eyebrow" data-pagefind-ignore>字里行间</div>
+<div class="eyebrow" data-pagefind-ignore>选购与使用指南</div>
 <h1 data-pagefind-meta="title">curl 证书报错能用 -k 跳过吗？先定位验证链</h1>
 <div class="metadata" data-pagefind-ignore><span>王牌飞行员</span><time datetime="2026-09-30T09:08:30&#43;08:00">2026-09-30</time><span><span id="page-views">—</span> 次阅读</span></div>
 <div class="chips" data-pagefind-ignore><a href="https://www.fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
 </header>
-<div class="prose">
-<h2 id="curl---k-">curl 证书报错能用 -k 跳过吗？先定位验证链</h2>
-<p>机场客户端已经连接，但 <code>curl</code> 访问 HTTPS 时提示证书验证失败，很多人会立刻加 <code>-k</code> 或 <code>--insecure</code>。这样可能让请求“看起来成功”，却同时跳过了对服务器身份的验证。它适合短暂的诊断对照，不应成为长期配置，更不能据此判断节点已经修好。</p>
-<h3 id="heading">先保留原始错误</h3>
+<div class="prose"><p>机场客户端已经连接，但 <code>curl</code> 访问 HTTPS 时提示证书验证失败，很多人会立刻加 <code>-k</code> 或 <code>--insecure</code>。这样可能让请求“看起来成功”，却同时跳过了对服务器身份的验证。它适合短暂的诊断对照，不应成为长期配置，更不能据此判断节点已经修好。</p>
+<p><img src="https://www.fengyy.org/assets/media/b28e5201-cb5f-4c04-be2b-64b2c722e0e9.png" alt="HTTPS证书与信任验证链核对示意"></p>
+<p><em>证书校验异常应核对主机名、时间和信任链，不能把跳过验证当作修复。 原创概念示意，非软件界面截图或测试结果。</em></p>
+<h2 id="heading">先保留原始错误</h2>
 <p>关闭终端里可能存在的调试脚本，用原命令重试一次：</p>
 <pre><code class="language-powershell">curl.exe -v &quot;https://example.com/&quot; -o NUL
 </code></pre>
 <p>只记录错误码、主机名、系统时间和证书相关提示，不要把订阅链接、请求头或 Cookie 发到公开渠道。curl 官方证书文档说明，默认会验证证书链，也会核对证书中的名称是否与 URL 主机名匹配；任一环节失败都不该直接忽略。</p>
-<h3 id="heading-1">按顺序排查四项</h3>
+<h2 id="heading-1">按顺序排查四项</h2>
 <ol>
 <li><strong>校准日期与时区。</strong> 系统时间明显错误，会让尚未生效或已经过期的证书被误判。</li>
 <li><strong>核对访问的主机名。</strong> 不要把域名替换成 IP 后期待证书仍然匹配。若只是做指定 IP 的对照，应使用能保留 URL 主机名和 SNI 的方法。</li>
 <li><strong>比较直连与代理。</strong> 在确认合规且安全的网络中，分别执行一次直连和一次明确指定本地代理的请求。只有代理路径失败，才继续查客户端的 HTTPS 解密、证书注入或上游路径。</li>
 <li><strong>检查证书来源。</strong> 公司或学校设备可能安装管理证书；安全软件也可能检查 HTTPS。先确认设备归属和管理策略，不要删除不认识的系统证书。</li>
 </ol>
-<h3 id="-k-"><code>-k</code> 只做一次诊断对照</h3>
+<h2 id="-k-"><code>-k</code> 只做一次诊断对照</h2>
 <p>如果你理解风险，可以在不登录、不提交数据的公开测试页上做一次：</p>
 <pre><code class="language-powershell">curl.exe -k -I &quot;https://example.com/&quot;
 </code></pre>
 <p>若加 <code>-k</code> 后成功，只能说明失败发生在证书验证附近，不能证明目标身份可信，也不能证明机场线路稳定。随后应撤掉 <code>-k</code>，回到正常验证模式解决根因。不要把 <code>--insecure</code> 写进全局配置文件或日常脚本。</p>
-<h3 id="heading-2">什么情况应该立刻停止</h3>
+<h2 id="heading-2">什么情况应该立刻停止</h2>
 <p>若浏览器和 curl 同时出现陌生签发者、名称不匹配或证书突然变化，应停止输入账号密码。机场客户端若提供 HTTPS 解密或抓包功能，也要确认这是你主动开启的临时功能。未经理解就安装根证书，会扩大设备上所有 HTTPS 流量的风险面。</p>
-<h3 id="heading-3">验收方法</h3>
+<h2 id="heading-3">验收方法</h2>
 <p>修复后，在不带 <code>-k</code> 的情况下重复原命令，应正常完成验证；浏览器地址栏不再报警；直连与代理路径的证书主题和目标主机名关系合理。把最终命令、错误是否消失和修复动作写入记录，避免下次又靠关闭验证绕过。</p>
-<h3 id="heading-4">参考资料</h3>
+<h2 id="heading-4">参考资料</h2>
 <ul>
 <li><a href="https://curl.se/docs/sslcerts.html">curl 官方文档：TLS 证书验证</a></li>
 <li><a href="https://curl.se/docs/manpage.html">curl 官方手册：<code>--insecure</code></a></li>
 </ul>
-
 </div>
 <div class="article-likes" data-pagefind-ignore>
 <button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
@@ -116,12 +114,23 @@
 </button><p id="page-like-message" role="status"></p>
 </div>
 <div class="article-tags" data-pagefind-ignore><a href="https://www.fengyy.org/tags/curl/"># curl</a><a href="https://www.fengyy.org/tags/troubleshooting/"># 故障排查</a></div>
-<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://www.fengyy.org/posts/chatgpt-gpt-61-features-proxy-plans/">← 上一篇</a><a href="https://www.fengyy.org/posts/chrome-incognito-extension-proxy/">下一篇 →</a></nav>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://www.fengyy.org/posts/curl-exit-18-23-download/">← 上一篇</a><a href="https://www.fengyy.org/posts/chrome-incognito-extension-proxy/">下一篇 →</a></nav>
 <section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
 </article>
 
 <div class="article-rail">
-<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录"><a class="level-2" href="#curl---k-">curl 证书报错能用 -k 跳过吗？先定位验证链</a><a class="level-3" href="#heading">先保留原始错误</a><a class="level-3" href="#heading-1">按顺序排查四项</a><a class="level-3" href="#-k-">-k 只做一次诊断对照</a><a class="level-3" href="#heading-2">什么情况应该立刻停止</a><a class="level-3" href="#heading-3">验收方法</a><a class="level-3" href="#heading-4">参考资料</a></nav></aside>
+<aside class="toc"><div>本篇目录</div><nav aria-label="文章目录" tabindex="0"><a class="level-2" href="#heading">先保留原始错误</a><a class="level-2" href="#heading-1">按顺序排查四项</a><a class="level-2" href="#-k-">-k 只做一次诊断对照</a><a class="level-2" href="#heading-2">什么情况应该立刻停止</a><a class="level-2" href="#heading-3">验收方法</a><a class="level-2" href="#heading-4">参考资料</a></nav></aside>
+
+<aside class="hx-article-index" aria-label="当前菜单文章索引" data-pagefind-ignore data-current-categories="clients-and-tools ">
+<button type="button" class="hx-index-heading" aria-expanded="true" aria-controls="hx-index-content"><span>文章索引 <span class="hx-index-count" hidden></span><small class="hx-index-menu">当前栏目</small></span><span class="hx-index-toggle" aria-hidden="true">⌄</span></button>
+<div id="hx-index-content" class="hx-index-content">
+<nav class="hx-index-list" aria-label="当前菜单文章" tabindex="0"><a href="https://www.fengyy.org/posts/curl-certificate-error-no-insecure/" aria-current="page">curl 证书报错能用 -k 跳过吗？先定位验证链</a></nav>
+<a class="hx-index-home" href="https://www.fengyy.org/categories/clients-and-tools/">浏览本栏文章 <span aria-hidden="true">↗</span></a>
+<p class="hx-index-status" hidden>更多本栏文章可从栏目页查看。</p>
+</div>
+<div class="hx-index-sources" hidden aria-hidden="true"><a data-index-menu="机场推荐" href="https://www.fengyy.org/posts/jctj2/">机场推荐</a><a data-index-menu="套餐对比" href="https://www.fengyy.org/posts/kxsw1/">套餐对比</a><a data-index-menu="新手指南" href="https://www.fengyy.org/posts/airport-subscription-beginner-illustrated-2026/">新手指南</a><a data-index-menu="工具下载" href="https://www.fengyy.org/posts/tools-download/">工具下载</a><a data-index-menu="关于本站" href="https://www.fengyy.org/posts/about-fengyy/">关于本站</a><a data-index-category href="https://www.fengyy.org/categories/plans/">套餐对比</a><a data-index-category href="https://www.fengyy.org/categories/buying/">选购指南</a><a data-index-category href="https://www.fengyy.org/categories/beginner/">新手入门</a><a data-index-category href="https://www.fengyy.org/categories/site-info/">站务说明</a><a data-index-category href="https://www.fengyy.org/categories/risk-observations/">风险观察</a><a data-index-category href="https://www.fengyy.org/categories/travel-guides/">旅行指南</a><a data-index-category href="https://www.fengyy.org/categories/trending-topics/">热点观察</a><a data-index-category href="https://www.fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
+<template class="hx-index-catalog"><a href="https://www.fengyy.org/posts/jccp1/">FlyBit 套餐价格：128GB 月付 15 元起</a><a href="https://www.fengyy.org/posts/jccp2/">99吧套餐价格：70GB 月付 9.9 元起</a><a href="https://www.fengyy.org/posts/kxsw1/">FlyBit 与99吧怎么选：价格、流量和计费方式对比</a><a href="https://www.fengyy.org/posts/jctj2/">机场推荐：FlyBit与99吧套餐、入口和试用指南</a><a href="https://www.fengyy.org/posts/monthly-or-traffic/">月付还是不限时流量包？按用量计算选择</a><a href="https://www.fengyy.org/posts/trial-checklist/">机场试用怎么测：从首次连接到常用时段检查</a><a href="https://www.fengyy.org/posts/airport-subscription-beginner-illustrated-2026/">机场怎么订阅和使用？电脑与手机一步一步图文教程</a><a href="https://www.fengyy.org/posts/jktj3/">网络“机场”是什么？看懂节点、订阅与线路</a><a href="https://www.fengyy.org/posts/jztj4/">网络机场如何使用？订阅导入、节点连接与常见问题教程</a><a href="https://www.fengyy.org/posts/jztj5/">iOS Shadowrocket 使用教程：安装、订阅导入与连接检查</a><a href="https://www.fengyy.org/posts/jztj6/">安卓 Clash Meta 使用教程：订阅导入、节点选择与连接检查</a><a href="https://www.fengyy.org/posts/tools-download/">工具下载：电脑、安卓与iOS客户端官方入口</a><a href="https://www.fengyy.org/posts/about-fengyy/">关于风悠悠优质机场：推荐原则、资料来源与推广说明</a><a href="https://www.fengyy.org/posts/curl-error-77-ca-file-check/">curl 报错 77 是节点坏了吗？先检查 CA 文件路径与权限</a><a href="https://www.fengyy.org/posts/curl-error-60-cert-check/">curl 报错 60 是节点坏了吗？先核对 HTTPS 证书与主机名</a><a href="https://www.fengyy.org/posts/curl-exit-3-url-format-check/">curl 报错 3 是节点失效吗？先检查 URL 格式与命令引用</a><a href="https://www.fengyy.org/posts/curl-exit-26-upload-file-check/">curl 报错 26 就该换节点吗？先核对本地上传文件读取</a><a href="https://www.fengyy.org/posts/curl-exit-22-error-body-check/">curl 报错 22 怎样保留原因？用 --fail-with-body 同时核对状态码与错误正文</a><a href="https://www.fengyy.org/posts/curl-exit-28-timeout-phases/">curl 报错 28 怎样排查？把连接超时与总等待时间分开</a><a href="https://www.fengyy.org/posts/curl-exit-47-redirect-loop-check/">curl 报错 47 就该换节点吗？先查重定向循环</a><a href="https://www.fengyy.org/posts/curl-exit-35-tls-handshake-check/">curl 报错 35 怎样查？先定位失败的 TLS 握手</a><a href="https://www.fengyy.org/posts/airport-subscription-computer-phone-sharing/">一份机场订阅能同时用电脑和手机吗？多设备使用与流量核对</a><a href="https://www.fengyy.org/posts/firefox-no-proxy-exceptions/">Firefox 已填代理，部分网站为何仍直连？检查代理例外</a><a href="https://www.fengyy.org/posts/https-target-http-local-proxy/">访问 HTTPS 网站，代理为什么填 http://？本地代理地址的协议检查</a><a href="https://www.fengyy.org/posts/curl-exit-52-56-check/">curl 报错 52 和 56 怎么查？分清空回复与接收中断</a><a href="https://www.fengyy.org/posts/windows-clock-tls-check/">Windows 时间不同步导致机场证书错误？先看时区与同步状态</a><a href="https://www.fengyy.org/posts/powershell-curl-command-source/">PowerShell 里的 curl 是哪个程序？先查命令来源再排障</a><a href="https://www.fengyy.org/posts/curl-exit-5-6-7/">curl 报错 5、6、7 有什么区别？按解析与连接阶段排查</a><a href="https://www.fengyy.org/posts/curl-exit-18-23-download/">curl 下载失败显示 18 或 23？分清短传输与本地写入错误</a><a href="https://www.fengyy.org/posts/curl-certificate-error-no-insecure/">curl 证书报错能用 -k 跳过吗？先定位验证链</a><a href="https://www.fengyy.org/posts/chrome-incognito-extension-proxy/">Chrome 普通窗口能用、无痕窗口不能用？检查扩展代理权限</a><a href="https://www.fengyy.org/posts/firefox-proxy-extension-conflict/">Firefox 代理设置总被改回？检查连接设置与扩展控制</a><a href="https://www.fengyy.org/posts/firefox-doh-proxy-dns-check/">Firefox 单独打不开网站？检查 DoH 与代理 DNS 路径</a><a href="https://www.fengyy.org/posts/windows-dns-cache-check/">切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存</a><a href="https://www.fengyy.org/posts/windows-winhttp-proxy-check/">浏览器能上网但软件更新失败？检查 Windows WinHTTP 代理</a><a href="https://www.fengyy.org/posts/clash-lan-device-access-check/">Clash 类客户端电脑能用，手机连不上？局域网代理检查</a><a href="https://www.fengyy.org/posts/windows-proxy-port-conflict/">Clash 类客户端提示端口被占用怎么办？Windows监听端口排查</a><a href="https://www.fengyy.org/posts/clash-verge-custom-rules-persistence/">Clash Verge Rev更新订阅后规则丢了？自定义规则的保存与验收</a><a href="https://www.fengyy.org/posts/windows-proxy-after-client-exit/">关闭机场客户端后网页打不开？Windows残留代理排查步骤</a><a href="https://www.fengyy.org/posts/curl-proxy-connection-troubleshooting/">浏览器能用代理，命令行却连不上？curl 代理设置与排查教程</a></template>
+</aside>
 <aside class="ad-slot" aria-label="文章相关内容" data-ad-position="article_sidebar" data-pagefind-ignore><a class="ad-card ad-card-mixed" href="https://goflybit.com/#/register?code=gPinVG8C" target="_blank" rel="sponsored noopener noreferrer" aria-label="FlyBit · 内容页侧边邀请入口（在新标签页打开）" data-ad-link>
 <img class="ad-image" src="https://www.fengyy.org/assets/media/ec60e921-dde3-485c-981d-5a069137c14e.png" alt="FlyBit · 内容页侧边邀请入口" loading="lazy" decoding="async">
 <div class="ad-copy"><h3>FlyBit</h3>
@@ -143,10 +152,8 @@
 </button>
 </div>
 
-<footer class="site-footer journal-footer">
-<nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">同频的朋友</span><a href="https://goflybit.com/#/register?code=gPinVG8C" target="_blank" rel="noopener noreferrer">FlyBit ↗</a><a href="https://99ba.net/#/register?code=sExBbdk9" target="_blank" rel="noopener noreferrer">99吧 ↗</a><a href="https://t.me/five_91" target="_blank" rel="noopener noreferrer">Telegram联系 ↗</a></nav>
+<footer class="site-footer hx-footer"><nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">友情链接</span><a href="https://goflybit.com/#/register?code=gPinVG8C" target="_blank" rel="noopener noreferrer">FlyBit</a><a href="https://99ba.net/#/register?code=sExBbdk9" target="_blank" rel="noopener noreferrer">99吧</a><a href="https://t.me/five_91" target="_blank" rel="noopener noreferrer">Telegram联系</a></nav><div class="hx-footer-line"><span>© 2026 风悠悠优质机场</span><span>看清套餐 · 按需选择</span></div></footer>
 
-</footer>
 
 
 <dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>

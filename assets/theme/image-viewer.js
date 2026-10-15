@@ -24,11 +24,11 @@
   let imageTimeout;
   let images = [];
 
-  // 排除弹窗自身和搜索弹窗内的图片，避免把缩略图再次加入图库。
+  // 排除弹窗、广告和页头品牌图；品牌图跟随链接返回首页，正文图片保留原放大行为。
   const isContentImage = (image) =>
     Boolean(
       (image.currentSrc || image.getAttribute("src")) &&
-      !image.closest("dialog, .viewer-container, [data-ad-link]"),
+      !image.closest("dialog, .viewer-container, [data-ad-link], .site-header .brand"),
     );
 
   function localize() {
