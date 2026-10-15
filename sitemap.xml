@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.fengyy.org/</loc>
-    <lastmod>2026-10-15T17:27:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/categories/beginner/</loc>
@@ -33,192 +33,180 @@
     <lastmod>2026-10-15T17:05:36Z</lastmod>
   </url>
   <url>
-    <loc>https://www.fengyy.org/categories/risk-observations/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
-  </url>
-  <url>
     <loc>https://www.fengyy.org/categories/site-info/</loc>
     <lastmod>2026-10-15T17:05:36Z</lastmod>
   </url>
   <url>
-    <loc>https://www.fengyy.org/categories/travel-guides/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.fengyy.org/categories/trending-topics/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
-  </url>
-  <url>
     <loc>https://www.fengyy.org/page/2/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/page/3/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/page/4/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/about-fengyy/</loc>
-    <lastmod>2026-10-15T12:07:27Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/airport-subscription-beginner-illustrated-2026/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/airport-subscription-computer-phone-sharing/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/chrome-incognito-extension-proxy/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/clash-lan-device-access-check/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/clash-verge-custom-rules-persistence/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/curl-certificate-error-no-insecure/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/curl-error-60-cert-check/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/curl-error-77-ca-file-check/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/curl-exit-18-23-download/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/curl-exit-22-error-body-check/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/curl-exit-26-upload-file-check/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/curl-exit-28-timeout-phases/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/curl-exit-3-url-format-check/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/curl-exit-35-tls-handshake-check/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/curl-exit-47-redirect-loop-check/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/curl-exit-5-6-7/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/curl-exit-52-56-check/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/curl-proxy-connection-troubleshooting/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/firefox-doh-proxy-dns-check/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/firefox-no-proxy-exceptions/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/firefox-proxy-extension-conflict/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/https-target-http-local-proxy/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/jccp1/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/jccp2/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/jctj2/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/jktj3/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/jztj4/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/jztj5/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/jztj6/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/kxsw1/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/monthly-or-traffic/</loc>
-    <lastmod>2026-10-15T12:06:20Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/powershell-curl-command-source/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/tools-download/</loc>
-    <lastmod>2026-10-15T14:46:51Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/trial-checklist/</loc>
-    <lastmod>2026-10-15T12:06:32Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/windows-clock-tls-check/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/windows-dns-cache-check/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/windows-proxy-after-client-exit/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/windows-proxy-port-conflict/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/posts/windows-winhttp-proxy-check/</loc>
-    <lastmod>2026-10-15T17:08:36Z</lastmod>
+    <lastmod>2026-10-15T17:45:18Z</lastmod>
   </url>
   <url>
     <loc>https://www.fengyy.org/tags/99ba/</loc>
