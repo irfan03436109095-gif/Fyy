@@ -19,8 +19,8 @@
 <meta name="twitter:title" content="PowerShell 里的 curl 是哪个程序？先查命令来源再排障">
 <meta name="twitter:description" content="PowerShell 执行 curl 参数报错怎么办？检查命令优先级、别名、程序路径和版本功能，再测试机场代理连接。">
 <meta name="twitter:image" content="https://www.fengyy.org/assets/media/0aaa4052-c6d3-4ef3-8dd9-379c17d9d82f.png">
-<meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-10-03T09:19:36&#43;08:00"><meta property="article:modified_time" content="2026-10-15T20:07:38&#43;08:00"><meta property="article:tag" content="curl"><meta property="article:tag" content="故障排查">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/powershell-curl-command-source/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-10-15T20:07:38+08:00","datePublished":"2026-10-03T09:19:36+08:00","description":"PowerShell 执行 curl 参数报错怎么办？检查命令优先级、别名、程序路径和版本功能，再测试机场代理连接。","headline":"PowerShell 里的 curl 是哪个程序？先查命令来源再排障","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/powershell-curl-command-source/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/powershell-curl-command-source/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/powershell-curl-command-source/","name":"PowerShell 里的 curl 是哪个程序？先查命令来源再排障","position":2}]}]}</script>
+<meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-10-03T09:19:36&#43;08:00"><meta property="article:modified_time" content="2026-10-16T11:52:21&#43;08:00"><meta property="article:tag" content="curl"><meta property="article:tag" content="故障排查">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/powershell-curl-command-source/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-10-16T11:52:21+08:00","datePublished":"2026-10-03T09:19:36+08:00","description":"PowerShell 执行 curl 参数报错怎么办？检查命令优先级、别名、程序路径和版本功能，再测试机场代理连接。","headline":"PowerShell 里的 curl 是哪个程序？先查命令来源再排障","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/powershell-curl-command-source/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/powershell-curl-command-source/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/powershell-curl-command-source/","name":"PowerShell 里的 curl 是哪个程序？先查命令来源再排障","position":2}]}]}</script>
 
 <script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/style.css">
@@ -78,7 +78,7 @@
 <div class="chips" data-pagefind-ignore><a href="https://www.fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
 </header>
 <div class="prose"><p>从教程复制 <code>curl --proxy ...</code>，PowerShell 却提示“不认识参数”，不一定是机场节点有问题。首先要确认：当前输入的 <code>curl</code> 究竟调用了什么。</p>
-<p><img src="https://www.fengyy.org/assets/media/90b126b9-28b7-4a48-9dd4-082487f84744.png" alt="命令名称与实际执行程序的来源核对示意"></p>
+<p><img src="https://www.fengyy.org/assets/media/970bea34-d6a9-45c0-89b3-d0d7dc4053ec.webp" alt="命令名称与实际执行程序的来源核对示意"></p>
 <p><em>同一个命令名称可能对应不同程序，应先确认实际调用来源。 原创概念示意，非软件界面截图或测试结果。</em></p>
 <p>这篇适用于 Windows 命令行排障。先解决本地命令识别，再看 DNS、端口或证书，能避免在请求根本没有发出时不停换节点。</p>
 <h2 id="heading">第一步：列出当前命令来源</h2>

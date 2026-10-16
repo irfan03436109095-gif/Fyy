@@ -19,8 +19,8 @@
 <meta name="twitter:title" content="Firefox 代理设置总被改回？检查连接设置与扩展控制">
 <meta name="twitter:description" content="Firefox代理设置总被改回或反复要求认证怎么办？检查系统代理、手动代理、PAC和扩展控制来源。">
 <meta name="twitter:image" content="https://www.fengyy.org/assets/media/0aaa4052-c6d3-4ef3-8dd9-379c17d9d82f.png">
-<meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-09-28T09:07:11&#43;08:00"><meta property="article:modified_time" content="2026-10-15T20:13:20&#43;08:00"><meta property="article:tag" content="代理配置"><meta property="article:tag" content="故障排查">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/firefox-proxy-extension-conflict/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-10-15T20:13:20+08:00","datePublished":"2026-09-28T09:07:11+08:00","description":"Firefox代理设置总被改回或反复要求认证怎么办？检查系统代理、手动代理、PAC和扩展控制来源。","headline":"Firefox 代理设置总被改回？检查连接设置与扩展控制","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/firefox-proxy-extension-conflict/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/firefox-proxy-extension-conflict/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/firefox-proxy-extension-conflict/","name":"Firefox 代理设置总被改回？检查连接设置与扩展控制","position":2}]}]}</script>
+<meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-09-28T09:07:11&#43;08:00"><meta property="article:modified_time" content="2026-10-16T11:51:46&#43;08:00"><meta property="article:tag" content="代理配置"><meta property="article:tag" content="故障排查">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/firefox-proxy-extension-conflict/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-10-16T11:51:46+08:00","datePublished":"2026-09-28T09:07:11+08:00","description":"Firefox代理设置总被改回或反复要求认证怎么办？检查系统代理、手动代理、PAC和扩展控制来源。","headline":"Firefox 代理设置总被改回？检查连接设置与扩展控制","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/firefox-proxy-extension-conflict/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/firefox-proxy-extension-conflict/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/firefox-proxy-extension-conflict/","name":"Firefox 代理设置总被改回？检查连接设置与扩展控制","position":2}]}]}</script>
 
 <script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/style.css">
@@ -78,7 +78,7 @@
 <div class="chips" data-pagefind-ignore><a href="https://www.fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
 </header>
 <div class="prose"><p>Firefox 里刚选好“使用系统代理设置”，重启后却又变成手动代理，或者只有 Firefox 反复弹出代理认证窗口，常见原因是浏览器连接设置、代理扩展与机场客户端同时在控制出站路径。</p>
-<p><img src="https://www.fengyy.org/assets/media/41e546f1-a049-47e2-b6ed-369d3be1a662.png" alt="浏览器连接设置与扩展控制冲突示意"></p>
+<p><img src="https://www.fengyy.org/assets/media/3eec0108-3f22-4ec1-a9c5-3217bdc1fcc9.webp" alt="浏览器连接设置与扩展控制冲突示意"></p>
 <p><em>浏览器连接设置被改回时，应检查是否受到扩展或其他配置控制。 原创概念示意，非软件界面截图或测试结果。</em></p>
 <h2 id="heading">先记录当前连接方式</h2>
 <p>打开 Firefox 设置，搜索“网络设置”，进入“连接设置”。Mozilla 官方说明，这里可以选择不使用代理、自动检测、使用系统代理、手动代理或自动代理配置 URL；页面也会显示控制连接方式的扩展。</p>

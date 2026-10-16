@@ -19,8 +19,8 @@
 <meta name="twitter:title" content="Firefox 单独打不开网站？检查 DoH 与代理 DNS 路径">
 <meta name="twitter:description" content="Firefox通过机场代理单独打不开网站怎么办？检查DNS over HTTPS保护级别、客户端DNS模式和浏览器对照结果。">
 <meta name="twitter:image" content="https://www.fengyy.org/assets/media/0aaa4052-c6d3-4ef3-8dd9-379c17d9d82f.png">
-<meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-09-27T09:07:00&#43;08:00"><meta property="article:modified_time" content="2026-10-15T20:13:31&#43;08:00"><meta property="article:tag" content="代理配置"><meta property="article:tag" content="故障排查">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/firefox-doh-proxy-dns-check/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-10-15T20:13:31+08:00","datePublished":"2026-09-27T09:07:00+08:00","description":"Firefox通过机场代理单独打不开网站怎么办？检查DNS over HTTPS保护级别、客户端DNS模式和浏览器对照结果。","headline":"Firefox 单独打不开网站？检查 DoH 与代理 DNS 路径","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/firefox-doh-proxy-dns-check/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/firefox-doh-proxy-dns-check/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/firefox-doh-proxy-dns-check/","name":"Firefox 单独打不开网站？检查 DoH 与代理 DNS 路径","position":2}]}]}</script>
+<meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-09-27T09:07:00&#43;08:00"><meta property="article:modified_time" content="2026-10-16T11:51:43&#43;08:00"><meta property="article:tag" content="代理配置"><meta property="article:tag" content="故障排查">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/firefox-doh-proxy-dns-check/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-10-16T11:51:43+08:00","datePublished":"2026-09-27T09:07:00+08:00","description":"Firefox通过机场代理单独打不开网站怎么办？检查DNS over HTTPS保护级别、客户端DNS模式和浏览器对照结果。","headline":"Firefox 单独打不开网站？检查 DoH 与代理 DNS 路径","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/firefox-doh-proxy-dns-check/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/firefox-doh-proxy-dns-check/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/firefox-doh-proxy-dns-check/","name":"Firefox 单独打不开网站？检查 DoH 与代理 DNS 路径","position":2}]}]}</script>
 
 <script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/style.css">
@@ -78,7 +78,7 @@
 <div class="chips" data-pagefind-ignore><a href="https://www.fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
 </header>
 <div class="prose"><p>同一台电脑上，其他浏览器通过机场客户端能打开网站，Firefox 却提示找不到服务器，问题不一定在节点。Firefox 可以使用 DNS over HTTPS（DoH）把域名查询发送到 HTTPS 解析服务；这条路径可能和系统 DNS、代理客户端的 DNS 接管方式不同。</p>
-<p><img src="https://www.fengyy.org/assets/media/f5a5e077-a014-471c-b299-898ffbf85590.png" alt="浏览器加密DNS与系统解析路径示意"></p>
+<p><img src="https://www.fengyy.org/assets/media/9959a61a-1e9b-4505-9cf9-20144f31981a.webp" alt="浏览器加密DNS与系统解析路径示意"></p>
 <p><em>浏览器加密DNS、系统解析和客户端接管路径需要分层核对。 原创概念示意，非软件界面截图或测试结果。</em></p>
 <p>DoH 是隐私功能，不应看到故障就永久关闭。正确做法是先记录当前设置，再用一次可回退的对照判断 DNS 路径是否相关。</p>
 <h2 id="heading">先完成四项只读检查</h2>

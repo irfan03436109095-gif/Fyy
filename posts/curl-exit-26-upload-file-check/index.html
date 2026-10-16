@@ -19,8 +19,8 @@
 <meta name="twitter:title" content="curl 报错 26 就该换节点吗？先核对本地上传文件读取">
 <meta name="twitter:description" content="curl 上传报错26怎样排查？检查本地文件路径、存在状态、读取权限与参数中的文件引用，避免反复换节点或重复提交。">
 <meta name="twitter:image" content="https://www.fengyy.org/assets/media/0aaa4052-c6d3-4ef3-8dd9-379c17d9d82f.png">
-<meta name="author" content="风"><meta property="article:published_time" content="2026-10-12T17:07:02&#43;08:00"><meta property="article:modified_time" content="2026-10-12T17:07:09&#43;08:00"><meta property="article:tag" content="curl"><meta property="article:tag" content="代理配置"><meta property="article:tag" content="故障排查">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/curl-exit-26-upload-file-check/#article","@type":"BlogPosting","author":{"@type":"Person","name":"风"},"dateModified":"2026-10-12T17:07:09+08:00","datePublished":"2026-10-12T17:07:02+08:00","description":"curl 上传报错26怎样排查？检查本地文件路径、存在状态、读取权限与参数中的文件引用，避免反复换节点或重复提交。","headline":"curl 报错 26 就该换节点吗？先核对本地上传文件读取","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/curl-exit-26-upload-file-check/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/curl-exit-26-upload-file-check/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/curl-exit-26-upload-file-check/","name":"curl 报错 26 就该换节点吗？先核对本地上传文件读取","position":2}]}]}</script>
+<meta name="author" content="风"><meta property="article:published_time" content="2026-10-12T17:07:02&#43;08:00"><meta property="article:modified_time" content="2026-10-16T11:53:04&#43;08:00"><meta property="article:tag" content="curl"><meta property="article:tag" content="代理配置"><meta property="article:tag" content="故障排查">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/curl-exit-26-upload-file-check/#article","@type":"BlogPosting","author":{"@type":"Person","name":"风"},"dateModified":"2026-10-16T11:53:04+08:00","datePublished":"2026-10-12T17:07:02+08:00","description":"curl 上传报错26怎样排查？检查本地文件路径、存在状态、读取权限与参数中的文件引用，避免反复换节点或重复提交。","headline":"curl 报错 26 就该换节点吗？先核对本地上传文件读取","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/curl-exit-26-upload-file-check/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/curl-exit-26-upload-file-check/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/curl-exit-26-upload-file-check/","name":"curl 报错 26 就该换节点吗？先核对本地上传文件读取","position":2}]}]}</script>
 
 <script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/style.css">
@@ -79,7 +79,7 @@
 </header>
 <div class="prose"><p>同一节点能打开网页，上传命令却返回 26，先保留错误原文。这个数字属于 curl 的退出码，不能当作网站返回的 HTTP 状态，也不能直接理解为线路拥堵。</p>
 <p>本文适用于自己有权读取和上传的文件。排查时只用无敏感信息的小文件，不把订阅、密码或业务资料上传到陌生“测试入口”。</p>
-<p><img src="https://www.fengyy.org/assets/media/ce9ad6d5-8142-4a73-aac9-2cda1d7388fe.png" alt="curl上传前核对本地文件输入、读取状态与远端保存结果的示意"></p>
+<p><img src="https://www.fengyy.org/assets/media/41148af9-0a76-4eac-885f-1413683277cc.webp" alt="curl上传前核对本地文件输入、读取状态与远端保存结果的示意"></p>
 <p><em>示意图：读取错误与远端保存结果分开检查，不据退出码推断零传输。</em></p>
 <h2 id="26-">26 表示读取出了问题</h2>
 <p><a href="https://curl.se/docs/manpage.html">curl 官方手册的退出码说明</a>将 26 列为读取错误，涉及多种读取问题。它不是只对应一种固定原因；要结合命令、输入来源和错误文字，定位本次从哪里读取失败。</p>

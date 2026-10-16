@@ -19,8 +19,8 @@
 <meta name="twitter:title" content="curl 报错 5、6、7 有什么区别？按解析与连接阶段排查">
 <meta name="twitter:description" content="curl报错5、6、7怎么办？分清代理主机解析、目标域名解析和端口连接，避免把不同故障都归因于机场节点。">
 <meta name="twitter:image" content="https://www.fengyy.org/assets/media/0aaa4052-c6d3-4ef3-8dd9-379c17d9d82f.png">
-<meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-10-02T09:08:28&#43;08:00"><meta property="article:modified_time" content="2026-10-15T20:07:57&#43;08:00"><meta property="article:tag" content="curl"><meta property="article:tag" content="故障排查">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/curl-exit-5-6-7/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-10-15T20:07:57+08:00","datePublished":"2026-10-02T09:08:28+08:00","description":"curl报错5、6、7怎么办？分清代理主机解析、目标域名解析和端口连接，避免把不同故障都归因于机场节点。","headline":"curl 报错 5、6、7 有什么区别？按解析与连接阶段排查","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/curl-exit-5-6-7/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/curl-exit-5-6-7/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/curl-exit-5-6-7/","name":"curl 报错 5、6、7 有什么区别？按解析与连接阶段排查","position":2}]}]}</script>
+<meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-10-02T09:08:28&#43;08:00"><meta property="article:modified_time" content="2026-10-16T11:52:17&#43;08:00"><meta property="article:tag" content="curl"><meta property="article:tag" content="故障排查">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/curl-exit-5-6-7/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-10-16T11:52:17+08:00","datePublished":"2026-10-02T09:08:28+08:00","description":"curl报错5、6、7怎么办？分清代理主机解析、目标域名解析和端口连接，避免把不同故障都归因于机场节点。","headline":"curl 报错 5、6、7 有什么区别？按解析与连接阶段排查","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/curl-exit-5-6-7/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/curl-exit-5-6-7/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/curl-exit-5-6-7/","name":"curl 报错 5、6、7 有什么区别？按解析与连接阶段排查","position":2}]}]}</script>
 
 <script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/style.css">
@@ -78,7 +78,7 @@
 <div class="chips" data-pagefind-ignore><a href="https://www.fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
 </header>
 <div class="prose"><p>curl 报错 5、6、7 都发生在网页内容下载之前，但代表的阶段不同：5 是代理主机解析失败，6 是目标主机解析失败，7 是已经得到地址却无法建立连接。先分清退出码，能避免盲目重装客户端。</p>
-<p><img src="https://www.fengyy.org/assets/media/5e7a889e-390b-4c14-aa8e-e83c2506eaeb.png" alt="代理解析、目标解析与连接阶段的区别示意"></p>
+<p><img src="https://www.fengyy.org/assets/media/983d2591-8db3-4ee0-b6e1-3fb758efd6d9.webp" alt="代理解析、目标解析与连接阶段的区别示意"></p>
 <p><em>先区分代理地址解析、目标域名解析和建立连接，再沿对应阶段排查。 原创概念示意，非软件界面截图或测试结果。</em></p>
 <h2 id="-5">退出码 5：找不到代理主机</h2>
 <p>如果命令使用了形如 <code>http://proxy.example:7890</code> 的代理，而代理主机名无法解析，curl 会返回 5。机场客户端通常监听本机地址，更适合写成明确的 <code>127.0.0.1</code> 和实际端口。若你填了一个局域网设备名，先确认这个名字在当前网络可以解析。</p>
