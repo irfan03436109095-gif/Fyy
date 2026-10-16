@@ -13,7 +13,7 @@
 .hx-page .hx-landing-shell{max-width:none;padding:0}
 .hx-landing-shell .hx-content-stage{max-width:1280px;margin:0 auto;padding:62px 40px 20px;min-width:0}
 .hx-hero{display:block;position:relative;isolation:isolate;min-height:600px;padding:94px max(40px,calc((100% - 1200px)/2)) 118px;margin:0;background:var(--uu-black);overflow:hidden;color:#fff}
-.hx-hero-visual{position:absolute;z-index:-2;inset:0;background-image:url('images/hero-network.png');background-size:cover;background-position:center right;pointer-events:none}
+.hx-hero-visual{position:absolute;z-index:-2;inset:0;background-image:url('images/hero-network.webp');background-size:cover;background-position:center right;pointer-events:none}
 .hx-hero:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#030809 0%,#030809e8 23%,#0308097a 45%,#03080900 72%),linear-gradient(0deg,#030809 0%,#03080900 24%);pointer-events:none}
 .hx-hero-content{position:relative;max-width:690px;z-index:1}
 .hx-kicker{color:#7aede2;font-size:12px;letter-spacing:.14em;margin-bottom:22px}

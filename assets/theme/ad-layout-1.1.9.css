@@ -1,0 +1,36 @@
+/* 有广告的内容页侧栏使用自然高度，完整卡片随正文滚动。 */
+.hx-page.article-page .article-rail.has-article-ads {
+  position: static;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+}
+.hx-page.article-page .article-rail.has-article-ads > .ad-slot {
+  flex: none;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+  grid-auto-rows: max-content;
+  align-content: start;
+}
+.hx-page.article-page .article-rail.has-article-ads .ad-card {
+  height: auto;
+}
+.hx-page.article-page .article-rail.has-article-ads .ad-image {
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+@media (min-width: 981px) {
+  .hx-page.article-page .article-rail.has-article-ads > .toc {
+    max-height: min(230px, calc(var(--article-scroll-height, 70vh) * .36));
+  }
+  .hx-page.article-page .article-rail.has-article-ads > .hx-article-index {
+    flex: 0 0 auto;
+    height: min(420px, calc(var(--article-scroll-height, 70vh) * .5));
+    max-height: min(420px, calc(var(--article-scroll-height, 70vh) * .5));
+  }
+  .hx-page.article-page .article-rail.has-article-ads > .hx-article-index.is-collapsed {
+    height: auto;
+  }
+}
