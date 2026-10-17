@@ -1,0 +1,23 @@
+
+
+/* 风悠悠侧栏配色 · 2026-10-18 */
+.hx-page.article-page .article-rail.hx-sidebar-list {
+  --sidebar-bg: var(--surface);
+  --sidebar-border: var(--line);
+  --sidebar-text: var(--text);
+  --sidebar-muted: var(--muted);
+  --sidebar-active-bg: var(--soft);
+  --sidebar-active-text: var(--accent);
+}
+
+.hx-page.article-page .article-rail.hx-sidebar-list .hx-index-list {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-right: 0;
+}
+
+.hx-page.article-page .article-rail.hx-sidebar-list .hx-index-list::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
