@@ -13,33 +13,36 @@
 
 
 
+
+
+
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>网络机场如何使用？订阅导入、节点连接与常见问题教程 · 风悠悠优质机场</title>
-<meta name="description" content="网络机场如何使用？本文面向新手介绍机场订阅、客户端安装、订阅链接导入、节点选择及规则模式设置，并提供连接失败、速度慢和关闭代理后无法上网的排查方法，帮助你完成配置与连接验证。">
-<meta name="keywords" content="网络机场如何使用,网络机场使用教程,机场订阅教程,订阅链接导入,代理客户端,节点连接,节点选择,规则模式,系统代理,TUN模式,Clash Verge Rev教程,机场连接失败">
+<title>机场订阅导入后连不上？节点与代理模式排查｜风悠悠</title>
+<meta name="description" content="订阅已导入却无法联网，按套餐有效期、节点、代理模式与系统设置逐项检查；区分单节点故障、全部失效和退出客户端后无法上网的情况。">
+<meta name="keywords" content="机场订阅导入失败,有节点但连不上,机场连接排查">
 <meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://www.fengyy.org/posts/jztj4/">
-<meta property="og:title" content="网络机场如何使用？订阅导入、节点连接与常见问题教程">
-<meta property="og:description" content="网络机场如何使用？本文面向新手介绍机场订阅、客户端安装、订阅链接导入、节点选择及规则模式设置，并提供连接失败、速度慢和关闭代理后无法上网的排查方法，帮助你完成配置与连接验证。">
+<meta property="og:title" content="机场订阅导入后连不上？节点与代理模式排查｜风悠悠">
+<meta property="og:description" content="订阅已导入却无法联网，按套餐有效期、节点、代理模式与系统设置逐项检查；区分单节点故障、全部失效和退出客户端后无法上网的情况。">
 <meta property="og:url" content="https://www.fengyy.org/posts/jztj4/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="风悠悠优质机场">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.fengyy.org/assets/media/0aaa4052-c6d3-4ef3-8dd9-379c17d9d82f.png"><meta property="og:image:alt" content="风悠悠优质机场">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="网络机场如何使用？订阅导入、节点连接与常见问题教程">
-<meta name="twitter:description" content="网络机场如何使用？本文面向新手介绍机场订阅、客户端安装、订阅链接导入、节点选择及规则模式设置，并提供连接失败、速度慢和关闭代理后无法上网的排查方法，帮助你完成配置与连接验证。">
+<meta name="twitter:title" content="机场订阅导入后连不上？节点与代理模式排查｜风悠悠">
+<meta name="twitter:description" content="订阅已导入却无法联网，按套餐有效期、节点、代理模式与系统设置逐项检查；区分单节点故障、全部失效和退出客户端后无法上网的情况。">
 <meta name="twitter:image" content="https://www.fengyy.org/assets/media/0aaa4052-c6d3-4ef3-8dd9-379c17d9d82f.png">
-<meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-09-15T21:25:39&#43;08:00"><meta property="article:modified_time" content="2026-10-16T11:50:48&#43;08:00"><meta property="article:tag" content="新手入门相关文章">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/jztj4/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-10-16T11:50:48+08:00","datePublished":"2026-09-15T21:25:39+08:00","description":"网络机场如何使用？本文面向新手介绍机场订阅、客户端安装、订阅链接导入、节点选择及规则模式设置，并提供连接失败、速度慢和关闭代理后无法上网的排查方法，帮助你完成配置与连接验证。","headline":"网络机场如何使用？订阅导入、节点连接与常见问题教程","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/jztj4/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/jztj4/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/jztj4/","name":"网络机场如何使用？订阅导入、节点连接与常见问题教程","position":2}]}]}</script>
+<meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-09-15T21:25:39&#43;08:00"><meta property="article:modified_time" content="2026-10-29T03:16:25&#43;08:00"><meta property="article:tag" content="新手入门相关文章">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/jztj4/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-10-29T03:16:25+08:00","datePublished":"2026-09-15T21:25:39+08:00","description":"订阅已导入却无法联网，按套餐有效期、节点、代理模式与系统设置逐项检查；区分单节点故障、全部失效和退出客户端后无法上网的情况。","headline":"机场订阅导入后连不上？节点与代理模式排查","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/jztj4/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/jztj4/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/jztj4/","name":"机场订阅导入后连不上？节点与代理模式排查","position":2}]}]}</script>
 
 <script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
 
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/style.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/advertisements.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/search.css"><script defer src="https://www.fengyy.org/assets/theme/search.js"></script>
-<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/guide.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/uu-style.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/article-sidebar-1.1.10.css">
+<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/guide.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/uu-style.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/article-sidebar-1.1.10.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/core-mobile-1.1.11.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/viewer.css">
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/reader.css">
 <link rel="icon" href="https://www.fengyy.org/assets/media/0aaa4052-c6d3-4ef3-8dd9-379c17d9d82f.png">
@@ -50,7 +53,7 @@
 <script defer src="https://www.fengyy.org/assets/theme/image-viewer.js"></script>
 
 <script defer src="https://www.fengyy.org/assets/theme/interactions.js"></script>
-<script defer src="https://www.fengyy.org/assets/theme/guide.js"></script><script defer src="https://www.fengyy.org/assets/theme/all-articles-1.1.10.js"></script>
+<script defer src="https://www.fengyy.org/assets/theme/guide.js"></script><script defer src="https://www.fengyy.org/assets/theme/all-articles-1.1.10.js"></script><script defer src="https://www.fengyy.org/assets/theme/core-mobile-1.1.11.js"></script>
 <style id="xblog-article-images-half">main article .prose img{width:80%;max-width:80%;height:auto;display:block;margin-left:auto;margin-right:auto;}</style>
 
 <link rel="stylesheet" href="https://www.fengyy.org/assets/theme/appearance.css">
@@ -80,98 +83,90 @@
 <div class="page-viewport article-viewport"><div class="page-scroll article-scroll">
 <main id="main" tabindex="-1" class="shell hx-shell article-shell" data-has-toc="false">
 
-<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://www.fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">网络机场如何使用？订阅导入、节点连接与常见问题教程</span></li></ol></nav>
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://www.fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">机场订阅导入后连不上？节点与代理模式排查</span></li></ol></nav>
 
 
 
 <article data-pagefind-body>
 <header class="article-header">
 <div class="eyebrow" data-pagefind-ignore>选购与使用指南</div>
-<h1 data-pagefind-meta="title">网络机场如何使用？订阅导入、节点连接与常见问题教程</h1>
+<h1 data-pagefind-meta="title">机场订阅导入后连不上？节点与代理模式排查</h1>
 <div class="metadata" data-pagefind-ignore><span>王牌飞行员</span><time datetime="2026-09-15T21:25:39&#43;08:00">2026-09-15</time><span><span id="page-views">—</span> 次阅读</span></div>
 <div class="chips" data-pagefind-ignore><a href="https://www.fengyy.org/categories/beginner/">新手入门</a></div>
 </header>
-<div class="prose"><p>第一次接触“网络机场”，你可能会遇到订阅链接、代理节点、规则模式等陌生名词。其实，理解它们的作用后，整个使用流程并不复杂。</p>
-<p><img src="https://www.fengyy.org/assets/theme/seo-media/ed1210535df79fb9.webp" alt="机场订阅从导入到网页验收的使用流程示意" width="1672" height="941" decoding="async"></p>
-<p><em>使用顺序为获取兼容订阅、导入并启用配置、选择节点、开启连接并验证网页。 原创概念示意，非软件界面截图或测试结果。</em></p>
-<p>这篇文章将按照实际操作顺序，介绍网络机场的使用方法，以及连接失败、速度较慢时的排查思路。🚀</p>
-<h2 id="heading">一、网络机场是什么？🌐</h2>
-<p>“网络机场”通常是对代理订阅服务商的俗称。服务商提供代理服务器和连接配置，用户通过兼容的客户端导入配置，再选择节点连接。</p>
-<p>先认识几个常见概念：</p>
+<div class="prose"><p>订阅已经导入、节点也显示出来，网页却仍然打不开，通常需要继续检查配置是否启用、连接开关、节点与分流规则。<strong>“导入成功”不等于“代理已经生效”。</strong></p>
+<p>如果还没有完成安装和导入，先看<a href="../airport-subscription-beginner-illustrated-2026/">电脑、安卓与 iPhone 订阅图文教程</a>。本页集中处理导入失败、节点无法连接和退出客户端后断网。</p>
+<h2 id="heading">先按现象缩小范围</h2>
 <table>
 <thead>
 <tr>
-<th>名称</th>
-<th>简单理解</th>
+<th>你看到的现象</th>
+<th>优先检查</th>
+<th>怎样验证</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>机场服务商</td>
-<td>提供代理线路、套餐和订阅配置的平台</td>
+<td>订阅下载或导入失败</td>
+<td>链接是否完整、格式是否兼容、套餐与订阅状态</td>
+<td>更新后能看到有效节点或代理分组</td>
 </tr>
 <tr>
-<td>客户端</td>
-<td>安装在电脑或手机上，用于管理和连接代理的软件</td>
+<td>有节点，但所有网页都打不开</td>
+<td>当前配置、连接开关、套餐流量与到期时间</td>
+<td>连接后打开实际需要访问的网页</td>
 </tr>
 <tr>
-<td>订阅链接</td>
-<td>用于获取、更新节点或配置的专属地址</td>
+<td>只有一个节点连不上</td>
+<td>同一配置中的其他节点</td>
+<td>保持设备和网络不变，换节点重试</td>
 </tr>
 <tr>
-<td>节点</td>
-<td>可以连接的具体代理服务器</td>
+<td>浏览器能用，某个应用不能用</td>
+<td>应用是否读取系统代理、请求实际走向</td>
+<td>在客户端连接记录中检查对应请求</td>
 </tr>
 <tr>
-<td>流量套餐</td>
-<td>服务商规定的可用流量、有效期及其他使用限制</td>
+<td>只有某个网站打不开</td>
+<td>分流规则、目标网站与所选节点</td>
+<td>查看对应日志，再换节点对照</td>
+</tr>
+<tr>
+<td>关闭客户端后电脑断网</td>
+<td>系统代理是否仍指向已退出的客户端</td>
+<td>正常关闭系统代理后退出，再验证联网</td>
 </tr>
 </tbody>
 </table>
-<p>你可以把整个过程理解为：<strong>获取订阅 → 导入客户端 → 选择节点 → 开启连接。</strong></p>
-<h2 id="heading-1">二、使用前需要准备什么？🧰</h2>
-<p>开始配置前，准备好以下三样东西：</p>
-<ul>
-<li><strong>正常联网的设备</strong>：电脑或手机本身需要能够连接网络。</li>
-<li><strong>有效的订阅</strong>：确认套餐未到期，并且还有可用流量。</li>
-<li><strong>兼容的客户端</strong>：客户端需要支持服务商提供的协议与订阅格式。</li>
-</ul>
-<p>订阅格式并不完全通用。复制链接时，应选择服务商后台中与目标客户端对应的入口。</p>
-<p>例如，Clash Verge Rev 是支持 Windows、macOS 和 Linux 的桌面客户端，提供配置管理、系统代理和 TUN 功能。安装包应从其<a href="https://github.com/clash-verge-rev/clash-verge-rev">官方项目页面</a>获取。</p>
-<h2 id="-">三、网络机场如何使用？详细步骤 📲</h2>
-<h3 id="1--">1. 获取订阅链接 🔗</h3>
-<p>登录服务商后台，找到“我的订阅”“使用教程”或“订阅地址”等入口。</p>
-<p>复制前，检查：</p>
-<ul>
-<li>当前套餐是否已经生效。</li>
-<li>是否有剩余流量。</li>
-<li>链接对应的客户端或配置格式是否正确。</li>
-</ul>
-<p><strong>订阅链接通常含有个人访问凭据，应像密码一样保管。</strong> 分享截图或向他人求助时，记得隐藏完整链接。</p>
-<h3 id="2--">2. 导入订阅配置 📥</h3>
-<p>打开客户端，进入“订阅”“配置”或“Profiles”页面。不同软件的菜单名称可能略有区别。</p>
-<p>常见操作流程如下：</p>
+<p>每次只改变一个条件，并记下原来的设置。这样才能分清是节点、配置还是本地网络造成的差异。</p>
+<h2 id="1-">1. 先核对套餐与订阅</h2>
+<p>登录服务商后台，确认套餐已生效、未到期，并且还有可用流量。节点列表可能保留旧内容，不能代替账户状态核对。</p>
+<p>如果是导入失败，依次检查：</p>
 <ol>
-<li>点击“添加订阅”或“从 URL 导入”。</li>
-<li>粘贴完整的订阅链接。</li>
-<li>填写便于识别的名称。</li>
-<li>保存并更新订阅。</li>
-<li>如果客户端支持多个配置，选中并启用刚导入的配置。</li>
+<li>复制的是完整订阅链接，而不是官网、登录页或订单页地址。</li>
+<li>链接前后没有多余空格，也没有漏掉后半段。</li>
+<li>订阅没有失效或被重置；重置后应使用新的链接。</li>
+<li>选择了与客户端兼容的订阅格式。</li>
+<li>当前网络可以访问订阅服务器；保留“下载失败”或“格式解析失败”等具体报错。</li>
 </ol>
-<p>导入成功后，应当能看到节点或代理分组。Clash Verge Rev 的基础流程同样包含导入订阅、选择节点和开启代理，具体界面可参考<a href="https://www.clashverge.dev/guide/quickstart.html">官方快速入门文档</a>。</p>
-<h3 id="3--">3. 选择合适的节点 📍</h3>
-<p>进入“代理”或“节点”页面，选择一条可用线路。</p>
-<p>如果客户端提供延迟测试，可以先测试，再通过实际网页加载或文件传输判断效果。</p>
-<p>选择时主要看：</p>
-<ul>
-<li><strong>可用性</strong>：能否成功建立连接。</li>
-<li><strong>稳定性</strong>：使用过程中是否频繁断开。</li>
-<li><strong>实际速度</strong>：是否满足网页、视频或下载需求。</li>
-<li><strong>地区需求</strong>：出口地区是否符合目标服务的使用要求。</li>
-</ul>
-<p>💡 <strong>延迟低不代表下载一定快。</strong> 实际体验还与线路带宽、拥堵情况、本地网络和目标服务器有关。</p>
-<h3 id="4--">4. 选择代理模式 ⚙️</h3>
-<p>在基于 Mihomo 的客户端中，常见模式包括：</p>
+<p><strong>订阅链接通常含有个人访问凭据，应像密码一样保管。</strong> 求助时隐藏完整地址，优先使用服务商提供的对应格式入口。</p>
+<h2 id="2-">2. 有节点、有延迟，但网页打不开</h2>
+<p>延迟测试成功，只说明当时的测试请求得到响应，不能保证所有网站都能正常访问。按下面的顺序检查：</p>
+<ol>
+<li><strong>启用配置</strong>：如果有多个配置，确认当前选中的是刚更新的那一份。</li>
+<li><strong>选中节点</strong>：确认对应代理分组中选择了预期线路。</li>
+<li><strong>开启连接</strong>：电脑检查系统代理或自己正在使用的连接方式；手机检查客户端连接开关。</li>
+<li><strong>实际访问</strong>：打开需要使用的网站，再查看客户端是否出现对应连接记录。</li>
+<li><strong>核对走向</strong>：查看请求用了哪个节点、直连策略或拦截规则，再对照错误日志。</li>
+</ol>
+<p><img src="https://www.fengyy.org/assets/media/63763fd2-7285-4e94-b230-432ac416ae87.webp" alt="机场订阅从导入到网页验收的使用流程示意"></p>
+<p><em>配置导入、启用配置、选择节点和开启连接是不同步骤。原创概念示意，非软件界面截图或测试结果。</em></p>
+<h2 id="3-">3. 单个节点故障与全部节点失效分开查</h2>
+<p><strong>只有一个节点失败</strong>：保持客户端、目标网站和本地网络不变，换同一订阅中的另一个节点重试。如果另一个节点可用，先记录故障节点与发生时间。</p>
+<p><strong>所有节点都失败</strong>：先回到套餐状态、订阅更新、配置启用和连接开关。再检查本地网络本身是否正常，并保留客户端的 DNS、超时或连接错误信息。不要只因为节点列表仍存在，就认定服务端一定正常。</p>
+<p><strong>晚上才明显变慢</strong>：在相同设备、节点和目标网站下记录不同时段的表现；必要时对照 Wi-Fi 与移动网络，避免同时更换多个条件。延迟低不代表下载一定快，大文件测速本身也可能消耗流量。可使用<a href="../trial-checklist/">试用与连接检查清单</a>保存记录。</p>
+<h2 id="4-">4. 核对规则模式与应用代理设置</h2>
+<p>基于 Mihomo 的客户端常见模式如下，具体菜单名称以正在使用的客户端为准：</p>
 <table>
 <thead>
 <tr>
@@ -182,7 +177,7 @@
 <tbody>
 <tr>
 <td>规则模式</td>
-<td>按配置中的规则决定流量直连、代理或被拦截</td>
+<td>按配置规则决定流量直连、代理或被拦截</td>
 </tr>
 <tr>
 <td>全局模式</td>
@@ -194,68 +189,23 @@
 </tr>
 </tbody>
 </table>
-<p>日常使用可以从规则模式开始，但具体分流结果取决于导入的规则，不能仅凭模式名称判断某个网站一定走哪条线路。模式定义可参考<a href="https://wiki.metacubex.one/config/general/">Mihomo 官方配置文档</a>。</p>
-<h3 id="5--">5. 开启代理连接 ▶️</h3>
-<p>选择节点和模式后，还需要让设备或应用把网络请求交给客户端。</p>
-<p>电脑端常见两种方式：</p>
+<p>日常可以从规则模式开始，但某个网站实际走哪条线路，要看导入的规则和连接记录，不能仅凭模式名称判断。模式定义见<a href="https://wiki.metacubex.one/config/general/">Mihomo 官方配置文档</a>。</p>
+<p>系统代理适用于遵循操作系统代理设置的应用；有些应用可能使用自己的代理设置。浏览器正常而某个应用失败时，先查该应用的设置和连接记录。确有需要时，再按<a href="https://www.clashverge.dev/guide/quickstart.html">Clash Verge Rev 官方快速入门</a>了解 TUN 的适用方式和配置要求。</p>
+<h2 id="5-">5. 关闭客户端后，电脑无法上网</h2>
+<p>检查系统代理是否仍指向已经停止运行的本地客户端。可以重新打开客户端，正常关闭系统代理后再退出，并确认网络恢复。调整前记下原有设置，避免把其他应用的配置一起改乱。</p>
+<h2 id="heading-1">排查完成后再做一次验收</h2>
 <ul>
-<li><strong>系统代理</strong>：适用于遵循操作系统代理设置的应用。</li>
-<li><strong>TUN 模式</strong>：通过虚拟网卡接管更多应用的流量，具体覆盖范围取决于配置。</li>
+<li>原来打不开的网页或应用可以完成一次真实访问。</li>
+<li>刷新或重新打开后仍能正常使用。</li>
+<li>客户端记录中的节点或直连策略符合预期。</li>
+<li>正常断开并退出客户端后，普通联网仍然正常。</li>
 </ul>
-<p>浏览网页时，可以先开启系统代理；如果某些应用不读取系统代理，再按照客户端文档配置 TUN。两者的用途可参考<a href="https://www.clashverge.dev/guide/quickstart.html">官方快速入门说明</a>。</p>
-<p>手机端通常需要点击连接按钮，并允许系统创建 VPN 配置。出现 VPN 图标后，仍需通过实际访问确认连接效果。</p>
-<h3 id="6--">6. 验证是否连接成功 ✅</h3>
-<p>连接后，打开你需要访问的网站或应用，检查：</p>
-<ol>
-<li>页面能否正常加载。</li>
-<li>客户端是否出现对应的连接记录。</li>
-<li>该请求实际使用了哪个节点或直连策略。</li>
-<li>连续使用一段时间后是否稳定。</li>
-</ol>
-<p><strong>节点列表出现了内容，并不等于代理已经生效。</strong> 导入配置、启用配置和开启连接，是不同的操作。</p>
-<h2 id="heading-2">四、常见问题怎么解决？🔧</h2>
-<h3 id="heading-3">订阅导入失败怎么办？</h3>
-<p>建议依次检查：</p>
+<p>保留正常配置，关注套餐流量与到期时间，减少没有目的的反复测速。若仍然失败，向服务商提供设备、客户端版本、发生时间、故障范围和已隐藏敏感信息的错误提示。</p>
+<h2 id="heading-2">按设备继续阅读</h2>
 <ul>
-<li>链接是否复制完整，前后是否多了空格。</li>
-<li>订阅是否到期、失效或已被重置。</li>
-<li>订阅格式是否被当前客户端支持。</li>
-<li>当前网络能否访问订阅服务器。</li>
-<li>客户端错误提示是否指向格式解析或下载失败。</li>
-</ul>
-<p>如果服务商提供不同格式的订阅入口，优先使用对应入口。</p>
-<h3 id="heading-4">节点有延迟，但网页打不开怎么办？</h3>
-<p>延迟测试成功，只能说明测试请求在当时得到响应，不能保证所有网站都能正常访问。</p>
-<p>可以按顺序检查：</p>
-<ol>
-<li>当前配置是否启用。</li>
-<li>系统代理或连接开关是否开启。</li>
-<li>对应网站的规则是否选中了预期节点。</li>
-<li>换一个节点后是否恢复。</li>
-<li>客户端日志是否出现 DNS、连接超时等错误。</li>
-</ol>
-<h3 id="heading-5">为什么晚上速度比较慢？</h3>
-<p>可能与本地网络、运营商路径、节点负载或目标服务拥堵有关。</p>
-<p>可以尝试更换节点、切换 Wi-Fi 与移动网络进行对比，并分别在不同时段测试，以缩小问题范围。</p>
-<h3 id="heading-6">关闭客户端后，电脑无法上网怎么办？</h3>
-<p>检查系统代理是否仍指向已经停止运行的本地客户端。可以重新打开客户端，关闭系统代理后再退出，并确认网络恢复。</p>
-<h2 id="--1">五、日常使用的小技巧 💡</h2>
-<ul>
-<li><strong>及时更新订阅</strong>：服务商可能调整节点和配置。</li>
-<li><strong>关注流量与到期时间</strong>：以服务商后台记录为准。</li>
-<li><strong>准备备用节点</strong>：常用线路不可用时便于切换。</li>
-<li><strong>减少反复测速</strong>：大文件测速本身也可能消耗套餐流量。</li>
-<li><strong>记录正常配置</strong>：调整设置前做好备份，方便恢复。</li>
-</ul>
-<h2 id="--2">六、总结 📝</h2>
-<p>网络机场的基本使用流程是：</p>
-<p><strong>获取有效订阅 → 安装兼容客户端 → 导入并启用配置 → 选择节点与模式 → 开启连接 → 验证实际访问。</strong></p>
-<p>对新手来说，最容易遗漏的是“启用配置”和“开启代理”。遇到问题时，按照订阅状态、配置格式、连接开关、节点和规则的顺序排查，通常更容易找到原因。✨</p>
-<h2 id="heading-7">图文操作与平台教程</h2>
-<ul>
-<li><a href="../airport-subscription-beginner-illustrated-2026/">电脑和手机订阅图文教程</a></li>
-<li><a href="../jztj5/">iOS Shadowrocket 使用说明</a></li>
-<li><a href="../jztj6/">安卓 Clash Meta 使用说明</a></li>
+<li><a href="../airport-subscription-beginner-illustrated-2026/">电脑、安卓与 iPhone 订阅图文教程</a></li>
+<li><a href="../jztj5/">iPhone Shadowrocket 订阅导入与连接检查</a></li>
+<li><a href="../jztj6/">安卓 Clash Meta 订阅导入与连接检查</a></li>
 <li><a href="../trial-checklist/">试用记录与连接验收清单</a></li>
 </ul>
 </div>
@@ -286,7 +236,7 @@
 <aside class="hx-article-index" aria-label="全站文章索引" data-pagefind-ignore data-all-articles-index>
 <h2 class="hx-index-heading"><span>文章索引</span><span class="hx-index-count">42 篇</span></h2>
 <nav class="hx-index-list" aria-label="全部文章" tabindex="0">
-<a href="https://www.fengyy.org/posts/jccp1/">FlyBit 套餐价格：128GB 月付 15 元起</a><a href="https://www.fengyy.org/posts/jccp2/">99吧套餐价格：70GB 月付 9.9 元起</a><a href="https://www.fengyy.org/posts/kxsw1/">FlyBit 与99吧怎么选：价格、流量和计费方式对比</a><a href="https://www.fengyy.org/posts/jctj2/">机场推荐：FlyBit与99吧套餐、入口和试用指南</a><a href="https://www.fengyy.org/posts/monthly-or-traffic/">月付还是不限时流量包？按用量计算选择</a><a href="https://www.fengyy.org/posts/trial-checklist/">机场试用怎么测：从首次连接到常用时段检查</a><a href="https://www.fengyy.org/posts/airport-subscription-beginner-illustrated-2026/">机场怎么订阅和使用？电脑与手机一步一步图文教程</a><a href="https://www.fengyy.org/posts/jktj3/">网络“机场”是什么？看懂节点、订阅与线路</a><a href="https://www.fengyy.org/posts/jztj4/" aria-current="page">网络机场如何使用？订阅导入、节点连接与常见问题教程</a><a href="https://www.fengyy.org/posts/jztj5/">iOS Shadowrocket 使用教程：安装、订阅导入与连接检查</a><a href="https://www.fengyy.org/posts/jztj6/">安卓 Clash Meta 使用教程：订阅导入、节点选择与连接检查</a><a href="https://www.fengyy.org/posts/tools-download/">工具下载：电脑、安卓与iOS客户端官方入口</a><a href="https://www.fengyy.org/posts/about-fengyy/">关于风悠悠优质机场：推荐原则、资料来源与推广说明</a><a href="https://www.fengyy.org/posts/phone-pc-speedtest-credibility/">手机和电脑测速谁更可信？用延迟、丢包、时段和样本拆开差异</a><a href="https://www.fengyy.org/posts/proxy-service-directory-evaluation/">网络代理服务目录应该看哪些指标？价格、隐私、退款、客服与稳定性详解</a><a href="https://www.fengyy.org/posts/curl-error-77-ca-file-check/">curl 报错 77 是节点坏了吗？先检查 CA 文件路径与权限</a><a href="https://www.fengyy.org/posts/curl-error-60-cert-check/">curl 报错 60 是节点坏了吗？先核对 HTTPS 证书与主机名</a><a href="https://www.fengyy.org/posts/curl-exit-3-url-format-check/">curl 报错 3 是节点失效吗？先检查 URL 格式与命令引用</a><a href="https://www.fengyy.org/posts/curl-exit-26-upload-file-check/">curl 报错 26 就该换节点吗？先核对本地上传文件读取</a><a href="https://www.fengyy.org/posts/curl-exit-22-error-body-check/">curl 报错 22 怎样保留原因？用 --fail-with-body 同时核对状态码与错误正文</a><a href="https://www.fengyy.org/posts/curl-exit-28-timeout-phases/">curl 报错 28 怎样排查？把连接超时与总等待时间分开</a><a href="https://www.fengyy.org/posts/curl-exit-47-redirect-loop-check/">curl 报错 47 就该换节点吗？先查重定向循环</a><a href="https://www.fengyy.org/posts/curl-exit-35-tls-handshake-check/">curl 报错 35 怎样查？先定位失败的 TLS 握手</a><a href="https://www.fengyy.org/posts/airport-subscription-computer-phone-sharing/">一份机场订阅能同时用电脑和手机吗？多设备使用与流量核对</a><a href="https://www.fengyy.org/posts/firefox-no-proxy-exceptions/">Firefox 已填代理，部分网站为何仍直连？检查代理例外</a><a href="https://www.fengyy.org/posts/https-target-http-local-proxy/">访问 HTTPS 网站，代理为什么填 http://？本地代理地址的协议检查</a><a href="https://www.fengyy.org/posts/curl-exit-52-56-check/">curl 报错 52 和 56 怎么查？分清空回复与接收中断</a><a href="https://www.fengyy.org/posts/windows-clock-tls-check/">Windows 时间不同步导致机场证书错误？先看时区与同步状态</a><a href="https://www.fengyy.org/posts/powershell-curl-command-source/">PowerShell 里的 curl 是哪个程序？先查命令来源再排障</a><a href="https://www.fengyy.org/posts/curl-exit-5-6-7/">curl 报错 5、6、7 有什么区别？按解析与连接阶段排查</a><a href="https://www.fengyy.org/posts/curl-exit-18-23-download/">curl 下载失败显示 18 或 23？分清短传输与本地写入错误</a><a href="https://www.fengyy.org/posts/curl-certificate-error-no-insecure/">curl 证书报错能用 -k 跳过吗？先定位验证链</a><a href="https://www.fengyy.org/posts/chrome-incognito-extension-proxy/">Chrome 普通窗口能用、无痕窗口不能用？检查扩展代理权限</a><a href="https://www.fengyy.org/posts/firefox-proxy-extension-conflict/">Firefox 代理设置总被改回？检查连接设置与扩展控制</a><a href="https://www.fengyy.org/posts/firefox-doh-proxy-dns-check/">Firefox 单独打不开网站？检查 DoH 与代理 DNS 路径</a><a href="https://www.fengyy.org/posts/windows-dns-cache-check/">切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存</a><a href="https://www.fengyy.org/posts/windows-winhttp-proxy-check/">浏览器能上网但软件更新失败？检查 Windows WinHTTP 代理</a><a href="https://www.fengyy.org/posts/clash-lan-device-access-check/">Clash 类客户端电脑能用，手机连不上？局域网代理检查</a><a href="https://www.fengyy.org/posts/windows-proxy-port-conflict/">Clash 类客户端提示端口被占用怎么办？Windows监听端口排查</a><a href="https://www.fengyy.org/posts/clash-verge-custom-rules-persistence/">Clash Verge Rev更新订阅后规则丢了？自定义规则的保存与验收</a><a href="https://www.fengyy.org/posts/windows-proxy-after-client-exit/">关闭机场客户端后网页打不开？Windows残留代理排查步骤</a><a href="https://www.fengyy.org/posts/curl-proxy-connection-troubleshooting/">浏览器能用代理，命令行却连不上？curl 代理设置与排查教程</a>
+<a href="https://www.fengyy.org/posts/jccp1/">FlyBit机场套餐价格：月付与不限时流量包</a><a href="https://www.fengyy.org/posts/jccp2/">99吧机场套餐价格：月付、年付与流量包</a><a href="https://www.fengyy.org/posts/kxsw1/">FlyBit和99吧怎么选？价格、流量与设备限制对比</a><a href="https://www.fengyy.org/posts/jctj2/">FlyBit、99吧注册入口与试用指南</a><a href="https://www.fengyy.org/posts/monthly-or-traffic/">机场月付还是不限时流量包？按用量算成本</a><a href="https://www.fengyy.org/posts/trial-checklist/">机场试用怎么测？速度、连接与流量检查清单</a><a href="https://www.fengyy.org/posts/airport-subscription-beginner-illustrated-2026/">机场订阅怎么使用？电脑、安卓、iPhone图文教程</a><a href="https://www.fengyy.org/posts/jktj3/">网络“机场”是什么？看懂节点、订阅与线路</a><a href="https://www.fengyy.org/posts/jztj4/" aria-current="page">机场订阅导入后连不上？节点与代理模式排查</a><a href="https://www.fengyy.org/posts/jztj5/">Shadowrocket怎么导入订阅？iPhone小火箭使用教程</a><a href="https://www.fengyy.org/posts/jztj6/">安卓 Clash Meta 使用教程：订阅导入、节点选择与连接检查</a><a href="https://www.fengyy.org/posts/tools-download/">工具下载：电脑、安卓与iOS客户端官方入口</a><a href="https://www.fengyy.org/posts/about-fengyy/">关于风悠悠优质机场：推荐原则、资料来源与推广说明</a><a href="https://www.fengyy.org/posts/phone-pc-speedtest-credibility/">手机和电脑测速谁更可信？用延迟、丢包、时段和样本拆开差异</a><a href="https://www.fengyy.org/posts/proxy-service-directory-evaluation/">网络代理服务目录应该看哪些指标？价格、隐私、退款、客服与稳定性详解</a><a href="https://www.fengyy.org/posts/curl-error-77-ca-file-check/">curl 报错 77 是节点坏了吗？先检查 CA 文件路径与权限</a><a href="https://www.fengyy.org/posts/curl-error-60-cert-check/">curl 报错 60 是节点坏了吗？先核对 HTTPS 证书与主机名</a><a href="https://www.fengyy.org/posts/curl-exit-3-url-format-check/">curl 报错 3 是节点失效吗？先检查 URL 格式与命令引用</a><a href="https://www.fengyy.org/posts/curl-exit-26-upload-file-check/">curl 报错 26 就该换节点吗？先核对本地上传文件读取</a><a href="https://www.fengyy.org/posts/curl-exit-22-error-body-check/">curl 报错 22 怎样保留原因？用 --fail-with-body 同时核对状态码与错误正文</a><a href="https://www.fengyy.org/posts/curl-exit-28-timeout-phases/">curl 报错 28 怎样排查？把连接超时与总等待时间分开</a><a href="https://www.fengyy.org/posts/curl-exit-47-redirect-loop-check/">curl 报错 47 就该换节点吗？先查重定向循环</a><a href="https://www.fengyy.org/posts/curl-exit-35-tls-handshake-check/">curl 报错 35 怎样查？先定位失败的 TLS 握手</a><a href="https://www.fengyy.org/posts/airport-subscription-computer-phone-sharing/">一份机场订阅能同时用电脑和手机吗？多设备使用与流量核对</a><a href="https://www.fengyy.org/posts/firefox-no-proxy-exceptions/">Firefox 已填代理，部分网站为何仍直连？检查代理例外</a><a href="https://www.fengyy.org/posts/https-target-http-local-proxy/">访问 HTTPS 网站，代理为什么填 http://？本地代理地址的协议检查</a><a href="https://www.fengyy.org/posts/curl-exit-52-56-check/">curl 报错 52 和 56 怎么查？分清空回复与接收中断</a><a href="https://www.fengyy.org/posts/windows-clock-tls-check/">Windows 时间不同步导致机场证书错误？先看时区与同步状态</a><a href="https://www.fengyy.org/posts/powershell-curl-command-source/">PowerShell 里的 curl 是哪个程序？先查命令来源再排障</a><a href="https://www.fengyy.org/posts/curl-exit-5-6-7/">curl 报错 5、6、7 有什么区别？按解析与连接阶段排查</a><a href="https://www.fengyy.org/posts/curl-exit-18-23-download/">curl 下载失败显示 18 或 23？分清短传输与本地写入错误</a><a href="https://www.fengyy.org/posts/curl-certificate-error-no-insecure/">curl 证书报错能用 -k 跳过吗？先定位验证链</a><a href="https://www.fengyy.org/posts/chrome-incognito-extension-proxy/">Chrome 普通窗口能用、无痕窗口不能用？检查扩展代理权限</a><a href="https://www.fengyy.org/posts/firefox-proxy-extension-conflict/">Firefox 代理设置总被改回？检查连接设置与扩展控制</a><a href="https://www.fengyy.org/posts/firefox-doh-proxy-dns-check/">Firefox 单独打不开网站？检查 DoH 与代理 DNS 路径</a><a href="https://www.fengyy.org/posts/windows-dns-cache-check/">切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存</a><a href="https://www.fengyy.org/posts/windows-winhttp-proxy-check/">浏览器能上网但软件更新失败？检查 Windows WinHTTP 代理</a><a href="https://www.fengyy.org/posts/clash-lan-device-access-check/">Clash 类客户端电脑能用，手机连不上？局域网代理检查</a><a href="https://www.fengyy.org/posts/windows-proxy-port-conflict/">Clash 类客户端提示端口被占用怎么办？Windows监听端口排查</a><a href="https://www.fengyy.org/posts/clash-verge-custom-rules-persistence/">Clash Verge Rev更新订阅后规则丢了？自定义规则的保存与验收</a><a href="https://www.fengyy.org/posts/windows-proxy-after-client-exit/">关闭机场客户端后网页打不开？Windows残留代理排查步骤</a><a href="https://www.fengyy.org/posts/curl-proxy-connection-troubleshooting/">浏览器能用代理，命令行却连不上？curl 代理设置与排查教程</a>
 </nav>
 </aside>
 </div>
@@ -319,7 +269,7 @@
 </div>
 </dialog>
 
-<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/57e36428-f366-4ce9-98c6-4b00f2203aa0/","pageTitle":"网络机场如何使用？订阅导入、节点连接与常见问题教程","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/57e36428-f366-4ce9-98c6-4b00f2203aa0/","pageTitle":"机场订阅导入后连不上？节点与代理模式排查","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
 
 </body>
 </html>
