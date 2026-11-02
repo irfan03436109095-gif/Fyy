@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="hangxian-picks">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>机场客户端升级后变慢或连不上？版本、内核与配置的对照排查｜风悠悠</title>
+<meta name="description" content="客户端升级后异常，先记录应用版本、代理内核、有效配置与系统接管状态，再用相同任务和可恢复副本做对照。提供版本矩阵、回退决策与工单模板，避免把时间先后误写成根因。">
+<meta name="keywords" content="机场客户端升级后连不上,代理升级变慢,内核配置兼容,Clash升级排查,回退验收">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://www.fengyy.org/posts/proxy-client-upgrade-regression-check/">
+<meta property="og:title" content="机场客户端升级后变慢或连不上？版本、内核与配置的对照排查｜风悠悠">
+<meta property="og:description" content="客户端升级后异常，先记录应用版本、代理内核、有效配置与系统接管状态，再用相同任务和可恢复副本做对照。提供版本矩阵、回退决策与工单模板，避免把时间先后误写成根因。">
+<meta property="og:url" content="https://www.fengyy.org/posts/proxy-client-upgrade-regression-check/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="风悠悠优质机场">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.fengyy.org/assets/media/0aaa4052-c6d3-4ef3-8dd9-379c17d9d82f.png"><meta property="og:image:alt" content="风悠悠优质机场">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="机场客户端升级后变慢或连不上？版本、内核与配置的对照排查｜风悠悠">
+<meta name="twitter:description" content="客户端升级后异常，先记录应用版本、代理内核、有效配置与系统接管状态，再用相同任务和可恢复副本做对照。提供版本矩阵、回退决策与工单模板，避免把时间先后误写成根因。">
+<meta name="twitter:image" content="https://www.fengyy.org/assets/media/0aaa4052-c6d3-4ef3-8dd9-379c17d9d82f.png">
+<meta name="author" content="风"><meta property="article:published_time" content="2026-11-02T14:44:22&#43;08:00"><meta property="article:modified_time" content="2026-11-02T14:44:26&#43;08:00"><meta property="article:tag" content="代理配置"><meta property="article:tag" content="故障排查">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/proxy-client-upgrade-regression-check/#article","@type":"BlogPosting","author":{"@type":"Person","name":"风"},"dateModified":"2026-11-02T14:44:26+08:00","datePublished":"2026-11-02T14:44:22+08:00","description":"客户端升级后异常，先记录应用版本、代理内核、有效配置与系统接管状态，再用相同任务和可恢复副本做对照。提供版本矩阵、回退决策与工单模板，避免把时间先后误写成根因。","headline":"机场客户端升级后变慢或连不上？版本、内核与配置的对照排查","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/proxy-client-upgrade-regression-check/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/proxy-client-upgrade-regression-check/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/proxy-client-upgrade-regression-check/","name":"机场客户端升级后变慢或连不上？版本、内核与配置的对照排查","position":2}]}]}</script>
+
+<script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
+
+<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/style.css">
+<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/advertisements.css">
+<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/search.css"><script defer src="https://www.fengyy.org/assets/theme/search.js"></script>
+<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/guide.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/uu-style.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/article-sidebar-1.1.10.css"><link rel="stylesheet" href="https://www.fengyy.org/assets/theme/core-mobile-1.1.11.css">
+<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/viewer.css">
+<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/reader.css">
+<link rel="icon" href="https://www.fengyy.org/assets/media/0aaa4052-c6d3-4ef3-8dd9-379c17d9d82f.png">
+<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/artalk.css"><script defer src="https://www.fengyy.org/assets/theme/artalk.js"></script>
+<script defer src="https://www.fengyy.org/assets/theme/theme.js"></script>
+<script defer src="https://www.fengyy.org/assets/theme/reader.js"></script>
+<script defer src="https://www.fengyy.org/assets/theme/viewer.js"></script>
+<script defer src="https://www.fengyy.org/assets/theme/image-viewer.js"></script>
+
+<script defer src="https://www.fengyy.org/assets/theme/interactions.js"></script>
+<script defer src="https://www.fengyy.org/assets/theme/guide.js"></script><script defer src="https://www.fengyy.org/assets/theme/all-articles-1.1.10.js"></script><script defer src="https://www.fengyy.org/assets/theme/core-mobile-1.1.11.js"></script>
+<style id="xblog-article-images-half">main article .prose img{width:80%;max-width:80%;height:auto;display:block;margin-left:auto;margin-right:auto;}</style>
+
+<link rel="stylesheet" href="https://www.fengyy.org/assets/theme/appearance.css">
+<script defer src="https://www.fengyy.org/assets/xblog/google-analytics.js" data-xblog-google-analytics="G-PH5M249V6F" data-site-hosts="www.fengyy.org"></script></head>
+
+<body class="reader-page hx-page article-page">
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="site-header">
+<div class="header-inner">
+<a class="brand" href="https://www.fengyy.org/"><img src="https://www.fengyy.org/assets/media/0aaa4052-c6d3-4ef3-8dd9-379c17d9d82f.png" alt="" width="38" height="38"><span>风悠悠优质机场</span></a>
+<nav id="site-navigation" aria-label="站点导航"><a href="https://www.fengyy.org/">首页</a><a href="https://www.fengyy.org/posts/jctj2/">机场推荐</a><a href="https://www.fengyy.org/posts/kxsw1/">套餐对比</a><a href="https://www.fengyy.org/posts/airport-subscription-beginner-illustrated-2026/">新手指南</a><a href="https://www.fengyy.org/posts/tools-download/">工具下载</a><a href="https://www.fengyy.org/posts/about-fengyy/">关于本站</a></nav>
+<a class="search-toggle" href="https://www.fengyy.org/search/" data-open-dialog="search-dialog" aria-haspopup="dialog" aria-controls="search-dialog" aria-label="搜索" title="搜索"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></a>
+<button id="theme-mode" class="theme-toggle theme-cycle" type="button" aria-label="明暗模式：跟随系统，点击切换为明亮" title="跟随系统 · 点击切换为明亮">
+<svg class="theme-icon-system" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+<svg class="theme-icon-moon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 15.5A8.5 8.5 0 0 1 8.5 3.8 8.5 8.5 0 1 0 20.2 15.5Z"/></svg>
+<svg class="theme-icon-sun" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+</button>
+<span id="theme-mode-status" class="visually-hidden" role="status" aria-live="polite"></span>
+<button id="menu-toggle" class="menu-toggle" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="打开菜单" title="打开菜单">
+<svg class="menu-icon-open" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+<svg class="menu-icon-close" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg>
+</button>
+</div>
+</header>
+
+<div class="page-viewport article-viewport"><div class="page-scroll article-scroll">
+<main id="main" tabindex="-1" class="shell hx-shell article-shell" data-has-toc="false">
+
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://www.fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">机场客户端升级后变慢或连不上？版本、内核与配置的对照排查</span></li></ol></nav>
+
+
+
+<article data-pagefind-body>
+<header class="article-header">
+<div class="eyebrow" data-pagefind-ignore>选购与使用指南</div>
+<h1 data-pagefind-meta="title">机场客户端升级后变慢或连不上？版本、内核与配置的对照排查</h1>
+<div class="metadata" data-pagefind-ignore><span>风</span><time datetime="2026-11-02T14:44:22&#43;08:00">2026-11-02</time><span><span id="page-views">—</span> 次阅读</span></div>
+<div class="chips" data-pagefind-ignore><a href="https://www.fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
+</header>
+<div class="prose"><p><strong>机场客户端升级后变慢或连不上，先核对“应用、内核、配置、系统接管”四项状态，再判断是否与升级有关。升级发生在异常之前，只能建立时间关联；只有在关键条件可比时重复观察，才更接近原因。</strong></p>
+<p>图形客户端负责界面和配置管理，代理内核负责具体处理网络请求，远程订阅与本地覆盖决定有效配置，操作系统设置则影响哪些应用进入代理。一次升级可能只改变其中一项，也可能触发多项迁移。这篇文章提供一套可以保留证据、可恢复、能交给支持方复查的方法，不评判任何版本或服务商的整体质量。</p>
+<p><img src="https://www.fengyy.org/assets/media/c64dcdc2-e5c0-49fb-b007-679ad4a27430.png" alt="青黑色软件版本、内核齿轮和配置文档的升级对照示意图"></p>
+<h2 id="heading">一、不要把“软件版本”当成唯一变量</h2>
+<p>桌面客户端版本号通常不能完整描述运行环境。用户可能在升级界面后继续使用原内核，也可能因为自动更新取得了新内核；远程订阅还可能在相近时间自动更新。若只记“旧版好、新版慢”，下一次很难重建相同条件。</p>
+<p>Clash Verge Rev的术语文档将系统代理、TUN、路由模式和服务模式分别解释。由此需要明确：窗口能打开、内核能运行、TUN能接管、某个网站能完成任务，是不同层次的验收对象。<a href="https://www.clashverge.dev/guide/term.html">Clash Verge Rev：接管、分流与服务模式</a></p>
+<table>
+<thead>
+<tr>
+<th>记录层次</th>
+<th>至少保存的内容</th>
+<th>忽略后会怎样</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>图形应用</td>
+<td>名称、版本、安装来源、安装方式</td>
+<td>混用不同分支或便携副本</td>
+</tr>
+<tr>
+<td>代理内核</td>
+<td>内核名称、版本、稳定或测试分支</td>
+<td>把内核变化误归给界面</td>
+</tr>
+<tr>
+<td>有效配置</td>
+<td>订阅名称、更新时间、本地覆盖与脚本</td>
+<td>两轮其实使用不同规则</td>
+</tr>
+<tr>
+<td>系统接管</td>
+<td>系统代理、TUN、端口、相关服务状态</td>
+<td>浏览器与其它应用路径不同</td>
+</tr>
+<tr>
+<td>外部条件</td>
+<td>网络、节点、目标任务、时间</td>
+<td>把晚高峰或目标故障当回归</td>
+</tr>
+</tbody>
+</table>
+<p>这张表不要求读者懂所有配置字段。看不到某项版本时，可以从客户端“关于”“内核”或日志的正常入口寻找；仍无法确认就标“未确认”，不要靠安装包文件名猜测运行中的版本。</p>
+<h2 id="heading-1">二、升级后先做一次状态截图，而不是立刻反复重装</h2>
+<p>保存错误文字、发生时间、当前配置和相关开关状态，再确认实际选中的订阅与节点。升级后若界面布局变化，原来的默认项可能不在熟悉位置。先查清当前状态，再考虑重新应用设置。</p>
+<p>对于“窗口打开但代理菜单为空”“TUN报错”“订阅解析失败”和“只有一个应用慢”，应分成不同事件。一个宽泛的“升级失败”会让支持方不知道应从界面、内核通信还是网络传输出发。</p>
+<p>记录异常前最后一次正常使用时间，以及升级后第一次失败时间。若期间还升级了系统、换了网络或更换套餐，应把这些变化加入时间线。升级过程的日志和实际访问任务日志，也需要分开保存。</p>
+<p>不要为了恢复连接同时卸载全部网卡、关闭防火墙和清空代理配置。它们会扩大变化范围，可能让原有证据消失。需要处理受管理网络、权限或安全软件策略时，交给管理员或按正式支持流程检查。</p>
+<h2 id="heading-2">三、读发布说明时，应找与你的症状相关的变化</h2>
+<p>项目发布说明比“网上说新版不好用”更接近版本事实。查看你实际安装的版本，以及旧版本到新版本之间是否涉及代理设置、内核通信、TUN、DNS、订阅迁移或备份恢复。不要只读标题中的“优化性能”。</p>
+<p>例如Clash Verge Rev的发布页会逐版列出修复、功能和平台差异。它能帮助寻找值得核对的变化，但某个版本修复过相关问题，不等于你当前遇到的就是同一缺陷。<a href="https://github.com/clash-verge-rev/clash-verge-rev/releases">Clash Verge Rev：官方发布记录</a></p>
+<p>发布页可能同时有稳定版、候选版和自动构建。比较时先确认所处的发布通道。为了验证普通使用问题，不必主动安装测试分支；若官方支持要求测试，应了解对应配置要求并保留返回已知可用环境的方法。</p>
+<p>来源不明的“修复版”“增强版”不能作为可靠回退点。下载入口可参考<a href="https://www.fengyy.org/posts/tools-download/">本站整理的客户端官方入口</a>，同时核对项目的实际签名、校验和或安装说明；某个文件能够运行，不足以证明它来自预期维护者。</p>
+<h2 id="heading-3">四、配置能否兼容，要按内核文档确认</h2>
+<p>配置文件既包含节点，也可能包含DNS、路由、规则集与运行参数。字段名称或语义变化时，旧配置可能无法解析，也可能解析成功却不再按原先方式工作。删除报错字段并不是完整的迁移方案。</p>
+<p>sing-box的官方迁移页按版本记录了DNS、路由、TUN等配置变化。这里引用它是为了说明“迁移应有对应版本依据”，不是把sing-box字段直接套进Mihomo或其它内核的配置中。<a href="https://sing-box.sagernet.org/migration/">sing-box：配置迁移说明</a></p>
+<p>先保存原配置，再按自己实际使用内核的说明逐项迁移。服务商下发的订阅如果不兼容当前客户端，优先询问服务商是否有对应格式或支持范围，不把整份私人配置发到陌生在线转换站。</p>
+<p>解析成功之后，还应确认规则和DNS的实际行为。能导入不等于所有功能生效；保持日志中的错误、警告与普通请求记录原样区分，不能只因没有红色提示就结束验收。</p>
+<h2 id="ab">五、建立A/B对照前，先准备安全的副本</h2>
+<p>备份至少包括订阅配置、本地覆盖、需要的规则或脚本，以及应用设置。备份通常可能包含私人订阅地址和认证信息，应放在受保护位置。不要为了“留个保险”把完整压缩包放进公开网盘。</p>
+<p>备份是否包含所有运行数据，要以项目说明为准。Clash Verge Rev的隐私说明明确列出配置、订阅和日志等本地数据，并提醒备份可能带有代理密码和订阅地址；因此它应被视作敏感文件。<a href="https://github.com/clash-verge-rev/clash-verge-rev/blob/dev/PRIVACY.md">Clash Verge Rev：配置与备份的数据范围</a></p>
+<p>恢复之前另存当前异常环境的副本，避免新旧数据反复覆盖。将文件夹名称或记录表标清日期、应用版本和用途，不能只叫“备份1”“最终备份”。一个找不到对应版本的备份，恢复价值会大幅下降。</p>
+<p>如果没有升级前的可靠副本，不要宣布已经做出了“完全相同配置”的版本对照。可以进行当前环境的最小任务检查，或在可信支持指导下重建可比较配置，同时明确缺失的基线。</p>
+<h2 id="heading-4">六、用相同任务对照，先验证能用再测速度</h2>
+<p>先选一个容易重做、无敏感内容的任务，例如打开同一普通页面并获取一份固定大小文件。保持设备、接入网络、节点与目标一致，先确认请求能完成，再记录耗时、失败阶段与是否重试。</p>
+<p>速度对照应避免把旧版本的昨天白天，与新版本的今天晚间直接比较。可以在相近时间交替执行两轮，记录先后顺序与缓存状态。不能在两个客户端争用同一端口、同时接管系统的条件下比较。</p>
+<table>
+<thead>
+<tr>
+<th>对照编号</th>
+<th>应用/内核</th>
+<th>配置与路径</th>
+<th>原任务结果</th>
+<th>能支持的判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>已知可用组合</td>
+<td>保存的基线</td>
+<td>如实填写</td>
+<td>建立当前条件下的参照</td>
+</tr>
+<tr>
+<td>B</td>
+<td>升级后组合</td>
+<td>尽量保持一致</td>
+<td>如实填写</td>
+<td>观察差异是否复现</td>
+</tr>
+<tr>
+<td>A复测</td>
+<td>回到可信基线</td>
+<td>同条件重做</td>
+<td>如实填写</td>
+<td>降低时段变化的干扰</td>
+</tr>
+<tr>
+<td>B复测</td>
+<td>再回到新组合</td>
+<td>不增加新改动</td>
+<td>如实填写</td>
+<td>检查差异是否重复出现</td>
+</tr>
+</tbody>
+</table>
+<p>这是一份实验设计模板，没有预设新旧哪一方更好。真实操作能否独立安装、如何隔离配置目录，必须遵循对应项目说明。若项目不支持这种方式，不要硬把两个版本并行运行，改为有备份的顺序验证。</p>
+<p>如果仅浏览器变慢，要检查浏览器是否确实采用当前代理入口；如果只有下载慢，检查任务工具是否限速。基础问题可先看<a href="https://www.fengyy.org/posts/jztj4/">订阅导入后连接异常的分层排查</a>，不要把可以独立验证的本地设置问题都归给升级。</p>
+<h2 id="heading-5">七、怎样区分版本相关性与套餐、网络变化</h2>
+<p>假设A能完成同一任务、B连续失败，再回到A又能完成，这会加强版本组合相关性的证据。它仍不是代码级根因，因为运行数据、连接缓存和服务端状态可能没有完全相同。</p>
+<p>若A和B都在同一时段变慢，优先看共同条件，例如本地网络、目标服务、节点和账号权限。若只在更新订阅后异常，配置变化的优先级高于单纯图形版本变化。</p>
+<p>若刚好续费，也应检查套餐生效和权限是否一致。可以接着使用<a href="https://www.fengyy.org/posts/airport-renewed-but-not-working/">续费后到期、流量与订阅状态核对</a>，把账号权益与软件运行状态分开验收。</p>
+<p>“其它人没有问题”不能否定自己的复现，“评论区很多人抱怨”也不能证明所有设备受影响。保留系统版本、架构和安装方式等差异，支持方才可能找到真正共同点。</p>
+<h2 id="heading-6">八、什么时候考虑回退</h2>
+<p>回退适合在有可信旧安装包、可靠备份和兼容说明的前提下，恢复必要任务或进一步定位。它不是永久忽略安全更新的通用建议。若旧版存在已公布的安全问题，应优先寻求项目支持提供的受维护方案。</p>
+<p>还要确认新版本是否已经迁移数据，旧版本是否能识别。不能直接让旧程序读取已迁移的唯一配置目录，然后把所有异常解释为旧版也坏了。恢复需要对照版本与数据，而不仅仅替换一个可执行文件。</p>
+<p>若新版本只在某个功能下异常，可以在允许范围内使用已经验证的替代接管方式，但应重新验收任务和路径。临时方案要记录清楚，方便后续修复后收回，不留下忘记的覆盖项。</p>
+<h2 id="heading-7">九、怎样写一份可行动的升级反馈</h2>
+<p>反馈包括升级前后应用和内核版本、系统架构、安装来源、是否启用服务模式、当前有效配置的来源和更新时间、最小复现步骤，以及A/B结果。错误日志附相关时间段即可，不必提交整份浏览历史。</p>
+<p>描述应区分观察与推测。例如“新组合在同一节点的文件任务中两次失败，旧组合复测成功，怀疑与升级有关”比“新版内核彻底坏了”更利于核查。日志中的订阅令牌、密码、私人路径和目标内容应先脱敏。</p>
+<p>若公开发表复测文章，保留失败样本、测试日期、任务定义和不受影响的功能。引用项目发布说明时应带具体版本，引用本文方法时应说明哪些变量未能控制，避免把局部恢复写成全平台修复。</p>
+<h2 id="heading-8">常见问题</h2>
+<h3 id="heading-9">升级后延迟数字变高，就是速度变慢了吗？</h3>
+<p>不一定。可能是测试目标、方法或展示口径变化。先核对实际任务，再比较指标定义；延迟和文件吞吐本身也不同。</p>
+<h3 id="heading-10">只重启内核就恢复，可以认定配置没问题吗？</h3>
+<p>不能。重启还可能重建连接与缓存，只能记录这次恢复动作。再次复现时仍需核对当前有效配置。</p>
+<h3 id="heading-11">要不要把所有设置恢复默认再测？</h3>
+<p>默认设置是新的测试条件，可能改变DNS、分流和接管范围。若要使用，应另存配置并明确记录，不能将它伪装成与旧版完全相同。</p>
+<h3 id="heading-12">怎样降低以后升级时的排查成本？</h3>
+<p>保留简短版本台账、可信安装来源、可恢复配置与一组固定验收任务。每次只记录真正变化的条件，比积累大量无法对应版本的截图更有用。</p>
+</div>
+<div class="article-likes" data-pagefind-ignore>
+<button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
+<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+<span id="page-like-label">点赞</span><span id="page-like-count">—</span>
+</button><p id="page-like-message" role="status"></p>
+</div>
+<div class="article-tags" data-pagefind-ignore><a href="https://www.fengyy.org/tags/proxy-configuration/"># 代理配置</a><a href="https://www.fengyy.org/tags/troubleshooting/"># 故障排查</a></div>
+<nav class="pagination" aria-label="相邻文章" data-pagefind-ignore><a href="https://www.fengyy.org/posts/about-fengyy/">← 上一篇</a><a href="https://www.fengyy.org/posts/airport-double-eleven-discount-cost-check/">下一篇 →</a></nav>
+<section class="comments-section" data-pagefind-ignore><h2>评论</h2><div id="comments"></div></section>
+</article>
+
+<div class="article-rail hx-sidebar-list has-article-ads"><aside class="ad-slot" aria-label="文章相关内容" data-ad-position="article_sidebar" data-pagefind-ignore><a class="ad-card ad-card-mixed" href="https://goflybit.com/#/register?code=gPinVG8C" target="_blank" rel="sponsored noopener noreferrer" aria-label="FlyBit · 内容页侧边邀请入口（在新标签页打开）" data-ad-link>
+<img class="ad-image" src="https://www.fengyy.org/assets/media/ec60e921-dde3-485c-981d-5a069137c14e.png" alt="FlyBit · 内容页侧边邀请入口" loading="lazy" decoding="async" width="219" height="214">
+<div class="ad-copy"><h3>FlyBit</h3>
+<p>先看当前试用与套餐，再决定是否适合自己。</p>
+<h6>推广链接 · 资格与费用以服务方页面为准</h6>
+</div>
+</a><a class="ad-card ad-card-mixed" href="https://99ba.net/#/register?code=sExBbdk9" target="_blank" rel="sponsored noopener noreferrer" aria-label="99吧 · 内容页侧边邀请入口（在新标签页打开）" data-ad-link>
+<img class="ad-image" src="https://www.fengyy.org/assets/media/8c1cc269-6217-499e-83d5-b9810a5c1b6a.png" alt="99吧 · 内容页侧边邀请入口" loading="lazy" decoding="async" width="220" height="221">
+<div class="ad-copy"><h3>99吧</h3>
+<p>先看当前试用与套餐，再决定是否适合自己。</p>
+<h6>推广链接 · 资格与费用以服务方页面为准</h6>
+</div>
+</a></aside>
+<aside class="hx-article-index" aria-label="全站文章索引" data-pagefind-ignore data-all-articles-index>
+<h2 class="hx-index-heading"><span>文章索引</span><span class="hx-index-count">45 篇</span></h2>
+<nav class="hx-index-list" aria-label="全部文章" tabindex="0">
+<a href="https://www.fengyy.org/posts/jccp1/">FlyBit机场套餐价格：月付与不限时流量包</a><a href="https://www.fengyy.org/posts/jccp2/">99吧机场套餐价格：月付、年付与流量包</a><a href="https://www.fengyy.org/posts/kxsw1/">FlyBit和99吧怎么选？价格、流量与设备限制对比</a><a href="https://www.fengyy.org/posts/jctj2/">FlyBit、99吧注册入口与试用指南</a><a href="https://www.fengyy.org/posts/monthly-or-traffic/">机场月付还是不限时流量包？按用量算成本</a><a href="https://www.fengyy.org/posts/trial-checklist/">机场试用怎么测？速度、连接与流量检查清单</a><a href="https://www.fengyy.org/posts/airport-subscription-beginner-illustrated-2026/">机场订阅怎么使用？电脑、安卓、iPhone图文教程</a><a href="https://www.fengyy.org/posts/jktj3/">网络“机场”是什么？看懂节点、订阅与线路</a><a href="https://www.fengyy.org/posts/jztj4/">机场订阅导入后连不上？节点与代理模式排查</a><a href="https://www.fengyy.org/posts/jztj5/">Shadowrocket怎么导入订阅？iPhone小火箭使用教程</a><a href="https://www.fengyy.org/posts/jztj6/">安卓 Clash Meta 使用教程：订阅导入、节点选择与连接检查</a><a href="https://www.fengyy.org/posts/tools-download/">工具下载：电脑、安卓与iOS客户端官方入口</a><a href="https://www.fengyy.org/posts/about-fengyy/">关于风悠悠优质机场：推荐原则、资料来源与推广说明</a><a href="https://www.fengyy.org/posts/proxy-client-upgrade-regression-check/" aria-current="page">机场客户端升级后变慢或连不上？版本、内核与配置的对照排查</a><a href="https://www.fengyy.org/posts/airport-double-eleven-discount-cost-check/">机场双十一优惠值得买吗？先算续费价、有效期和真实节省</a><a href="https://www.fengyy.org/posts/airport-renewed-but-not-working/">机场续费成功后还是不能用？到期、流量和订阅更新的四步排查</a><a href="https://www.fengyy.org/posts/phone-pc-speedtest-credibility/">手机和电脑测速谁更可信？用延迟、丢包、时段和样本拆开差异</a><a href="https://www.fengyy.org/posts/proxy-service-directory-evaluation/">网络代理服务目录应该看哪些指标？价格、隐私、退款、客服与稳定性详解</a><a href="https://www.fengyy.org/posts/curl-error-77-ca-file-check/">curl 报错 77 是节点坏了吗？先检查 CA 文件路径与权限</a><a href="https://www.fengyy.org/posts/curl-error-60-cert-check/">curl 报错 60 是节点坏了吗？先核对 HTTPS 证书与主机名</a><a href="https://www.fengyy.org/posts/curl-exit-3-url-format-check/">curl 报错 3 是节点失效吗？先检查 URL 格式与命令引用</a><a href="https://www.fengyy.org/posts/curl-exit-26-upload-file-check/">curl 报错 26 就该换节点吗？先核对本地上传文件读取</a><a href="https://www.fengyy.org/posts/curl-exit-22-error-body-check/">curl 报错 22 怎样保留原因？用 --fail-with-body 同时核对状态码与错误正文</a><a href="https://www.fengyy.org/posts/curl-exit-28-timeout-phases/">curl 报错 28 怎样排查？把连接超时与总等待时间分开</a><a href="https://www.fengyy.org/posts/curl-exit-47-redirect-loop-check/">curl 报错 47 就该换节点吗？先查重定向循环</a><a href="https://www.fengyy.org/posts/curl-exit-35-tls-handshake-check/">curl 报错 35 怎样查？先定位失败的 TLS 握手</a><a href="https://www.fengyy.org/posts/airport-subscription-computer-phone-sharing/">一份机场订阅能同时用电脑和手机吗？多设备使用与流量核对</a><a href="https://www.fengyy.org/posts/firefox-no-proxy-exceptions/">Firefox 已填代理，部分网站为何仍直连？检查代理例外</a><a href="https://www.fengyy.org/posts/https-target-http-local-proxy/">访问 HTTPS 网站，代理为什么填 http://？本地代理地址的协议检查</a><a href="https://www.fengyy.org/posts/curl-exit-52-56-check/">curl 报错 52 和 56 怎么查？分清空回复与接收中断</a><a href="https://www.fengyy.org/posts/windows-clock-tls-check/">Windows 时间不同步导致机场证书错误？先看时区与同步状态</a><a href="https://www.fengyy.org/posts/powershell-curl-command-source/">PowerShell 里的 curl 是哪个程序？先查命令来源再排障</a><a href="https://www.fengyy.org/posts/curl-exit-5-6-7/">curl 报错 5、6、7 有什么区别？按解析与连接阶段排查</a><a href="https://www.fengyy.org/posts/curl-exit-18-23-download/">curl 下载失败显示 18 或 23？分清短传输与本地写入错误</a><a href="https://www.fengyy.org/posts/curl-certificate-error-no-insecure/">curl 证书报错能用 -k 跳过吗？先定位验证链</a><a href="https://www.fengyy.org/posts/chrome-incognito-extension-proxy/">Chrome 普通窗口能用、无痕窗口不能用？检查扩展代理权限</a><a href="https://www.fengyy.org/posts/firefox-proxy-extension-conflict/">Firefox 代理设置总被改回？检查连接设置与扩展控制</a><a href="https://www.fengyy.org/posts/firefox-doh-proxy-dns-check/">Firefox 单独打不开网站？检查 DoH 与代理 DNS 路径</a><a href="https://www.fengyy.org/posts/windows-dns-cache-check/">切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存</a><a href="https://www.fengyy.org/posts/windows-winhttp-proxy-check/">浏览器能上网但软件更新失败？检查 Windows WinHTTP 代理</a><a href="https://www.fengyy.org/posts/clash-lan-device-access-check/">Clash 类客户端电脑能用，手机连不上？局域网代理检查</a><a href="https://www.fengyy.org/posts/windows-proxy-port-conflict/">Clash 类客户端提示端口被占用怎么办？Windows监听端口排查</a><a href="https://www.fengyy.org/posts/clash-verge-custom-rules-persistence/">Clash Verge Rev更新订阅后规则丢了？自定义规则的保存与验收</a><a href="https://www.fengyy.org/posts/windows-proxy-after-client-exit/">关闭机场客户端后网页打不开？Windows残留代理排查步骤</a><a href="https://www.fengyy.org/posts/curl-proxy-connection-troubleshooting/">浏览器能用代理，命令行却连不上？curl 代理设置与排查教程</a>
+</nav>
+</aside>
+</div>
+
+</main>
+</div>
+<button id="back-to-top" class="back-to-top" type="button" aria-label="返回顶部" title="返回顶部" hidden>
+<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M12 20V8m-5 5 5-5 5 5"/></svg>
+</button>
+</div>
+
+<footer class="site-footer hx-footer"><nav class="friend-links" aria-label="友情链接"><span class="friend-links-label">友情链接</span><a href="https://goflybit.com/#/register?code=gPinVG8C" target="_blank" rel="sponsored noopener noreferrer">FlyBit</a><a href="https://99ba.net/#/register?code=sExBbdk9" target="_blank" rel="sponsored noopener noreferrer">99吧</a><a href="https://t.me/five_91" target="_blank" rel="noopener noreferrer">Telegram联系</a><a href="https://t.me/RouteRadarCN" target="_blank" rel="noopener noreferrer">Telegram频道</a></nav><div class="hx-footer-line"><span>© 2026 风悠悠优质机场</span><span>看清套餐 · 按需选择</span></div></footer>
+
+
+
+<dialog id="search-dialog" class="reader-dialog site-search" aria-labelledby="search-title" data-reader-dialog data-pagefind-ignore>
+<header class="reader-dialog-header"><h2 id="search-title">搜索文章</h2><button class="dialog-close" type="button" data-close-dialog aria-label="关闭搜索" title="关闭搜索">×</button></header>
+<div class="reader-dialog-body">
+
+<div id="site-search-ui" data-module="https://www.fengyy.org/pagefind/pagefind-component-ui.js" data-stylesheet="https://www.fengyy.org/pagefind/pagefind-component-ui.css" hidden>
+
+<pagefind-config bundle-path="https://www.fengyy.org/pagefind/" base-url="https://www.fengyy.org/" lang="zh-cn" no-worker></pagefind-config>
+<pagefind-input placeholder="搜索文章标题或正文"></pagefind-input>
+<pagefind-summary></pagefind-summary>
+<pagefind-results></pagefind-results>
+</div>
+<p id="search-status" class="search-status" role="status">正在加载搜索…</p>
+<button id="search-retry" class="button" type="button" hidden>重新加载</button>
+
+</div>
+</dialog>
+
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/349be462-df86-4881-9970-411f3323df3d/","pageTitle":"机场客户端升级后变慢或连不上？版本、内核与配置的对照排查","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
+
+</body>
+</html>
