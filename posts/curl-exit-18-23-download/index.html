@@ -19,23 +19,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>curl 下载失败显示 18 或 23？分清短传输与本地写入错误｜风悠悠</title>
-<meta name="description" content="curl下载报错18或23怎么办？按退出码检查传输不完整与本地写入失败，避免把磁盘问题误判成机场节点故障。">
+<title>curl下载报错18或23？分清大小不符与本地写入错误｜风悠悠</title>
+<meta name="description" content="区分curl退出码18的传输大小不符与23的本地写入错误，用小范围对照确定该查链路、目标还是磁盘。">
 <meta name="keywords" content="curl退出码,curl 18,curl 23,机场客户端,下载失败">
 <meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://www.fengyy.org/posts/curl-exit-18-23-download/">
-<meta property="og:title" content="curl 下载失败显示 18 或 23？分清短传输与本地写入错误｜风悠悠">
-<meta property="og:description" content="curl下载报错18或23怎么办？按退出码检查传输不完整与本地写入失败，避免把磁盘问题误判成机场节点故障。">
+<meta property="og:title" content="curl下载报错18或23？分清大小不符与本地写入错误｜风悠悠">
+<meta property="og:description" content="区分curl退出码18的传输大小不符与23的本地写入错误，用小范围对照确定该查链路、目标还是磁盘。">
 <meta property="og:url" content="https://www.fengyy.org/posts/curl-exit-18-23-download/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="风悠悠优质机场">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.fengyy.org/assets/media/0aaa4052-c6d3-4ef3-8dd9-379c17d9d82f.png"><meta property="og:image:alt" content="风悠悠优质机场">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="curl 下载失败显示 18 或 23？分清短传输与本地写入错误｜风悠悠">
-<meta name="twitter:description" content="curl下载报错18或23怎么办？按退出码检查传输不完整与本地写入失败，避免把磁盘问题误判成机场节点故障。">
+<meta name="twitter:title" content="curl下载报错18或23？分清大小不符与本地写入错误｜风悠悠">
+<meta name="twitter:description" content="区分curl退出码18的传输大小不符与23的本地写入错误，用小范围对照确定该查链路、目标还是磁盘。">
 <meta name="twitter:image" content="https://www.fengyy.org/assets/media/0aaa4052-c6d3-4ef3-8dd9-379c17d9d82f.png">
-<meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-10-01T10:58:59&#43;08:00"><meta property="article:modified_time" content="2026-10-16T11:51:56&#43;08:00"><meta property="article:tag" content="curl"><meta property="article:tag" content="故障排查">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/curl-exit-18-23-download/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-10-16T11:51:56+08:00","datePublished":"2026-10-01T10:58:59+08:00","description":"curl下载报错18或23怎么办？按退出码检查传输不完整与本地写入失败，避免把磁盘问题误判成机场节点故障。","headline":"curl 下载失败显示 18 或 23？分清短传输与本地写入错误","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/curl-exit-18-23-download/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/curl-exit-18-23-download/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/curl-exit-18-23-download/","name":"curl 下载失败显示 18 或 23？分清短传输与本地写入错误","position":2}]}]}</script>
+<meta name="author" content="王牌飞行员"><meta property="article:published_time" content="2026-10-01T10:58:59&#43;08:00"><meta property="article:modified_time" content="2026-11-04T17:23:49&#43;08:00"><meta property="article:tag" content="curl"><meta property="article:tag" content="故障排查">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://www.fengyy.org/posts/curl-exit-18-23-download/#article","@type":"BlogPosting","author":{"@type":"Person","name":"王牌飞行员"},"dateModified":"2026-11-04T17:23:49+08:00","datePublished":"2026-10-01T10:58:59+08:00","description":"区分curl退出码18的传输大小不符与23的本地写入错误，用小范围对照确定该查链路、目标还是磁盘。","headline":"curl下载报错18或23？分清大小不符与本地写入错误","inLanguage":"zh-CN","mainEntityOfPage":{"@id":"https://www.fengyy.org/posts/curl-exit-18-23-download/","@type":"WebPage"},"url":"https://www.fengyy.org/posts/curl-exit-18-23-download/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://www.fengyy.org/","name":"风悠悠优质机场","position":1},{"@type":"ListItem","item":"https://www.fengyy.org/posts/curl-exit-18-23-download/","name":"curl下载报错18或23？分清大小不符与本地写入错误","position":2}]}]}</script>
 
 <script>(()=>{let mode='system';try{const saved=localStorage.getItem('reader-theme');if(['system','light','dark'].includes(saved))mode=saved}catch{}const root=document.documentElement;root.dataset.colorMode=mode;root.classList.toggle('dark',mode==='dark'||(mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches))})();</script>
 
@@ -83,21 +83,21 @@
 <div class="page-viewport article-viewport"><div class="page-scroll article-scroll">
 <main id="main" tabindex="-1" class="shell hx-shell article-shell" data-has-toc="false">
 
-<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://www.fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">curl 下载失败显示 18 或 23？分清短传输与本地写入错误</span></li></ol></nav>
+<nav class="breadcrumbs" aria-label="面包屑导航"><ol><li><a href="https://www.fengyy.org/">风悠悠优质机场</a></li><li><span aria-current="page">curl下载报错18或23？分清大小不符与本地写入错误</span></li></ol></nav>
 
 
 
 <article data-pagefind-body>
 <header class="article-header">
 <div class="eyebrow" data-pagefind-ignore>选购与使用指南</div>
-<h1 data-pagefind-meta="title">curl 下载失败显示 18 或 23？分清短传输与本地写入错误</h1>
+<h1 data-pagefind-meta="title">curl下载报错18或23？分清大小不符与本地写入错误</h1>
 <div class="metadata" data-pagefind-ignore><span>王牌飞行员</span><time datetime="2026-10-01T10:58:59&#43;08:00">2026-10-01</time><span><span id="page-views">—</span> 次阅读</span></div>
 <div class="chips" data-pagefind-ignore><a href="https://www.fengyy.org/categories/clients-and-tools/">客户端与工具</a></div>
 </header>
-<div class="prose"><p>用 curl 通过机场节点下载文件时，终端里出现 <code>curl: (18)</code> 或 <code>curl: (23)</code>，都可能表现为“下载没完成”，但排查方向完全不同。18 指向传输长度不完整，23 指向本地写入失败。先看退出码，可以避免反复换节点却没有解决真正的问题。</p>
-<p><img src="https://www.fengyy.org/assets/theme/seo-media/12c3633ee8c839f8.webp" alt="远端传输不完整与本地写入失败的区别示意" width="1672" height="941" decoding="async"></p>
+<div class="prose"><p>用 curl 通过机场节点下载文件时，终端里出现 <code>curl: (18)</code> 或 <code>curl: (23)</code>，都可能表现为“下载没完成”，但排查方向完全不同。18 指向实际传输大小与预告不符，23 指向本地写入失败。先看退出码，可以避免反复换节点却没有解决真正的问题。</p>
+<p><img src="https://www.fengyy.org/assets/media/b1c140da-1b2a-4e82-b995-eb5ba0697779.webp" alt="远端传输不完整与本地写入失败的区别示意"></p>
 <p><em>下载过程中的传输不完整，与本地文件写入失败属于不同环节。 原创概念示意，非软件界面截图或测试结果。</em></p>
-<h2 id="-18">退出码 18：收到的数据比预期少</h2>
+<h2 id="-18">退出码 18：传输大小与预告不符</h2>
 <p>curl 官方手册把 18 解释为部分文件：服务器声明的传输大小与实际收到的大小不一致。常见表象是下载进度提前结束、文件比预期小，或者连接在传输中被关闭。</p>
 <p>先用一个确定可重复的测试地址执行：</p>
 <pre><code class="language-bash">curl -L --fail --output test.bin --write-out &quot;code=%{http_code} size=%{size_download}\n&quot; https://example.com/test.bin
@@ -113,11 +113,13 @@
 <p>第一步，保留退出码，别只截取“下载失败”四个字。第二步，记录响应状态和已下载字节；18 更像远端或链路提前结束，23 更像本地保存阶段出错。第三步，只改变一个条件复测：18 做直连与代理对照，23 改用已知可写目录。</p>
 <p>验收时，至少连续完成三次相同大小的下载，并核对退出码为 0、文件大小一致。如果来源提供校验值，再核对哈希。这样才能确认故障已经消失，而不是某次碰巧成功。</p>
 <h2 id="heading-1">与机场客户端的关系</h2>
-<p>客户端显示“已连接”只证明代理进程在运行，不代表每个下载都完整。把 curl 退出码、HTTP 状态、下载字节数和客户端日志放在同一时间线上，客服才能判断是节点中断、目标站异常，还是本地磁盘问题。</p>
+<p>客户端显示“已连接”只是该界面按自身逻辑报告的状态，不能单凭它判断进程、所有路径或每个下载均已完成。把 curl 退出码、HTTP 状态、下载字节数和客户端日志放在同一时间线上，客服才能判断是节点中断、目标站异常，还是本地磁盘问题。</p>
 <h2 id="heading-2">参考资料</h2>
 <ul>
 <li><a href="https://curl.se/docs/manpage.html">curl 官方手册：退出码与命令选项</a></li>
+<li><a href="https://curl.se/libcurl/c/libcurl-errors.html">curl 官方错误说明：18与23</a></li>
 </ul>
+<p>技术边界复核：2026-11-04。</p>
 </div>
 <div class="article-likes" data-pagefind-ignore>
 <button id="page-like" class="like-button" type="button" aria-pressed="false" aria-describedby="page-like-message" disabled>
@@ -144,9 +146,9 @@
 </div>
 </a></aside>
 <aside class="hx-article-index" aria-label="全站文章索引" data-pagefind-ignore data-all-articles-index>
-<h2 class="hx-index-heading"><span>文章索引</span><span class="hx-index-count">48 篇</span></h2>
+<h2 class="hx-index-heading"><span>文章索引</span><span class="hx-index-count">49 篇</span></h2>
 <nav class="hx-index-list" aria-label="全部文章" tabindex="0">
-<a href="https://www.fengyy.org/posts/jccp1/">FlyBit机场套餐价格：月付与不限时流量包</a><a href="https://www.fengyy.org/posts/jccp2/">99吧机场套餐价格：月付、年付与流量包</a><a href="https://www.fengyy.org/posts/99ba-plan-device-selection-profile/">99吧套餐怎么读？从入门月付到多设备需求的选购与订阅指南</a><a href="https://www.fengyy.org/posts/flybit-99ba-plan-period-quota-checklist/">FlyBit与99吧选购速查：把付款周期、流量和设备条件放在一张表</a><a href="https://www.fengyy.org/posts/kxsw1/">FlyBit和99吧怎么选？价格、流量与设备限制对比</a><a href="https://www.fengyy.org/posts/jctj2/">FlyBit、99吧注册入口与试用指南</a><a href="https://www.fengyy.org/posts/monthly-or-traffic/">机场月付还是不限时流量包？按用量算成本</a><a href="https://www.fengyy.org/posts/trial-checklist/">机场试用怎么测？速度、连接与流量检查清单</a><a href="https://www.fengyy.org/posts/airport-subscription-beginner-illustrated-2026/">机场订阅怎么使用？电脑、安卓、iPhone图文教程</a><a href="https://www.fengyy.org/posts/jktj3/">网络“机场”是什么？看懂节点、订阅与线路</a><a href="https://www.fengyy.org/posts/jztj4/">机场订阅导入后连不上？节点与代理模式排查</a><a href="https://www.fengyy.org/posts/jztj5/">Shadowrocket怎么导入订阅？iPhone小火箭使用教程</a><a href="https://www.fengyy.org/posts/jztj6/">安卓 Clash Meta 使用教程：订阅导入、节点选择与连接检查</a><a href="https://www.fengyy.org/posts/tools-download/">工具下载：电脑、安卓与iOS客户端官方入口</a><a href="https://www.fengyy.org/posts/about-fengyy/">关于风悠悠优质机场：推荐原则、资料来源与推广说明</a><a href="https://www.fengyy.org/posts/curl-exit-92-http2-stream-check/">curl报错92就该换机场吗？HTTP/2流错误与HTTP/1.1对照检查</a><a href="https://www.fengyy.org/posts/proxy-client-upgrade-regression-check/">机场客户端升级后变慢或连不上？版本、内核与配置的对照排查</a><a href="https://www.fengyy.org/posts/airport-double-eleven-discount-cost-check/">机场双十一优惠值得买吗？先算续费价、有效期和真实节省</a><a href="https://www.fengyy.org/posts/airport-renewed-but-not-working/">机场续费成功后还是不能用？到期、流量和订阅更新的四步排查</a><a href="https://www.fengyy.org/posts/phone-pc-speedtest-credibility/">手机和电脑测速谁更可信？用延迟、丢包、时段和样本拆开差异</a><a href="https://www.fengyy.org/posts/proxy-service-directory-evaluation/">网络代理服务目录应该看哪些指标？价格、隐私、退款、客服与稳定性详解</a><a href="https://www.fengyy.org/posts/curl-error-77-ca-file-check/">curl 报错 77 是节点坏了吗？先检查 CA 文件路径与权限</a><a href="https://www.fengyy.org/posts/curl-error-60-cert-check/">curl 报错 60 是节点坏了吗？先核对 HTTPS 证书与主机名</a><a href="https://www.fengyy.org/posts/curl-exit-3-url-format-check/">curl 报错 3 是节点失效吗？先检查 URL 格式与命令引用</a><a href="https://www.fengyy.org/posts/curl-exit-26-upload-file-check/">curl 报错 26 就该换节点吗？先核对本地上传文件读取</a><a href="https://www.fengyy.org/posts/curl-exit-22-error-body-check/">curl 报错 22 怎样保留原因？用 --fail-with-body 同时核对状态码与错误正文</a><a href="https://www.fengyy.org/posts/curl-exit-28-timeout-phases/">curl 报错 28 怎样排查？把连接超时与总等待时间分开</a><a href="https://www.fengyy.org/posts/curl-exit-47-redirect-loop-check/">curl 报错 47 就该换节点吗？先查重定向循环</a><a href="https://www.fengyy.org/posts/curl-exit-35-tls-handshake-check/">curl 报错 35 怎样查？先定位失败的 TLS 握手</a><a href="https://www.fengyy.org/posts/airport-subscription-computer-phone-sharing/">一份机场订阅能同时用电脑和手机吗？多设备使用与流量核对</a><a href="https://www.fengyy.org/posts/firefox-no-proxy-exceptions/">Firefox 已填代理，部分网站为何仍直连？检查代理例外</a><a href="https://www.fengyy.org/posts/https-target-http-local-proxy/">访问 HTTPS 网站，代理为什么填 http://？本地代理地址的协议检查</a><a href="https://www.fengyy.org/posts/curl-exit-52-56-check/">curl 报错 52 和 56 怎么查？分清空回复与接收中断</a><a href="https://www.fengyy.org/posts/windows-clock-tls-check/">Windows 时间不同步导致机场证书错误？先看时区与同步状态</a><a href="https://www.fengyy.org/posts/powershell-curl-command-source/">PowerShell 里的 curl 是哪个程序？先查命令来源再排障</a><a href="https://www.fengyy.org/posts/curl-exit-5-6-7/">curl 报错 5、6、7 有什么区别？按解析与连接阶段排查</a><a href="https://www.fengyy.org/posts/curl-exit-18-23-download/" aria-current="page">curl 下载失败显示 18 或 23？分清短传输与本地写入错误</a><a href="https://www.fengyy.org/posts/curl-certificate-error-no-insecure/">curl 证书报错能用 -k 跳过吗？先定位验证链</a><a href="https://www.fengyy.org/posts/chrome-incognito-extension-proxy/">Chrome 普通窗口能用、无痕窗口不能用？检查扩展代理权限</a><a href="https://www.fengyy.org/posts/firefox-proxy-extension-conflict/">Firefox 代理设置总被改回？检查连接设置与扩展控制</a><a href="https://www.fengyy.org/posts/firefox-doh-proxy-dns-check/">Firefox 单独打不开网站？检查 DoH 与代理 DNS 路径</a><a href="https://www.fengyy.org/posts/windows-dns-cache-check/">切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存</a><a href="https://www.fengyy.org/posts/windows-winhttp-proxy-check/">浏览器能上网但软件更新失败？检查 Windows WinHTTP 代理</a><a href="https://www.fengyy.org/posts/clash-lan-device-access-check/">Clash 类客户端电脑能用，手机连不上？局域网代理检查</a><a href="https://www.fengyy.org/posts/windows-proxy-port-conflict/">Clash 类客户端提示端口被占用怎么办？Windows监听端口排查</a><a href="https://www.fengyy.org/posts/clash-verge-custom-rules-persistence/">Clash Verge Rev更新订阅后规则丢了？自定义规则的保存与验收</a><a href="https://www.fengyy.org/posts/windows-proxy-after-client-exit/">关闭机场客户端后网页打不开？Windows残留代理排查步骤</a><a href="https://www.fengyy.org/posts/curl-proxy-connection-troubleshooting/">浏览器能用代理，命令行却连不上？curl 代理设置与排查教程</a>
+<a href="https://www.fengyy.org/posts/jccp1/">FlyBit机场套餐价格：月付与不限时流量包</a><a href="https://www.fengyy.org/posts/jccp2/">99吧机场套餐价格：月付、年付与流量包</a><a href="https://www.fengyy.org/posts/99ba-plan-device-selection-profile/">99吧套餐怎么读？从入门月付到多设备需求的选购与订阅指南</a><a href="https://www.fengyy.org/posts/flybit-99ba-plan-period-quota-checklist/">FlyBit与99吧选购速查：把付款周期、流量和设备条件放在一张表</a><a href="https://www.fengyy.org/posts/kxsw1/">FlyBit和99吧怎么选？价格、流量与设备限制对比</a><a href="https://www.fengyy.org/posts/jctj2/">FlyBit、99吧注册入口与试用指南</a><a href="https://www.fengyy.org/posts/monthly-or-traffic/">机场月付还是不限时流量包？按用量算成本</a><a href="https://www.fengyy.org/posts/trial-checklist/">机场试用怎么测？速度、连接与流量检查清单</a><a href="https://www.fengyy.org/posts/airport-subscription-beginner-illustrated-2026/">机场订阅怎么使用？电脑、安卓、iPhone图文教程</a><a href="https://www.fengyy.org/posts/jktj3/">网络“机场”是什么？看懂节点、订阅与线路</a><a href="https://www.fengyy.org/posts/jztj4/">机场订阅导入后连不上？节点与代理模式排查</a><a href="https://www.fengyy.org/posts/jztj5/">Shadowrocket怎么导入订阅？iPhone小火箭使用教程</a><a href="https://www.fengyy.org/posts/jztj6/">安卓 Clash Meta 使用教程：订阅导入、节点选择与连接检查</a><a href="https://www.fengyy.org/posts/tools-download/">工具下载：电脑、安卓与iOS客户端官方入口</a><a href="https://www.fengyy.org/posts/about-fengyy/">关于风悠悠优质机场：推荐原则、资料来源与推广说明</a><a href="https://www.fengyy.org/posts/firefox-troubleshoot-mode-proxy-isolation/">Firefox只有某些网页打不开？用故障排除模式定位扩展与代理冲突</a><a href="https://www.fengyy.org/posts/curl-exit-92-http2-stream-check/">curl报错92就该换机场吗？HTTP/2流错误与HTTP/1.1对照检查</a><a href="https://www.fengyy.org/posts/proxy-client-upgrade-regression-check/">机场客户端升级后变慢或连不上？版本、内核与配置的对照排查</a><a href="https://www.fengyy.org/posts/airport-double-eleven-discount-cost-check/">机场双十一优惠值得买吗？先算续费价、有效期和真实节省</a><a href="https://www.fengyy.org/posts/airport-renewed-but-not-working/">机场续费成功后还是不能用？到期、流量和订阅更新的四步排查</a><a href="https://www.fengyy.org/posts/phone-pc-speedtest-credibility/">手机和电脑测速谁更可信？用延迟、丢包、时段和样本拆开差异</a><a href="https://www.fengyy.org/posts/proxy-service-directory-evaluation/">网络代理服务目录应该看哪些指标？价格、隐私、退款、客服与稳定性详解</a><a href="https://www.fengyy.org/posts/curl-error-77-ca-file-check/">curl 报错 77 是节点坏了吗？先检查 CA 文件路径与权限</a><a href="https://www.fengyy.org/posts/curl-error-60-cert-check/">curl 报错 60 是节点坏了吗？先核对 HTTPS 证书与主机名</a><a href="https://www.fengyy.org/posts/curl-exit-3-url-format-check/">curl 报错 3 是节点失效吗？先检查 URL 格式与命令引用</a><a href="https://www.fengyy.org/posts/curl-exit-26-upload-file-check/">curl 报错 26 就该换节点吗？先核对本地上传文件读取</a><a href="https://www.fengyy.org/posts/curl-exit-22-error-body-check/">curl 报错 22 怎样保留原因？用 --fail-with-body 同时核对状态码与错误正文</a><a href="https://www.fengyy.org/posts/curl-exit-28-timeout-phases/">curl 报错 28 怎样排查？把连接超时与总等待时间分开</a><a href="https://www.fengyy.org/posts/curl-exit-47-redirect-loop-check/">curl 报错 47 就该换节点吗？先查重定向循环</a><a href="https://www.fengyy.org/posts/curl-exit-35-tls-handshake-check/">curl 报错 35 怎样查？先定位失败的 TLS 握手</a><a href="https://www.fengyy.org/posts/airport-subscription-computer-phone-sharing/">一份机场订阅能同时用电脑和手机吗？多设备使用与流量核对</a><a href="https://www.fengyy.org/posts/firefox-no-proxy-exceptions/">Firefox 已填代理，部分网站为何仍直连？检查代理例外</a><a href="https://www.fengyy.org/posts/https-target-http-local-proxy/">访问 HTTPS 网站，代理为什么填 http://？本地代理地址的协议检查</a><a href="https://www.fengyy.org/posts/curl-exit-52-56-check/">curl 报错 52 和 56 怎么查？分清空回复与接收中断</a><a href="https://www.fengyy.org/posts/windows-clock-tls-check/">Windows 时间不同步导致机场证书错误？先看时区与同步状态</a><a href="https://www.fengyy.org/posts/powershell-curl-command-source/">PowerShell 里的 curl 是哪个程序？先查命令来源再排障</a><a href="https://www.fengyy.org/posts/curl-exit-5-6-7/">curl 报错 5、6、7 有什么区别？按解析与连接阶段排查</a><a href="https://www.fengyy.org/posts/curl-exit-18-23-download/" aria-current="page">curl下载报错18或23？分清大小不符与本地写入错误</a><a href="https://www.fengyy.org/posts/curl-certificate-error-no-insecure/">curl 证书报错能用 -k 跳过吗？先定位验证链</a><a href="https://www.fengyy.org/posts/chrome-incognito-extension-proxy/">Chrome 普通窗口能用、无痕窗口不能用？检查扩展代理权限</a><a href="https://www.fengyy.org/posts/firefox-proxy-extension-conflict/">Firefox 代理设置总被改回？检查连接设置与扩展控制</a><a href="https://www.fengyy.org/posts/firefox-doh-proxy-dns-check/">Firefox 单独打不开网站？检查 DoH 与代理 DNS 路径</a><a href="https://www.fengyy.org/posts/windows-dns-cache-check/">切换机场节点后仍解析到旧地址？先检查 Windows DNS 缓存</a><a href="https://www.fengyy.org/posts/windows-winhttp-proxy-check/">浏览器能上网但软件更新失败？检查 Windows WinHTTP 代理</a><a href="https://www.fengyy.org/posts/clash-lan-device-access-check/">Clash 类客户端电脑能用，手机连不上？局域网代理检查</a><a href="https://www.fengyy.org/posts/windows-proxy-port-conflict/">Clash 类客户端提示端口被占用怎么办？Windows监听端口排查</a><a href="https://www.fengyy.org/posts/clash-verge-custom-rules-persistence/">Clash Verge Rev更新订阅后规则丢了？自定义规则的保存与验收</a><a href="https://www.fengyy.org/posts/windows-proxy-after-client-exit/">关闭机场客户端后网页打不开？Windows残留代理排查步骤</a><a href="https://www.fengyy.org/posts/curl-proxy-connection-troubleshooting/">浏览器能用代理，命令行却连不上？curl 代理设置与排查教程</a>
 </nav>
 </aside>
 </div>
@@ -179,7 +181,7 @@
 </div>
 </dialog>
 
-<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/f15430f2-7284-438d-b36f-25de014c64ba/","pageTitle":"curl 下载失败显示 18 或 23？分清短传输与本地写入错误","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
+<script id="blog-comments-config" type="application/json">{"comments":true,"likes":true,"locale":"zh-CN","pageKey":"/p/f15430f2-7284-438d-b36f-25de014c64ba/","pageTitle":"curl下载报错18或23？分清大小不符与本地写入错误","server":"https://upfqpobmiewm.sealosgzg.site","site":"xblog-1f427733-e948-4711-9d4f-dea183526e24","views":true,"viewsBase":0}</script>
 
 </body>
 </html>
